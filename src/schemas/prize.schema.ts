@@ -15,7 +15,7 @@ export class Prize {
   price: number
 
   @Prop({ default: 1 })
-  weightMultiplier?: number
+  weightMultiplier: number
 
   @Prop({ required: true })
   image: string

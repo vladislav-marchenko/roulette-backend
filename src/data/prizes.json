@@ -40,6 +40,7 @@
     "key": "gift",
     "name": "Gift",
     "price": 25,
+    "weightMultiplier": 2,
     "image": "https://storage.yandexcloud.net/giftica/prizes/gift/gift.png",
     "lottie": "https://storage.yandexcloud.net/giftica/prizes/gift/gift.json"
   },
@@ -69,6 +70,7 @@
     "key": "rose",
     "name": "Rose",
     "price": 25,
+    "weightMultiplier": 2,
     "image": "https://storage.yandexcloud.net/giftica/prizes/rose/rose.png",
     "lottie": "https://storage.yandexcloud.net/giftica/prizes/rose/rose.json"
   },

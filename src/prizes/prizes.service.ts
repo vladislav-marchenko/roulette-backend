@@ -9,8 +9,8 @@ export class PrizesService {
     @InjectModel(Prize.name) private readonly prizeModel: Model<Prize>,
   ) {}
 
-  async findAll() {
-    const prizes = await this.prizeModel.find().select('-weightMultiplier')
+  async findAll(select = '') {
+    const prizes = await this.prizeModel.find().select(select)
     if (!prizes.length) throw new NotFoundException('Prizes not found')
 
     return prizes

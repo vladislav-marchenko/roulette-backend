@@ -7,6 +7,6 @@ export class PrizesController {
 
   @Get()
   findAll() {
-    return this.prizesService.findAll()
+    return this.prizesService.findAll('-weightMultiplier')
   }
 }
