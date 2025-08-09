@@ -61,6 +61,6 @@ export class RouletteService {
       $inc: { spinCount: 1, balance: -price },
     })
 
-    return await this.rewardsService.find(reward._id)
+    return await this.rewardsService.findById(reward._id)
   }
 }
