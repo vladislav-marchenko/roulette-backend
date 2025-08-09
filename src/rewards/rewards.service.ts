@@ -29,15 +29,15 @@ export class RewardsService {
   async findByUserId({
     userId,
     limit = 20,
-    offset = 0,
+    page = 1,
   }: {
     userId: Types.ObjectId
     limit?: number
-    offset?: number
+    page?: number
   }) {
     const rewards = await this.rewardModel
       .find({ user: userId })
-      .skip(offset)
+      .skip((page - 1) * limit)
       .limit(limit)
       .populate({
         path: 'prize',
@@ -45,6 +45,6 @@ export class RewardsService {
       })
     const count = await this.rewardModel.countDocuments({ user: userId })
 
-    return { rewards, count }
+    return { rewards, hasNext: page * limit < count }
   }
 }

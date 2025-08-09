@@ -9,10 +9,10 @@ export class RewardsController {
 
   @Get('me')
   @UseGuards(AuthGuard)
-  findMy(@Request() request: AuthRequest, @Query('offset') offset: number = 0) {
+  findMy(@Request() request: AuthRequest, @Query('page') page: number = 1) {
     return this.rewardsService.findByUserId({
       userId: request.user._id,
-      offset,
+      page,
     })
   }
 }
