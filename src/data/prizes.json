@@ -1,0 +1,82 @@
+[
+  {
+    "key": "cake",
+    "name": "Cake",
+    "price": 50,
+    "image": "https://storage.yandexcloud.net/giftica/prizes/cake/cake.png",
+    "lottie": "https://storage.yandexcloud.net/giftica/prizes/cake/cake.json"
+  },
+  {
+    "key": "champagne",
+    "name": "Champagne",
+    "price": 50,
+    "image": "https://storage.yandexcloud.net/giftica/prizes/champagne/champagne.png",
+    "lottie": "https://storage.yandexcloud.net/giftica/prizes/champagne/champagne.json"
+  },
+  {
+    "key": "cup",
+    "name": "Cup",
+    "price": 100,
+    "weightMultiplier": 0.4,
+    "image": "https://storage.yandexcloud.net/giftica/prizes/cup/cup.png",
+    "lottie": "https://storage.yandexcloud.net/giftica/prizes/cup/cup.json"
+  },
+  {
+    "key": "diamond",
+    "name": "Diamond",
+    "price": 100,
+    "weightMultiplier": 0.4,
+    "image": "https://storage.yandexcloud.net/giftica/prizes/diamond/diamond.png",
+    "lottie": "https://storage.yandexcloud.net/giftica/prizes/diamond/diamond.json"
+  },
+  {
+    "key": "flowers",
+    "name": "Flowers",
+    "price": 50,
+    "image": "https://storage.yandexcloud.net/giftica/prizes/flowers/flowers.png",
+    "lottie": "https://storage.yandexcloud.net/giftica/prizes/flowers/flowers.json"
+  },
+  {
+    "key": "gift",
+    "name": "Gift",
+    "price": 25,
+    "image": "https://storage.yandexcloud.net/giftica/prizes/gift/gift.png",
+    "lottie": "https://storage.yandexcloud.net/giftica/prizes/gift/gift.json"
+  },
+  {
+    "key": "heart",
+    "name": "Heart",
+    "price": 15,
+    "image": "https://storage.yandexcloud.net/giftica/prizes/heart/heart.png",
+    "lottie": "https://storage.yandexcloud.net/giftica/prizes/heart/heart.json"
+  },
+  {
+    "key": "ring",
+    "name": "Ring",
+    "price": 100,
+    "weightMultiplier": 0.4,
+    "image": "https://storage.yandexcloud.net/giftica/prizes/ring/ring.png",
+    "lottie": "https://storage.yandexcloud.net/giftica/prizes/ring/ring.json"
+  },
+  {
+    "key": "rocket",
+    "name": "Rocket",
+    "price": 50,
+    "image": "https://storage.yandexcloud.net/giftica/prizes/rocket/rocket.png",
+    "lottie": "https://storage.yandexcloud.net/giftica/prizes/rocket/rocket.json"
+  },
+  {
+    "key": "rose",
+    "name": "Rose",
+    "price": 25,
+    "image": "https://storage.yandexcloud.net/giftica/prizes/rose/rose.png",
+    "lottie": "https://storage.yandexcloud.net/giftica/prizes/rose/rose.json"
+  },
+  {
+    "key": "teddy-bear",
+    "name": "Teddy Bear",
+    "price": 15,
+    "image": "https://storage.yandexcloud.net/giftica/prizes/teddy-bear/teddy-bear.png",
+    "lottie": "https://storage.yandexcloud.net/giftica/prizes/teddy-bear/teddy-bear.json"
+  }
+]
