@@ -28,7 +28,7 @@ export class RewardsService {
 
   async findByUserId({
     userId,
-    limit = 20,
+    limit = 50,
     page = 1,
   }: {
     userId: Types.ObjectId
@@ -37,6 +37,7 @@ export class RewardsService {
   }) {
     const rewards = await this.rewardModel
       .find({ user: userId })
+      .sort({ createdAt: -1 })
       .skip((page - 1) * limit)
       .limit(limit)
       .populate({
