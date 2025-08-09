@@ -35,7 +35,10 @@ export class RouletteService {
 
     for (let i = 0; i < prizes.length; i++) {
       random -= weights[i]
-      if (random <= 0) prize = prizes[i]
+      if (random <= 0) {
+        prize = prizes[i]
+        break
+      }
     }
 
     // fallback
