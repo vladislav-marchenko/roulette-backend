@@ -26,6 +26,10 @@ export class RouletteService {
       const baseWeight = 1 / Math.pow(prize.price || 1, 2)
       const multiplier = prize.weightMultiplier ?? 1
 
+      if (prize.price > price) {
+        return baseWeight * multiplier * user.weightMultiplier
+      }
+
       return baseWeight * multiplier
     })
     const totalWeight = weights.reduce((acc, weight) => acc + weight, 0)

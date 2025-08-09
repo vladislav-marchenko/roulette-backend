@@ -4,6 +4,7 @@ import { User } from 'src/schemas/user.schema'
 @Injectable()
 export class UserService {
   getMe(user: User) {
-    return user
+    const { weightMultiplier, ...userData } = user
+    return userData
   }
 }
