@@ -10,7 +10,7 @@ export class PrizesService {
   ) {}
 
   async findAll() {
-    const prizes = await this.prizeModel.find()
+    const prizes = await this.prizeModel.find().select('-weightMultiplier')
     if (!prizes.length) throw new NotFoundException('Prizes not found')
 
     return prizes

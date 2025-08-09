@@ -3,7 +3,7 @@ import { HydratedDocument, Types } from 'mongoose'
 
 export type RewardDocument = HydratedDocument<Reward>
 
-@Schema({ timestamps: true })
+@Schema({ timestamps: true, id: false })
 export class Reward {
   @Prop({ required: true })
   prizeKey: string

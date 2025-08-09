@@ -22,7 +22,7 @@ export class RewardsService {
   async find(id: Types.ObjectId) {
     return await this.rewardModel.findById(id).populate({
       path: 'prize',
-      select: '-weightMultiplier',
+      select: '-weightMultiplier -id',
     })
   }
 }
