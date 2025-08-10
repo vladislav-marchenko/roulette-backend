@@ -15,7 +15,7 @@ export class RouletteService {
     private readonly rewardsService: RewardsService,
     @InjectConnection() private readonly connection: Connection,
     @InjectModel(User.name) private readonly userModel: Model<User>,
-    @InjectModel(Reward.name) private readonly rewardsModel: Model<Reward>,
+    @InjectModel(Reward.name) private readonly rewardModel: Model<Reward>,
   ) {}
 
   async spin(user: AuthRequest['user'], price: number = 25) {
@@ -59,7 +59,7 @@ export class RouletteService {
         })
       }
 
-      let reward = new this.rewardsModel({
+      let reward = new this.rewardModel({
         user: user._id,
         prizeCode: prize.code,
       })
