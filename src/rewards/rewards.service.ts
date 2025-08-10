@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
-import { InjectModel } from '@nestjs/mongoose'
-import { Model, Types } from 'mongoose'
+import { InjectConnection, InjectModel } from '@nestjs/mongoose'
+import { ClientSession, Connection, Model, Types } from 'mongoose'
 import { Prize } from 'src/schemas/prize.schema'
 import { Reward } from 'src/schemas/rewards.schema'
 import { User } from 'src/schemas/user.schema'
@@ -8,6 +8,7 @@ import { User } from 'src/schemas/user.schema'
 @Injectable()
 export class RewardsService {
   constructor(
+    @InjectConnection() private readonly connection: Connection,
     @InjectModel(Reward.name) private readonly rewardModel: Model<Reward>,
     @InjectModel(User.name) private readonly userModel: Model<User>,
   ) {}
@@ -15,11 +16,14 @@ export class RewardsService {
   async create({
     userId,
     prizeKey,
+    session,
   }: {
     userId: Types.ObjectId
     prizeKey: string
+    session?: ClientSession
   }) {
-    return await this.rewardModel.create({ user: userId, prizeKey })
+    const reward = new this.rewardModel({ user: userId, prizeKey })
+    return await reward.save({ session })
   }
 
   async findById(id: Types.ObjectId) {
@@ -59,28 +63,40 @@ export class RewardsService {
     userId: Types.ObjectId
     rewardId: string
   }) {
-    const reward = await this.rewardModel
-      .findById(rewardId)
-      .populate<{ prize: Prize }>('prize')
+    const session = await this.connection.startSession()
+    session.startTransaction()
 
-    if (!reward) {
-      throw new BadRequestException('Reward not found')
+    try {
+      const reward = await this.rewardModel
+        .findById(rewardId)
+        .populate<{ prize: Prize }>('prize')
+        .session(session)
+
+      if (!reward) {
+        throw new BadRequestException('Reward not found')
+      }
+
+      if (reward.user.toString() !== userId.toString()) {
+        throw new BadRequestException('You are not the owner of this reward')
+      }
+
+      await reward.deleteOne({ session })
+
+      const user = await this.userModel
+        .findByIdAndUpdate(
+          userId,
+          { $inc: { balance: reward.prize.price } },
+          { new: true, session },
+        )
+        .select('-weightMultiplier')
+
+      await session.commitTransaction()
+      return user
+    } catch (error) {
+      await session.abortTransaction()
+      throw error
+    } finally {
+      await session.endSession()
     }
-
-    if (reward.user.toString() !== userId.toString()) {
-      throw new BadRequestException('You are not the owner of this reward')
-    }
-
-    await reward.deleteOne()
-
-    const user = await this.userModel
-      .findByIdAndUpdate(
-        userId,
-        { $inc: { balance: reward.prize.price } },
-        { new: true },
-      )
-      .select('-weightMultiplier')
-
-    return user
   }
 }
