@@ -9,6 +9,7 @@ import { PrizesModule } from './prizes/prizes.module'
 import { RouletteModule } from './roulette/roulette.module';
 import { RewardsModule } from './rewards/rewards.module';
 import { TasksModule } from './tasks/tasks.module';
+import { CompletedTasksModule } from './completed-tasks/completed-tasks.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { TasksModule } from './tasks/tasks.module';
     RouletteModule,
     RewardsModule,
     TasksModule,
+    CompletedTasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -8,7 +8,7 @@ export class Task {
   @Prop({ required: true, unique: true })
   code: string
 
-  @Prop({ required: true })
+  @Prop({ required: true, enum: ['one_time', 'daily'] })
   type: 'one_time' | 'daily'
 
   @Prop({ required: true })
