@@ -1,4 +1,12 @@
-import { Controller, Get, Query, Request, UseGuards } from '@nestjs/common'
+import {
+  Controller,
+  Get,
+  Param,
+  Post,
+  Query,
+  Request,
+  UseGuards,
+} from '@nestjs/common'
 import { RewardsService } from './rewards.service'
 import { AuthGuard } from 'src/auth/auth.guard'
 import { AuthRequest } from 'src/types'
@@ -13,6 +21,15 @@ export class RewardsController {
     return this.rewardsService.findByUserId({
       userId: request.user._id,
       page,
+    })
+  }
+
+  @Post('sell/:id')
+  @UseGuards(AuthGuard)
+  sell(@Request() request: AuthRequest, @Param('id') id: string) {
+    return this.rewardsService.sellById({
+      userId: request.user._id,
+      rewardId: id,
     })
   }
 }
