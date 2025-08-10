@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module'
 import { PrizesModule } from './prizes/prizes.module'
 import { RouletteModule } from './roulette/roulette.module';
 import { RewardsModule } from './rewards/rewards.module';
+import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { RewardsModule } from './rewards/rewards.module';
     PrizesModule,
     RouletteModule,
     RewardsModule,
+    TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
