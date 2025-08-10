@@ -6,7 +6,7 @@ export type TaskDocument = HydratedDocument<Task>
 @Schema({ timestamps: false, id: false })
 export class Task {
   @Prop({ required: true, unique: true })
-  key: string
+  code: string
 
   @Prop({ required: true })
   type: 'one_time' | 'daily'

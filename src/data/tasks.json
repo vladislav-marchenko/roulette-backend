@@ -1,31 +1,31 @@
 [
   {
-    "key": "subscribe_channel",
+    "code": "subscribe_channel",
     "type": "one_time",
     "title": "Subscribe to Channel",
     "reward": 5,
     "url": "https://t.me/giftica_bot"
   },
   {
-    "key": "invite_friend",
+    "code": "invite_friend",
     "type": "one_time",
     "title": "Invite friend",
     "reward": 10
   },
   {
-    "key": "daily_reward",
+    "code": "daily_reward",
     "type": "daily",
     "title": "Daily Reward",
     "reward": 1
   },
   {
-    "key": "play_three_games",
+    "code": "play_three_games",
     "type": "daily",
     "title": "Play 3 games",
     "reward": 5
   },
   {
-    "key": "spend_hundred_stars",
+    "code": "spend_hundred_stars",
     "type": "daily",
     "title": "Spend 100 stars",
     "reward": 10

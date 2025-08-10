@@ -6,7 +6,7 @@ export type PrizeDocument = HydratedDocument<Prize>
 @Schema({ timestamps: false })
 export class Prize {
   @Prop({ unique: true, required: true })
-  key: string
+  code: string
 
   @Prop({ unique: true, required: true })
   name: string

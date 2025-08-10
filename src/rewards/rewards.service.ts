@@ -15,14 +15,14 @@ export class RewardsService {
 
   async create({
     userId,
-    prizeKey,
+    prizeCode,
     session,
   }: {
     userId: Types.ObjectId
-    prizeKey: string
+    prizeCode: string
     session?: ClientSession
   }) {
-    const reward = new this.rewardModel({ user: userId, prizeKey })
+    const reward = new this.rewardModel({ user: userId, prizeCode })
     return await reward.save({ session })
   }
 

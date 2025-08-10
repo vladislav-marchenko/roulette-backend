@@ -6,7 +6,7 @@ export type RewardDocument = HydratedDocument<Reward>
 @Schema({ timestamps: true, id: false })
 export class Reward {
   @Prop({ required: true })
-  prizeKey: string
+  prizeCode: string
 
   @Prop({ required: true, ref: 'User' })
   user: Types.ObjectId
@@ -16,8 +16,8 @@ export const RewardSchema = SchemaFactory.createForClass(Reward)
 
 RewardSchema.virtual('prize', {
   ref: 'Prize',
-  localField: 'prizeKey',
-  foreignField: 'key',
+  localField: 'prizeCode',
+  foreignField: 'code',
   justOne: true,
 })
 

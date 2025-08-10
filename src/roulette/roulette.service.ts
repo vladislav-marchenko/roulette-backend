@@ -61,7 +61,7 @@ export class RouletteService {
 
       let reward = new this.rewardsModel({
         user: user._id,
-        prizeKey: prize.key,
+        prizeCode: prize.code,
       })
       await reward.save({ session })
       await reward.populate('prize')
