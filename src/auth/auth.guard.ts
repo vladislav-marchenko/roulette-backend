@@ -40,16 +40,16 @@ export class AuthGuard implements CanActivate {
     user = await this.userModel.findOne({ telegramId: data.id })
     if (!user) {
       const userReferralCode = await this.generateReferralCode()
-      const referralUser = await this.userModel.findOne({ referralCode })
+      const referrer = await this.userModel.findOne({ referralCode })
 
       const payload: Query = {
         telegramId: data.id,
         referralCode: userReferralCode,
       }
 
-      if (referralUser) {
-        payload.invitedBy = referralUser._id
-        await this.completeReferralTask(referralUser._id)
+      if (referrer) {
+        payload.invitedBy = referrer._id
+        await this.completeReferralTask(referrer._id)
       }
 
       user = await this.userModel.create(payload)

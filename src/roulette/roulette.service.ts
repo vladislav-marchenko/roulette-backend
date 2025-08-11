@@ -12,7 +12,6 @@ import { AuthRequest } from 'src/types'
 export class RouletteService {
   constructor(
     private readonly prizesService: PrizesService,
-    private readonly rewardsService: RewardsService,
     @InjectConnection() private readonly connection: Connection,
     @InjectModel(User.name) private readonly userModel: Model<User>,
     @InjectModel(Reward.name) private readonly rewardModel: Model<Reward>,
@@ -71,6 +70,14 @@ export class RouletteService {
         { $inc: { spinCount: 1, balance: -price } },
         { session },
       )
+
+      const referrer = await this.userModel.findById(user.invitedBy)
+      if (referrer) {
+        await referrer.updateOne(
+          { $inc: { balance: price * 0.04 } },
+          { session },
+        )
+      }
 
       await session.commitTransaction()
       return reward
