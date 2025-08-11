@@ -1,8 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { InjectConnection, InjectModel } from '@nestjs/mongoose'
-import { Connection, Model } from 'mongoose'
+import { Connection, Model, Types } from 'mongoose'
 import { PrizesService } from 'src/prizes/prizes.service'
-import { RewardsService } from 'src/rewards/rewards.service'
 import { Prize } from 'src/schemas/prize.schema'
 import { Reward } from 'src/schemas/rewards.schema'
 import { User } from 'src/schemas/user.schema'
@@ -17,16 +16,22 @@ export class RouletteService {
     @InjectModel(Reward.name) private readonly rewardModel: Model<Reward>,
   ) {}
 
-  async spin(user: AuthRequest['user'], price: number = 25) {
+  async spin(userId: Types.ObjectId, price: number = 25) {
     const session = await this.connection.startSession()
     session.startTransaction()
 
     try {
-      if (user.balance < price) {
+      const user = await this.userModel
+        .findOne({ _id: userId, balance: { $gte: price } })
+        .session(session)
+      if (!user) {
         throw new BadRequestException('Insufficient balance')
       }
 
       const prizes = await this.prizesService.findAll()
+      if (!prizes.length) {
+        throw new BadRequestException('Prizes not found')
+      }
 
       const weights = prizes.map((prize) => {
         const baseWeight = 1 / Math.pow(prize.price || 1, 2)
@@ -65,18 +70,17 @@ export class RouletteService {
       await reward.save({ session })
       await reward.populate('prize')
 
-      await this.userModel.findByIdAndUpdate(
-        user._id,
-        { $inc: { spinCount: 1, balance: -price } },
-        { session },
-      )
+      await user
+        .updateOne({ $inc: { balance: -price, spinCount: 1 } })
+        .session(session)
 
-      const referrer = await this.userModel.findById(user.invitedBy)
-      if (referrer) {
-        await referrer.updateOne(
-          { $inc: { balance: price * 0.04 } },
-          { session },
-        )
+      if (Types.ObjectId.isValid(user.invitedBy)) {
+        const referrer = await this.userModel.findById(user.invitedBy)
+        if (referrer) {
+          await referrer
+            .updateOne({ $inc: { balance: price * 0.04 } })
+            .session(session)
+        }
       }
 
       await session.commitTransaction()

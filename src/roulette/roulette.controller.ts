@@ -10,6 +10,6 @@ export class RouletteController {
   @Post('spin')
   @UseGuards(AuthGuard)
   spin(@Request() request: AuthRequest) {
-    return this.rouletteService.spin(request.user)
+    return this.rouletteService.spin(request.user._id)
   }
 }
