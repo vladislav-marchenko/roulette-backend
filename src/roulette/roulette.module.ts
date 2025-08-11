@@ -7,11 +7,13 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { User, UserSchema } from 'src/schemas/user.schema'
 import { RewardsModule } from 'src/rewards/rewards.module'
 import { Reward } from 'src/schemas/rewards.schema'
+import { TasksModule } from 'src/tasks/tasks.module'
 
 @Module({
   imports: [
     PrizesModule,
     RewardsModule,
+    TasksModule,
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
       { name: Reward.name, schema: Reward },

@@ -53,8 +53,8 @@ export class TasksService {
 
       return await this.completedTaskModel.create({ taskCode, user: userId })
     } catch (error) {
-      // We catch errors here because this check function is called within multiple other functions,
-      // and we don't want to propagate errors from this check to the client.
+      // We catch errors here because this function is called within multiple other functions,
+      // and we don't want to propagate errors from this function to the client.
       // if (error instanceof BadRequestException) throw error
     }
   }

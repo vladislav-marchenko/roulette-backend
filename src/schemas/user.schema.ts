@@ -16,6 +16,12 @@ export class User {
 
   @Prop({ type: Types.Decimal128, default: 1 })
   weightMultiplier: number
+
+  @Prop({ required: true })
+  referralCode: string
+
+  @Prop({ ref: 'User' })
+  invitedBy?: string
 }
 
 export const UserSchema = SchemaFactory.createForClass(User)

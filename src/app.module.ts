@@ -6,10 +6,9 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { User, UserSchema } from './schemas/user.schema'
 import { UserModule } from './user/user.module'
 import { PrizesModule } from './prizes/prizes.module'
-import { RouletteModule } from './roulette/roulette.module';
-import { RewardsModule } from './rewards/rewards.module';
-import { TasksModule } from './tasks/tasks.module';
-import { CompletedTasksModule } from './completed-tasks/completed-tasks.module';
+import { RouletteModule } from './roulette/roulette.module'
+import { RewardsModule } from './rewards/rewards.module'
+import { TasksModule } from './tasks/tasks.module'
 
 @Module({
   imports: [
@@ -19,11 +18,10 @@ import { CompletedTasksModule } from './completed-tasks/completed-tasks.module';
     ),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     UserModule,
+    TasksModule,
     PrizesModule,
     RouletteModule,
     RewardsModule,
-    TasksModule,
-    CompletedTasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],

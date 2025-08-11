@@ -4,6 +4,7 @@ import { RewardsController } from './rewards.controller'
 import { MongooseModule } from '@nestjs/mongoose'
 import { Reward, RewardSchema } from 'src/schemas/rewards.schema'
 import { User, UserSchema } from 'src/schemas/user.schema'
+import { TasksModule } from 'src/tasks/tasks.module'
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { User, UserSchema } from 'src/schemas/user.schema'
       { name: Reward.name, schema: RewardSchema },
       { name: User.name, schema: UserSchema },
     ]),
+    TasksModule,
   ],
   controllers: [RewardsController],
   providers: [RewardsService],
