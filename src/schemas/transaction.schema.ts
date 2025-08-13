@@ -13,6 +13,23 @@ export class Transaction {
 
   @Prop({ required: true, ref: 'User' })
   user: string
+
+  @Prop({ unique: true })
+  chargeId?: string
+
+  @Prop({ required: true, unique: true })
+  invoicePayload: string
+
+  @Prop({ required: true, enum: ['pending', 'success', 'failed'] })
+  status: 'pending' | 'success' | 'failed'
 }
 
-export const PrizeSchema = SchemaFactory.createForClass(Transaction)
+export const TransactionSchema = SchemaFactory.createForClass(Transaction)
+
+TransactionSchema.index(
+  { createdAt: 1 },
+  {
+    expireAfterSeconds: 15 * 60,
+    partialFilterExpression: { status: 'pending' },
+  },
+)

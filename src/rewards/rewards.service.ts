@@ -35,7 +35,7 @@ export class RewardsService {
 
   async findByUserId({
     userId,
-    limit = 50,
+    limit = 20,
     page = 1,
   }: {
     userId: Types.ObjectId
