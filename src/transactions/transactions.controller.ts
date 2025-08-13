@@ -4,29 +4,27 @@ import { AuthGuard } from 'src/auth/auth.guard'
 import { AuthRequest } from 'src/types'
 
 @Controller('transactions')
+@UseGuards(AuthGuard)
 export class TransactionsController {
   constructor(private readonly transactionsService: TransactionsService) {}
 
   @Get()
-  @UseGuards(AuthGuard)
-  findUserTransactions() {
-    return this.transactionsService.findUserTransactions()
+  findUserTransactions(@Request() request: AuthRequest) {
+    return this.transactionsService.findUserTransactions(request.user._id)
   }
 
   @Post('deposit')
-  @UseGuards(AuthGuard)
   deposit(
     @Request() request: AuthRequest,
     @Body() { amount }: { amount: number },
   ) {
     return this.transactionsService.deposit({
-      userId: request.user._id.toString(),
+      userId: request.user._id,
       amount,
     })
   }
 
   @Post('withdraw')
-  @UseGuards(AuthGuard)
   withdraw() {
     return this.transactionsService.withdraw()
   }

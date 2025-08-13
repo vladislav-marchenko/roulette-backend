@@ -14,11 +14,14 @@ export class Transaction {
   @Prop({ required: true, ref: 'User' })
   user: string
 
-  @Prop({ unique: true })
+  @Prop()
   chargeId?: string
 
   @Prop({ required: true, unique: true })
   invoicePayload: string
+
+  @Prop({ required: true })
+  invoiceLink: string
 
   @Prop({ required: true, enum: ['pending', 'success', 'failed'] })
   status: 'pending' | 'success' | 'failed'

@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common'
 import { InjectConnection, InjectModel } from '@nestjs/mongoose'
 import { Bot } from 'grammy'
-import { Connection, Model } from 'mongoose'
+import { Connection, Model, Types } from 'mongoose'
 import { nanoid } from 'nanoid'
 import { Transaction } from 'src/schemas/transaction.schema'
 import { User } from 'src/schemas/user.schema'
@@ -114,8 +114,8 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
           })
           .session(session)
 
-        await ctx.reply('Payment successful!')
         await session.commitTransaction()
+        await ctx.reply('Payment successful!')
       } catch (error) {
         await session.abortTransaction()
         console.log('Payment error: ', error)
@@ -138,7 +138,7 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
     userId,
     amount,
   }: {
-    userId: string
+    userId: Types.ObjectId
     amount: number
   }) {
     if (amount < 0) {
@@ -159,6 +159,7 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
       type: 'deposit',
       status: 'pending',
       invoicePayload: payload,
+      invoiceLink,
       amount,
       user: userId,
     })
