@@ -12,13 +12,24 @@ export class TransactionsService {
     private readonly botService: BotService,
   ) {}
 
-  async findUserTransactions(userId: Types.ObjectId) {
+  async findUserTransactions({
+    userId: userId,
+    limit = 20,
+    page = 1,
+  }: {
+    userId: Types.ObjectId
+    limit?: number
+    page?: number
+  }) {
     const transactions = await this.transactionModel
       .find({ user: userId })
       .select('-invoicePayload -chargeId')
       .sort({ createdAt: -1 })
+      .skip((page - 1) * limit)
+      .limit(limit)
+    const count = await this.transactionModel.countDocuments({ user: userId })
 
-    return transactions
+    return { transactions, hasNext: page * limit < count }
   }
 
   async deposit({
