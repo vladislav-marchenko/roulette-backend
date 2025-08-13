@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, Request, UseGuards } from '@nestjs/common'
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Query,
+  Request,
+  UseGuards,
+} from '@nestjs/common'
 import { TransactionsService } from './transactions.service'
 import { AuthGuard } from 'src/auth/auth.guard'
 import { AuthRequest } from 'src/types'
@@ -9,8 +17,14 @@ export class TransactionsController {
   constructor(private readonly transactionsService: TransactionsService) {}
 
   @Get()
-  findUserTransactions(@Request() request: AuthRequest) {
-    return this.transactionsService.findUserTransactions(request.user._id)
+  findUserTransactions(
+    @Request() request: AuthRequest,
+    @Query('page') page: number = 1,
+  ) {
+    return this.transactionsService.findUserTransactions({
+      userId: request.user._id,
+      page,
+    })
   }
 
   @Post('deposit')

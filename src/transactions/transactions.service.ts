@@ -13,7 +13,7 @@ export class TransactionsService {
   ) {}
 
   async findUserTransactions({
-    userId: userId,
+    userId,
     limit = 20,
     page = 1,
   }: {
