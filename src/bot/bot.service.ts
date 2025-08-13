@@ -107,6 +107,15 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
           .updateOne({ $inc: { balance: total_amount } })
           .session(session)
 
+        if (Types.ObjectId.isValid(ctx.user.invitedBy)) {
+          const referrer = await this.userModel.findById(ctx.user.invitedBy)
+          if (!referrer) return
+
+          await referrer
+            .updateOne({ $inc: { balance: total_amount * 0.04 } })
+            .session(session)
+        }
+
         await transaction
           .updateOne({
             status: 'success',

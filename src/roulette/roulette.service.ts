@@ -74,15 +74,6 @@ export class RouletteService {
         .updateOne({ $inc: { balance: -price, spinCount: 1 } })
         .session(session)
 
-      if (Types.ObjectId.isValid(user.invitedBy)) {
-        const referrer = await this.userModel.findById(user.invitedBy)
-        if (referrer) {
-          await referrer
-            .updateOne({ $inc: { balance: price * 0.04 } })
-            .session(session)
-        }
-      }
-
       await session.commitTransaction()
       return reward
     } catch (error) {
