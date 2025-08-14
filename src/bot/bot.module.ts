@@ -2,13 +2,13 @@ import { Module } from '@nestjs/common'
 import { BotService } from './bot.service'
 import { User, UserSchema } from 'src/schemas/user.schema'
 import { MongooseModule } from '@nestjs/mongoose'
-import { Transaction, TransactionSchema } from 'src/schemas/transaction.schema'
+import { Action, ActionSchema } from 'src/schemas/action.schema'
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
-      { name: Transaction.name, schema: TransactionSchema },
+      { name: Action.name, schema: ActionSchema },
     ]),
   ],
   providers: [BotService],

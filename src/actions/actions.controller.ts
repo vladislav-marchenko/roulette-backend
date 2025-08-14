@@ -7,21 +7,21 @@ import {
   Request,
   UseGuards,
 } from '@nestjs/common'
-import { TransactionsService } from './transactions.service'
+import { ActionsService } from './actions.service'
 import { AuthGuard } from 'src/auth/auth.guard'
 import { AuthRequest } from 'src/types'
 
-@Controller('transactions')
+@Controller('actions')
 @UseGuards(AuthGuard)
-export class TransactionsController {
-  constructor(private readonly transactionsService: TransactionsService) {}
+export class ActionsController {
+  constructor(private readonly actionsService: ActionsService) {}
 
   @Get()
-  findUserTransactions(
+  findUserActions(
     @Request() request: AuthRequest,
     @Query('page') page: number = 1,
   ) {
-    return this.transactionsService.findUserTransactions({
+    return this.actionsService.findUserActions({
       userId: request.user._id,
       page,
     })
@@ -32,7 +32,7 @@ export class TransactionsController {
     @Request() request: AuthRequest,
     @Body() { amount }: { amount: number },
   ) {
-    return this.transactionsService.deposit({
+    return this.actionsService.deposit({
       userId: request.user._id,
       amount,
     })
@@ -40,6 +40,6 @@ export class TransactionsController {
 
   @Post('withdraw')
   withdraw() {
-    return this.transactionsService.withdraw()
+    return this.actionsService.withdraw()
   }
 }

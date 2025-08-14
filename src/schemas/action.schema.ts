@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { HydratedDocument } from 'mongoose'
 
-export type TransactionDocument = HydratedDocument<Transaction>
+export type ActionDocument = HydratedDocument<Action>
 
 @Schema({ timestamps: true })
-export class Transaction {
+export class Action {
   @Prop({ required: true, enum: ['deposit', 'withdraw', 'sell'] })
   type: 'deposit' | 'withdraw' | 'sell'
 
@@ -30,9 +30,9 @@ export class Transaction {
   status: 'pending' | 'success' | 'failed'
 }
 
-export const TransactionSchema = SchemaFactory.createForClass(Transaction)
+export const ActionSchema = SchemaFactory.createForClass(Action)
 
-TransactionSchema.index(
+ActionSchema.index(
   { createdAt: 1 },
   {
     expireAfterSeconds: 15 * 60,

@@ -8,7 +8,7 @@ import { InjectConnection, InjectModel } from '@nestjs/mongoose'
 import { Bot } from 'grammy'
 import { Connection, Model, Types } from 'mongoose'
 import { nanoid } from 'nanoid'
-import { Transaction } from 'src/schemas/transaction.schema'
+import { Action } from 'src/schemas/action.schema'
 import { User } from 'src/schemas/user.schema'
 import { BotContext } from 'src/types'
 
@@ -18,8 +18,8 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
 
   constructor(
     @InjectModel(User.name) private readonly userModel: Model<User>,
-    @InjectModel(Transaction.name)
-    private readonly transactionModel: Model<Transaction>,
+    @InjectModel(Action.name)
+    private readonly actionModel: Model<Action>,
     @InjectConnection() private readonly connection: Connection,
   ) {
     this.bot = new Bot<BotContext>(process.env.TELEGRAM_BOT_TOKEN)
@@ -85,19 +85,19 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
           return await ctx.reply('Unsupported currency.')
         }
 
-        const transaction = await this.transactionModel.findOne({
+        const action = await this.actionModel.findOne({
           invoicePayload: invoice_payload,
           user: ctx.user._id,
           status: 'pending',
         })
 
-        if (!transaction) {
+        if (!action) {
           return await ctx.reply(
             'Transaction not found. Payment cannot be processed.',
           )
         }
 
-        if (transaction.amount !== total_amount) {
+        if (action.amount !== total_amount) {
           return await ctx.reply(
             'Payment amount does not match transaction amount. Payment cannot be processed.',
           )
@@ -116,7 +116,7 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
             .session(session)
         }
 
-        await transaction
+        await action
           .updateOne({
             status: 'success',
             chargeId: provider_payment_charge_id,
@@ -164,7 +164,7 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
       [{ label: 'Stars', amount }],
     )
 
-    await this.transactionModel.create({
+    await this.actionModel.create({
       type: 'deposit',
       status: 'pending',
       invoicePayload: payload,
