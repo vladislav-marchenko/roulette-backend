@@ -24,6 +24,10 @@ export class ActionsService {
     const actions = await this.actionsModel
       .find({ user: userId })
       .select('-invoicePayload -chargeId')
+      .populate({
+        path: 'prize',
+        select: '-weightMultiplier -id',
+      })
       .sort({ createdAt: -1 })
       .skip((page - 1) * limit)
       .limit(limit)

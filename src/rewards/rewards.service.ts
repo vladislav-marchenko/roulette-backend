@@ -100,7 +100,7 @@ export class RewardsService {
             status: 'success',
             amount: reward.prize.price,
             user: userId,
-            prize: reward.prize,
+            prizeCode: reward.prize.code,
           },
         ],
         { session },

@@ -6,6 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { User, UserSchema } from 'src/schemas/user.schema'
 import { Reward, RewardSchema } from 'src/schemas/rewards.schema'
 import { TasksModule } from 'src/tasks/tasks.module'
+import { Action, ActionSchema } from 'src/schemas/action.schema'
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { TasksModule } from 'src/tasks/tasks.module'
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
       { name: Reward.name, schema: RewardSchema },
+      { name: Action.name, schema: ActionSchema },
     ]),
   ],
   controllers: [RouletteController],

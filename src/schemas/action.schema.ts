@@ -5,8 +5,8 @@ export type ActionDocument = HydratedDocument<Action>
 
 @Schema({ timestamps: true })
 export class Action {
-  @Prop({ required: true, enum: ['deposit', 'withdraw', 'sell'] })
-  type: 'deposit' | 'withdraw' | 'sell'
+  @Prop({ required: true, enum: ['deposit', 'withdraw', 'sell', 'win'] })
+  type: 'deposit' | 'withdraw' | 'sell' | 'win'
 
   @Prop({ required: true })
   amount: number
@@ -24,7 +24,7 @@ export class Action {
   invoiceLink?: string
 
   @Prop({ ref: 'Prize' })
-  prize?: string
+  prizeCode?: string
 
   @Prop({ required: true, enum: ['pending', 'success', 'failed'] })
   status: 'pending' | 'success' | 'failed'
@@ -39,3 +39,13 @@ ActionSchema.index(
     partialFilterExpression: { status: 'pending' },
   },
 )
+
+ActionSchema.virtual('prize', {
+  ref: 'Prize',
+  localField: 'prizeCode',
+  foreignField: 'code',
+  justOne: true,
+})
+
+ActionSchema.set('toObject', { virtuals: true })
+ActionSchema.set('toJSON', { virtuals: true })
