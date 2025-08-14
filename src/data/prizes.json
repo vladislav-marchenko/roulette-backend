@@ -3,82 +3,82 @@
     "code": "cake",
     "name": "Cake",
     "price": 50,
-    "image": "https://storage.yandexcloud.net/giftica/prizes/cake/cake.png",
-    "lottie": "https://storage.yandexcloud.net/giftica/prizes/cake/cake.json"
+    "image": "https://giftica.website.yandexcloud.net/prizes/cake/cake.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/cake/cake.json"
   },
   {
     "code": "champagne",
     "name": "Champagne",
     "price": 50,
-    "image": "https://storage.yandexcloud.net/giftica/prizes/champagne/champagne.png",
-    "lottie": "https://storage.yandexcloud.net/giftica/prizes/champagne/champagne.json"
+    "image": "https://giftica.website.yandexcloud.net/prizes/champagne/champagne.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/champagne/champagne.json"
   },
   {
     "code": "cup",
     "name": "Cup",
     "price": 100,
     "weightMultiplier": 0.4,
-    "image": "https://storage.yandexcloud.net/giftica/prizes/cup/cup.png",
-    "lottie": "https://storage.yandexcloud.net/giftica/prizes/cup/cup.json"
+    "image": "https://giftica.website.yandexcloud.net/prizes/cup/cup.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/cup/cup.json"
   },
   {
     "code": "diamond",
     "name": "Diamond",
     "price": 100,
     "weightMultiplier": 0.4,
-    "image": "https://storage.yandexcloud.net/giftica/prizes/diamond/diamond.png",
-    "lottie": "https://storage.yandexcloud.net/giftica/prizes/diamond/diamond.json"
+    "image": "https://giftica.website.yandexcloud.net/prizes/diamond/diamond.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/diamond/diamond.json"
   },
   {
     "code": "flowers",
     "name": "Flowers",
     "price": 50,
-    "image": "https://storage.yandexcloud.net/giftica/prizes/flowers/flowers.png",
-    "lottie": "https://storage.yandexcloud.net/giftica/prizes/flowers/flowers.json"
+    "image": "https://giftica.website.yandexcloud.net/prizes/flowers/flowers.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/flowers/flowers.json"
   },
   {
     "code": "gift",
     "name": "Gift",
     "price": 25,
     "weightMultiplier": 2,
-    "image": "https://storage.yandexcloud.net/giftica/prizes/gift/gift.png",
-    "lottie": "https://storage.yandexcloud.net/giftica/prizes/gift/gift.json"
+    "image": "https://giftica.website.yandexcloud.net/prizes/gift/gift.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/gift/gift.json"
   },
   {
     "code": "heart",
     "name": "Heart",
     "price": 15,
-    "image": "https://storage.yandexcloud.net/giftica/prizes/heart/heart.png",
-    "lottie": "https://storage.yandexcloud.net/giftica/prizes/heart/heart.json"
+    "image": "https://giftica.website.yandexcloud.net/prizes/heart/heart.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/heart/heart.json"
   },
   {
     "code": "ring",
     "name": "Ring",
     "price": 100,
     "weightMultiplier": 0.4,
-    "image": "https://storage.yandexcloud.net/giftica/prizes/ring/ring.png",
-    "lottie": "https://storage.yandexcloud.net/giftica/prizes/ring/ring.json"
+    "image": "https://giftica.website.yandexcloud.net/prizes/ring/ring.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/ring/ring.json"
   },
   {
     "code": "rocket",
     "name": "Rocket",
     "price": 50,
-    "image": "https://storage.yandexcloud.net/giftica/prizes/rocket/rocket.png",
-    "lottie": "https://storage.yandexcloud.net/giftica/prizes/rocket/rocket.json"
+    "image": "https://giftica.website.yandexcloud.net/prizes/rocket/rocket.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/rocket/rocket.json"
   },
   {
     "code": "rose",
     "name": "Rose",
     "price": 25,
     "weightMultiplier": 2,
-    "image": "https://storage.yandexcloud.net/giftica/prizes/rose/rose.png",
-    "lottie": "https://storage.yandexcloud.net/giftica/prizes/rose/rose.json"
+    "image": "https://giftica.website.yandexcloud.net/prizes/rose/rose.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/rose/rose.json"
   },
   {
     "code": "teddy-bear",
     "name": "Teddy Bear",
     "price": 15,
-    "image": "https://storage.yandexcloud.net/giftica/prizes/teddy-bear/teddy-bear.png",
-    "lottie": "https://storage.yandexcloud.net/giftica/prizes/teddy-bear/teddy-bear.json"
+    "image": "https://giftica.website.yandexcloud.net/prizes/teddy-bear/teddy-bear.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/teddy-bear/teddy-bear.json"
   }
 ]

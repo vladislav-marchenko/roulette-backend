@@ -24,13 +24,13 @@ export class ActionsService {
     const actions = await this.actionsModel
       .find({ user: userId })
       .select('-invoicePayload -chargeId')
+      .sort({ createdAt: -1 })
+      .skip((page - 1) * limit)
+      .limit(limit)
       .populate({
         path: 'prize',
         select: '-weightMultiplier -id',
       })
-      .sort({ createdAt: -1 })
-      .skip((page - 1) * limit)
-      .limit(limit)
     const count = await this.actionsModel.countDocuments({ user: userId })
 
     return { actions, hasNext: page * limit < count }

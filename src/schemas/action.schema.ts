@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
-import { HydratedDocument } from 'mongoose'
+import { HydratedDocument, Types } from 'mongoose'
 
 export type ActionDocument = HydratedDocument<Action>
 
@@ -12,7 +12,7 @@ export class Action {
   amount: number
 
   @Prop({ required: true, ref: 'User' })
-  user: string
+  user: Types.ObjectId
 
   @Prop()
   chargeId?: string
