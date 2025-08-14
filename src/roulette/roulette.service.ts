@@ -79,7 +79,7 @@ export class RouletteService {
       await this.actionModel.create(
         [
           {
-            type: 'win',
+            type: 'spin',
             status: 'success',
             user: user._id,
             amount: price,
