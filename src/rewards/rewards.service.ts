@@ -3,6 +3,7 @@ import { InjectConnection, InjectModel } from '@nestjs/mongoose'
 import { ClientSession, Connection, Model, Types } from 'mongoose'
 import { Prize } from 'src/schemas/prize.schema'
 import { Reward } from 'src/schemas/rewards.schema'
+import { Transaction } from 'src/schemas/transaction.schema'
 import { User } from 'src/schemas/user.schema'
 
 @Injectable()
@@ -11,6 +12,8 @@ export class RewardsService {
     @InjectConnection() private readonly connection: Connection,
     @InjectModel(Reward.name) private readonly rewardModel: Model<Reward>,
     @InjectModel(User.name) private readonly userModel: Model<User>,
+    @InjectModel(Transaction.name)
+    private readonly transactionModel: Model<Transaction>,
   ) {}
 
   async create({
@@ -89,6 +92,19 @@ export class RewardsService {
           { new: true, session },
         )
         .select('-weightMultiplier')
+
+      await this.transactionModel.create(
+        [
+          {
+            type: 'sell',
+            status: 'success',
+            amount: reward.prize.price,
+            user: userId,
+            prize: reward.prize,
+          },
+        ],
+        { session },
+      )
 
       await session.commitTransaction()
       return user

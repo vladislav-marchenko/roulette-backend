@@ -6,6 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { User, UserSchema } from 'src/schemas/user.schema'
 import { Reward, RewardSchema } from 'src/schemas/rewards.schema'
 import { TasksModule } from 'src/tasks/tasks.module'
+import { Transaction, TransactionSchema } from 'src/schemas/transaction.schema'
 
 @Module({
   imports: [

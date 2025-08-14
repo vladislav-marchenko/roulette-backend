@@ -5,8 +5,8 @@ export type TransactionDocument = HydratedDocument<Transaction>
 
 @Schema({ timestamps: true })
 export class Transaction {
-  @Prop({ required: true, enum: ['deposit', 'withdraw'] })
-  type: 'deposit' | 'withdraw'
+  @Prop({ required: true, enum: ['deposit', 'withdraw', 'sell'] })
+  type: 'deposit' | 'withdraw' | 'sell'
 
   @Prop({ required: true })
   amount: number
@@ -17,11 +17,14 @@ export class Transaction {
   @Prop()
   chargeId?: string
 
-  @Prop({ required: true, unique: true })
-  invoicePayload: string
+  @Prop()
+  invoicePayload?: string
 
-  @Prop({ required: true })
-  invoiceLink: string
+  @Prop()
+  invoiceLink?: string
+
+  @Prop({ ref: 'Prize' })
+  prize?: string
 
   @Prop({ required: true, enum: ['pending', 'success', 'failed'] })
   status: 'pending' | 'success' | 'failed'
