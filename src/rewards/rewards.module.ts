@@ -7,6 +7,7 @@ import { User, UserSchema } from 'src/schemas/user.schema'
 import { TasksModule } from 'src/tasks/tasks.module'
 import { Action, ActionSchema } from 'src/schemas/action.schema'
 import { BotModule } from 'src/bot/bot.module'
+import { GramjsModule } from 'src/gramjs/gramjs.module'
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { BotModule } from 'src/bot/bot.module'
     ]),
     TasksModule,
     BotModule,
+    GramjsModule,
   ],
   controllers: [RewardsController],
   providers: [RewardsService],

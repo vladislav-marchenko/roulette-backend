@@ -1,6 +1,7 @@
 import {
   Controller,
   Get,
+  HttpCode,
   Param,
   Post,
   Query,
@@ -35,9 +36,10 @@ export class RewardsController {
 
   @Post(':id/withdraw')
   @UseGuards(AuthGuard)
+  @HttpCode(204)
   withdraw(@Request() request: AuthRequest, @Param('id') id: string) {
-    return this.rewardsService.sellById({
-      userId: request.user._id,
+    return this.rewardsService.withdrawById({
+      user: request.user,
       rewardId: id,
     })
   }

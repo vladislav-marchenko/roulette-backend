@@ -2,10 +2,12 @@ import { BadRequestException, Injectable } from '@nestjs/common'
 import { InjectConnection, InjectModel } from '@nestjs/mongoose'
 import { ClientSession, Connection, Model, Types } from 'mongoose'
 import { BotService } from 'src/bot/bot.service'
+import { GramjsService } from 'src/gramjs/gramjs.service'
 import { Action } from 'src/schemas/action.schema'
 import { Prize } from 'src/schemas/prize.schema'
 import { Reward } from 'src/schemas/rewards.schema'
 import { User } from 'src/schemas/user.schema'
+import { AuthRequest } from 'src/types'
 
 @Injectable()
 export class RewardsService {
@@ -16,6 +18,7 @@ export class RewardsService {
     @InjectModel(Action.name)
     private readonly actionModel: Model<Action>,
     private readonly botService: BotService,
+    private readonly gramjsService: GramjsService,
   ) {}
 
   async create({
@@ -119,10 +122,10 @@ export class RewardsService {
   }
 
   async withdrawById({
-    userId,
+    user,
     rewardId,
   }: {
-    userId: Types.ObjectId
+    user: AuthRequest['user']
     rewardId: string
   }) {
     const reward = await this.rewardModel.findById(rewardId)
@@ -130,12 +133,21 @@ export class RewardsService {
       throw new BadRequestException('Reward not found')
     }
 
-    if (reward.user.toString() !== userId.toString()) {
+    if (reward.user.toString() !== user._id.toString()) {
       throw new BadRequestException('You are not the owner of this reward')
     }
 
-    await this.botService.sendGift()
+    const populatedReward = await reward.populate<{ prize: Prize }>('prize')
+    if (!populatedReward.prize.telegramGiftId) {
+      throw new BadRequestException(
+        'Limited gifts cannot be withdrawn automatically. Please contact support.',
+      )
+    }
 
-    // await reward.deleteOne()
+    await reward.deleteOne()
+    await this.gramjsService.sendGift({
+      telegramId: user.telegramId,
+      giftId: populatedReward.prize.telegramGiftId,
+    })
   }
 }
