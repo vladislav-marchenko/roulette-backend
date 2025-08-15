@@ -43,7 +43,8 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
 
     await input.text('Enter to start')
     const result = await this.getAvailableGifts()
-    await this.sendGift('vnxzm', result.gift.id)
+    result.forEach((item) => console.log(item.id))
+    //await this.sendGift('vnxzm', result[0].id)
   }
 
   async onModuleDestroy() {
@@ -67,21 +68,26 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
       new Api.payments.GetPaymentForm({ invoice }),
     )
 
-    const result = await this.client.invoke(
+    await this.client.invoke(
       new Api.payments.SendStarsForm({ invoice, formId: paymentForm.formId }),
     )
-
-    console.log(result)
   }
 
   async getAvailableGifts() {
+    const result = await this.client.invoke(new Api.payments.GetStarGifts({}))
+    if (!(result instanceof Api.payments.StarGifts)) return
+
+    return result.gifts.filter((gift) => !gift['soldOut'])
+  }
+
+  async getAccountGifts() {
     const result = await this.client.invoke(
       new Api.payments.GetSavedStarGifts({
         peer: new Api.InputPeerSelf(),
         offset: '0',
       }),
     )
-    const gifts = result.gifts
-    return gifts[0]
+
+    return result.gifts
   }
 }

@@ -22,6 +22,9 @@ export class Prize {
 
   @Prop({ required: true })
   lottie: string
+
+  @Prop()
+  telegramGiftId?: number
 }
 
 export const PrizeSchema = SchemaFactory.createForClass(Prize)
