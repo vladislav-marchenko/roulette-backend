@@ -5,6 +5,7 @@ import { Api } from 'telegram'
 import input from 'input'
 import * as fs from 'fs/promises'
 import * as path from 'path'
+import bigInt from 'big-integer'
 
 @Injectable()
 export class GramjsService implements OnModuleInit, OnModuleDestroy {
@@ -43,8 +44,6 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
 
     await input.text('Enter to start')
     const result = await this.getAvailableGifts()
-    result.forEach((item) => console.log(item.id))
-    //await this.sendGift('vnxzm', result[0].id)
   }
 
   async onModuleDestroy() {
@@ -52,7 +51,7 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
     console.log('GramJS client stopped')
   }
 
-  async sendGift(username: string, giftId: bigInt.BigInteger) {
+  async sendGift(username: string, giftId: string) {
     const user = await this.client.getEntity(username)
     if (!(user instanceof Api.User)) throw new Error('User not found')
 
@@ -61,7 +60,7 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
         userId: user.id,
         accessHash: user.accessHash,
       }),
-      giftId,
+      giftId: bigInt(giftId),
     })
 
     const paymentForm = await this.client.invoke(

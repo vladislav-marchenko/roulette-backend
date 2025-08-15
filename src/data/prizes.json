@@ -5,7 +5,7 @@
     "price": 50,
     "image": "https://giftica.website.yandexcloud.net/prizes/cake/cake.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/cake/cake.json",
-    "telegramGiftId": 5170144170496491616
+    "telegramGiftId": "5170144170496491616"
   },
   {
     "code": "champagne",
@@ -13,7 +13,7 @@
     "price": 50,
     "image": "https://giftica.website.yandexcloud.net/prizes/champagne/champagne.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/champagne/champagne.json",
-    "telegramGiftId": 6028601630662853006
+    "telegramGiftId": "6028601630662853006"
   },
   {
     "code": "cup",
@@ -22,7 +22,7 @@
     "weightMultiplier": 0.4,
     "image": "https://giftica.website.yandexcloud.net/prizes/cup/cup.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/cup/cup.json",
-    "telegramGiftId": 5168043875654172773
+    "telegramGiftId": "5168043875654172773"
   },
   {
     "code": "diamond",
@@ -31,7 +31,7 @@
     "weightMultiplier": 0.4,
     "image": "https://giftica.website.yandexcloud.net/prizes/diamond/diamond.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/diamond/diamond.json",
-    "telegramGiftId": 5170521118301225164
+    "telegramGiftId": "5170521118301225164"
   },
   {
     "code": "flowers",
@@ -39,7 +39,7 @@
     "price": 50,
     "image": "https://giftica.website.yandexcloud.net/prizes/flowers/flowers.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/flowers/flowers.json",
-    "telegramGiftId": 5170314324215857265
+    "telegramGiftId": "5170314324215857265"
   },
   {
     "code": "gift",
@@ -48,7 +48,7 @@
     "weightMultiplier": 2,
     "image": "https://giftica.website.yandexcloud.net/prizes/gift/gift.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/gift/gift.json",
-    "telegramGiftId": 5170250947678437525
+    "telegramGiftId": "5170250947678437525"
   },
   {
     "code": "heart",
@@ -56,7 +56,7 @@
     "price": 15,
     "image": "https://giftica.website.yandexcloud.net/prizes/heart/heart.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/heart/heart.json",
-    "telegramGiftId": 5170145012310081615
+    "telegramGiftId": "5170145012310081615"
   },
   {
     "code": "ring",
@@ -65,7 +65,7 @@
     "weightMultiplier": 0.4,
     "image": "https://giftica.website.yandexcloud.net/prizes/ring/ring.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/ring/ring.json",
-    "telegramGiftId": 5170690322832818290
+    "telegramGiftId": "5170690322832818290"
   },
   {
     "code": "rocket",
@@ -73,7 +73,7 @@
     "price": 50,
     "image": "https://giftica.website.yandexcloud.net/prizes/rocket/rocket.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/rocket/rocket.json",
-    "telegramGiftId": 5170564780938756245
+    "telegramGiftId": "5170564780938756245"
   },
   {
     "code": "rose",
@@ -82,7 +82,7 @@
     "weightMultiplier": 2,
     "image": "https://giftica.website.yandexcloud.net/prizes/rose/rose.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/rose/rose.json",
-    "telegramGiftId": 5168103777563050263
+    "telegramGiftId": "5168103777563050263"
   },
   {
     "code": "teddy-bear",
@@ -90,6 +90,6 @@
     "price": 15,
     "image": "https://giftica.website.yandexcloud.net/prizes/teddy-bear/teddy-bear.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/teddy-bear/teddy-bear.json",
-    "telegramGiftId": 5170233102089322756
+    "telegramGiftId": "5170233102089322756"
   }
 ]

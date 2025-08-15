@@ -24,7 +24,7 @@ export class Prize {
   lottie: string
 
   @Prop()
-  telegramGiftId?: number
+  telegramGiftId?: string
 }
 
 export const PrizeSchema = SchemaFactory.createForClass(Prize)
