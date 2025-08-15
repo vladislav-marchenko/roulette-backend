@@ -11,6 +11,7 @@ import { RewardsModule } from './rewards/rewards.module'
 import { TasksModule } from './tasks/tasks.module'
 import { ActionsModule } from './actions/actions.module'
 import { BotModule } from './bot/bot.module'
+import { GramjsModule } from './gramjs/gramjs.module'
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { BotModule } from './bot/bot.module'
     RewardsModule,
     ActionsModule,
     BotModule,
+    GramjsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -6,6 +6,7 @@ import { Reward, RewardSchema } from 'src/schemas/rewards.schema'
 import { User, UserSchema } from 'src/schemas/user.schema'
 import { TasksModule } from 'src/tasks/tasks.module'
 import { Action, ActionSchema } from 'src/schemas/action.schema'
+import { BotModule } from 'src/bot/bot.module'
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { Action, ActionSchema } from 'src/schemas/action.schema'
       { name: Action.name, schema: ActionSchema },
     ]),
     TasksModule,
+    BotModule,
   ],
   controllers: [RewardsController],
   providers: [RewardsService],

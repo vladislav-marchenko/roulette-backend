@@ -1,0 +1,87 @@
+import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common'
+import { TelegramClient } from 'telegram'
+import { StringSession } from 'telegram/sessions'
+import { Api } from 'telegram'
+import input from 'input'
+import * as fs from 'fs/promises'
+import * as path from 'path'
+
+@Injectable()
+export class GramjsService implements OnModuleInit, OnModuleDestroy {
+  private client: TelegramClient
+  private sessionFilePath = path.join(process.cwd(), 'telegram-session.txt')
+
+  async onModuleInit() {
+    let sessionString = ''
+    try {
+      sessionString = await fs.readFile(this.sessionFilePath, 'utf-8')
+    } catch (error) {
+      console.log('No saved session found, starting new session.')
+    }
+
+    const stringSession = new StringSession(sessionString)
+    this.client = new TelegramClient(
+      stringSession,
+      parseInt(process.env.API_ID),
+      process.env.API_HASH,
+      { connectionRetries: 5 },
+    )
+
+    await this.client.start({
+      phoneNumber: async () => process.env.TELEGRAM_PHONE,
+      password: async () => process.env.TELEGRAM_PASSWORD,
+      phoneCode: async () => await input.text('Enter code: '),
+      onError: (err) => console.log(err),
+    })
+
+    const newSessionString: unknown = this.client.session.save()
+    if (typeof newSessionString === 'string') {
+      await fs.writeFile(this.sessionFilePath, newSessionString)
+    }
+
+    console.log('GramJS client started')
+
+    await input.text('Enter to start')
+    const result = await this.getAvailableGifts()
+    await this.sendGift('vnxzm', result.gift.id)
+  }
+
+  async onModuleDestroy() {
+    await this.client.disconnect()
+    console.log('GramJS client stopped')
+  }
+
+  async sendGift(username: string, giftId: bigInt.BigInteger) {
+    const user = await this.client.getEntity(username)
+    if (!(user instanceof Api.User)) throw new Error('User not found')
+
+    const invoice = new Api.InputInvoiceStarGift({
+      peer: new Api.InputPeerUser({
+        userId: user.id,
+        accessHash: user.accessHash,
+      }),
+      giftId,
+    })
+
+    const paymentForm = await this.client.invoke(
+      new Api.payments.GetPaymentForm({ invoice }),
+    )
+
+    const result = await this.client.invoke(
+      new Api.payments.SendStarsForm({ invoice, formId: paymentForm.formId }),
+    )
+
+    console.log(result)
+  }
+
+  async getAvailableGifts() {
+    const result = await this.client.invoke(
+      new Api.payments.GetSavedStarGifts({
+        peer: new Api.InputPeerSelf(),
+        offset: '0',
+      }),
+    )
+    const gifts = result.gifts
+    return gifts[0]
+  }
+}

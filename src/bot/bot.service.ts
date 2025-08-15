@@ -175,4 +175,9 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
 
     return invoiceLink
   }
+
+  async sendGift() {
+    const gifts = await this.bot.api.getAvailableGifts()
+    console.log(gifts)
+  }
 }

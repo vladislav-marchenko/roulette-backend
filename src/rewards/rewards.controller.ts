@@ -24,9 +24,18 @@ export class RewardsController {
     })
   }
 
-  @Post('sell/:id')
+  @Post(':id/sell')
   @UseGuards(AuthGuard)
   sell(@Request() request: AuthRequest, @Param('id') id: string) {
+    return this.rewardsService.sellById({
+      userId: request.user._id,
+      rewardId: id,
+    })
+  }
+
+  @Post(':id/withdraw')
+  @UseGuards(AuthGuard)
+  withdraw(@Request() request: AuthRequest, @Param('id') id: string) {
     return this.rewardsService.sellById({
       userId: request.user._id,
       rewardId: id,

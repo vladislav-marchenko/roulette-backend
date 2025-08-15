@@ -1,6 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { InjectConnection, InjectModel } from '@nestjs/mongoose'
 import { ClientSession, Connection, Model, Types } from 'mongoose'
+import { BotService } from 'src/bot/bot.service'
 import { Action } from 'src/schemas/action.schema'
 import { Prize } from 'src/schemas/prize.schema'
 import { Reward } from 'src/schemas/rewards.schema'
@@ -14,6 +15,7 @@ export class RewardsService {
     @InjectModel(User.name) private readonly userModel: Model<User>,
     @InjectModel(Action.name)
     private readonly actionModel: Model<Action>,
+    private readonly botService: BotService,
   ) {}
 
   async create({
@@ -114,5 +116,26 @@ export class RewardsService {
     } finally {
       await session.endSession()
     }
+  }
+
+  async withdrawById({
+    userId,
+    rewardId,
+  }: {
+    userId: Types.ObjectId
+    rewardId: string
+  }) {
+    const reward = await this.rewardModel.findById(rewardId)
+    if (!reward) {
+      throw new BadRequestException('Reward not found')
+    }
+
+    if (reward.user.toString() !== userId.toString()) {
+      throw new BadRequestException('You are not the owner of this reward')
+    }
+
+    await this.botService.sendGift()
+
+    // await reward.deleteOne()
   }
 }
