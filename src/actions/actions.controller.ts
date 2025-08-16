@@ -39,7 +39,10 @@ export class ActionsController {
   }
 
   @Post('withdraw')
-  withdraw() {
-    return this.actionsService.withdraw()
+  withdraw(
+    @Request() request: AuthRequest,
+    @Body('quantity') quantity: number,
+  ) {
+    return this.actionsService.withdraw({ user: request.user, quantity })
   }
 }

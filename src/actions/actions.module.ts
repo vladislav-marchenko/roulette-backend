@@ -6,6 +6,7 @@ import { BotModule } from 'src/bot/bot.module'
 import { Action, ActionSchema } from 'src/schemas/action.schema'
 import { ActionsController } from './actions.controller'
 import { ActionsService } from './actions.service'
+import { FragmentModule } from 'src/fragment/fragment.module'
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { ActionsService } from './actions.service'
     ]),
     TasksModule,
     BotModule,
+    FragmentModule,
   ],
   controllers: [ActionsController],
   providers: [ActionsService],

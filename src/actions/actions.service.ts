@@ -1,15 +1,23 @@
-import { Injectable } from '@nestjs/common'
+import {
+  BadGatewayException,
+  BadRequestException,
+  Injectable,
+} from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model, Types } from 'mongoose'
 import { BotService } from 'src/bot/bot.service'
+import { FragmentService } from 'src/fragment/fragment.service'
 import { Action } from 'src/schemas/action.schema'
+import { User } from 'src/schemas/user.schema'
+import { AuthRequest } from 'src/types'
 
 @Injectable()
 export class ActionsService {
   constructor(
-    @InjectModel(Action.name)
-    private readonly actionsModel: Model<Action>,
+    @InjectModel(Action.name) private readonly actionsModel: Model<Action>,
+    @InjectModel(User.name) private readonly userModel: Model<User>,
     private readonly botService: BotService,
+    private readonly fragmentService: FragmentService,
   ) {}
 
   async findUserActions({
@@ -51,5 +59,26 @@ export class ActionsService {
     return { invoiceLink }
   }
 
-  async withdraw() {}
+  async withdraw({
+    user,
+    quantity,
+  }: {
+    user: AuthRequest['user']
+    quantity: number
+  }) {
+    const updatedUser = await this.userModel.findOneAndUpdate(
+      { _id: user._id, balance: { $gte: quantity } },
+      { $inc: { balance: -quantity } },
+      { new: true },
+    )
+
+    if (!updatedUser) {
+      throw new BadRequestException('Insufficient balance')
+    }
+
+    return await this.fragmentService.sendStars({
+      username: user.username,
+      quantity,
+    })
+  }
 }
