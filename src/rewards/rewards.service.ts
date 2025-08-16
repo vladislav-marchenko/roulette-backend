@@ -140,7 +140,7 @@ export class RewardsService {
     const populatedReward = await reward.populate<{ prize: Prize }>('prize')
     if (!populatedReward.prize.telegramGiftId) {
       throw new BadRequestException(
-        'Limited gifts cannot be withdrawn automatically. Please contact support.',
+        'Limited gifts cannot be withdrawn automatically.',
       )
     }
 
