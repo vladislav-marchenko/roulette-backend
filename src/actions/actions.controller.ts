@@ -1,12 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Post,
-  Query,
-  Request,
-  UseGuards,
-} from '@nestjs/common'
+import { Controller, Get, Query, Request, UseGuards } from '@nestjs/common'
 import { ActionsService } from './actions.service'
 import { AuthGuard } from 'src/auth/auth.guard'
 import { AuthRequest } from 'src/types'
@@ -25,24 +17,5 @@ export class ActionsController {
       userId: request.user._id,
       page,
     })
-  }
-
-  @Post('deposit')
-  deposit(
-    @Request() request: AuthRequest,
-    @Body() { amount }: { amount: number },
-  ) {
-    return this.actionsService.deposit({
-      userId: request.user._id,
-      amount,
-    })
-  }
-
-  @Post('withdraw')
-  withdraw(
-    @Request() request: AuthRequest,
-    @Body('quantity') quantity: number,
-  ) {
-    return this.actionsService.withdraw({ user: request.user, quantity })
   }
 }

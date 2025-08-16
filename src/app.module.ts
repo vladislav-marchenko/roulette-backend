@@ -12,6 +12,7 @@ import { TasksModule } from './tasks/tasks.module'
 import { ActionsModule } from './actions/actions.module'
 import { BotModule } from './bot/bot.module'
 import { GramjsModule } from './gramjs/gramjs.module'
+import { TransactionsModule } from './transactions/transactions.module'
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { GramjsModule } from './gramjs/gramjs.module'
     PrizesModule,
     RouletteModule,
     RewardsModule,
+    TransactionsModule,
     ActionsModule,
     BotModule,
     GramjsModule,
