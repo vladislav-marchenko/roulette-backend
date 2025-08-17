@@ -16,7 +16,6 @@ import { WithdrawsConsumer } from './withdraws.consumer'
       { name: User.name, schema: UserSchema },
       { name: Action.name, schema: ActionSchema },
     ]),
-    TasksModule,
     BotModule,
     FragmentModule,
     BullModule.registerQueue({ name: 'withdraws' }),

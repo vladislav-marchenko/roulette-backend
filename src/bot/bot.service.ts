@@ -176,8 +176,23 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
     return invoiceLink
   }
 
-  async sendGift() {
-    const gifts = await this.bot.api.getAvailableGifts()
-    console.log(gifts)
+  async isUserSubscribed({
+    userTelegramId,
+    channelUsername,
+  }: {
+    userTelegramId: number
+    channelUsername: string
+  }) {
+    try {
+      const member = await this.bot.api.getChatMember(
+        channelUsername,
+        userTelegramId,
+      )
+
+      return !['left', 'kicked'].includes(member.status)
+    } catch (error) {
+      console.log(error)
+      return false
+    }
   }
 }

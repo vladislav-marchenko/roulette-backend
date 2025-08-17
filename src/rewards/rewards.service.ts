@@ -17,7 +17,6 @@ export class RewardsService {
     @InjectModel(User.name) private readonly userModel: Model<User>,
     @InjectModel(Action.name)
     private readonly actionModel: Model<Action>,
-    private readonly botService: BotService,
     private readonly gramjsService: GramjsService,
   ) {}
 

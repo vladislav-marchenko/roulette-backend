@@ -6,18 +6,16 @@ import {
 } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { isValid, parse } from '@telegram-apps/init-data-node'
-import { Model, Types } from 'mongoose'
+import { Model } from 'mongoose'
 import { User, UserDocument } from 'src/schemas/user.schema'
 import { customAlphabet } from 'nanoid'
 import { Request } from 'express'
 import { Query } from 'src/types'
-import { TasksService } from 'src/tasks/tasks.service'
 
 @Injectable()
 export class AuthGuard implements CanActivate {
   constructor(
     @InjectModel(User.name) private readonly userModel: Model<User>,
-    private readonly tasksService: TasksService,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -46,11 +44,7 @@ export class AuthGuard implements CanActivate {
         telegramId: data.id,
         referralCode: userReferralCode,
       }
-
-      if (referrer) {
-        payload.invitedBy = referrer._id
-        await this.completeReferralTask(referrer._id)
-      }
+      if (referrer) payload.invitedBy = referrer._id
 
       user = await this.userModel.create(payload)
     }
@@ -69,12 +63,5 @@ export class AuthGuard implements CanActivate {
     if (!!exists) return this.generateReferralCode()
 
     return code
-  }
-
-  async completeReferralTask(referralUserId: Types.ObjectId) {
-    await this.tasksService.create({
-      taskCode: 'invite_friend',
-      userId: referralUserId,
-    })
   }
 }

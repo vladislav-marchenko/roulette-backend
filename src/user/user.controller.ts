@@ -7,6 +7,12 @@ import { AuthRequest } from 'src/types'
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @Get('auth')
+  @UseGuards(AuthGuard)
+  auth(@Request() request: AuthRequest) {
+    return this.userService.auth(request.user)
+  }
+
   @Get('me')
   @UseGuards(AuthGuard)
   findMe(@Request() request: AuthRequest) {

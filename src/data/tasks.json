@@ -13,7 +13,7 @@
     "reward": 10
   },
   {
-    "code": "daily_reward",
+    "code": "daily_login",
     "type": "daily",
     "title": "Daily Reward",
     "reward": 1

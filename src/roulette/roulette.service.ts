@@ -6,7 +6,6 @@ import { Action } from 'src/schemas/action.schema'
 import { Prize } from 'src/schemas/prize.schema'
 import { Reward } from 'src/schemas/rewards.schema'
 import { User } from 'src/schemas/user.schema'
-import { AuthRequest } from 'src/types'
 
 @Injectable()
 export class RouletteService {

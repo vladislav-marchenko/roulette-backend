@@ -6,7 +6,7 @@ export type UserDocument = HydratedDocument<User>
 @Schema({ timestamps: true })
 export class User {
   @Prop({ unique: true, immutable: true, required: true })
-  telegramId: string
+  telegramId: number
 
   @Prop({ default: 0 })
   balance: number
@@ -21,7 +21,7 @@ export class User {
   referralCode: string
 
   @Prop({ ref: 'User' })
-  invitedBy?: string
+  invitedBy?: Types.ObjectId
 }
 
 export const UserSchema = SchemaFactory.createForClass(User)
