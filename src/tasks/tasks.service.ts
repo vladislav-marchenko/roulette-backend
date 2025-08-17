@@ -1,11 +1,10 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { InjectConnection, InjectModel } from '@nestjs/mongoose'
 import { ClientSession, Connection, Model, Types } from 'mongoose'
-import { BotService } from 'src/bot/bot.service'
 import { TaskAction } from 'src/schemas/task-action.schema'
 import { Task } from 'src/schemas/task.schema'
 import { User } from 'src/schemas/user.schema'
-import { AuthRequest, Query } from 'src/types'
+import { Query } from 'src/types'
 
 @Injectable()
 export class TasksService {
@@ -15,7 +14,6 @@ export class TasksService {
     private readonly taskActionModel: Model<TaskAction>,
     @InjectModel(User.name) private readonly userModel: Model<User>,
     @InjectConnection() private readonly connection: Connection,
-    private readonly botService: BotService,
   ) {}
 
   async findAll({ userId }: { userId: Types.ObjectId }) {
@@ -82,11 +80,13 @@ export class TasksService {
       }
 
       return await this.taskActionModel.create(
-        {
-          taskCode,
-          type: 'completed',
-          user: userId,
-        },
+        [
+          {
+            taskCode,
+            type: 'completed',
+            user: userId,
+          },
+        ],
         { session },
       )
     } catch (error) {

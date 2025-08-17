@@ -13,7 +13,7 @@ export class Task {
       'subscribe_channel',
       'daily_login',
       'deposit_hundred_stars',
-      'play_three_games',
+      'spin',
     ],
   })
   code:
@@ -21,7 +21,7 @@ export class Task {
     | 'subscribe_channel'
     | 'daily_login'
     | 'deposit_hundred_stars'
-    | 'play_three_games'
+    | 'spin'
 
   @Prop({ required: true, enum: ['one_time', 'daily'] })
   type: 'one_time' | 'daily'

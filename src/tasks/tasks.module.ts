@@ -5,7 +5,6 @@ import { Task, TaskSchema } from 'src/schemas/task.schema'
 import { MongooseModule } from '@nestjs/mongoose'
 import { User, UserSchema } from 'src/schemas/user.schema'
 import { TaskAction, TaskActionSchema } from 'src/schemas/task-action.schema'
-import { BotModule } from 'src/bot/bot.module'
 
 @Module({
   imports: [
@@ -14,7 +13,6 @@ import { BotModule } from 'src/bot/bot.module'
       { name: TaskAction.name, schema: TaskActionSchema },
       { name: User.name, schema: UserSchema },
     ]),
-    BotModule,
   ],
   controllers: [TasksController],
   providers: [TasksService],

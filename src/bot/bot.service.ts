@@ -10,6 +10,7 @@ import { Connection, Model, Types } from 'mongoose'
 import { nanoid } from 'nanoid'
 import { Action } from 'src/schemas/action.schema'
 import { User } from 'src/schemas/user.schema'
+import { TasksService } from 'src/tasks/tasks.service'
 import { BotContext } from 'src/types'
 
 @Injectable()
@@ -21,6 +22,7 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
     @InjectModel(Action.name)
     private readonly actionModel: Model<Action>,
     @InjectConnection() private readonly connection: Connection,
+    private readonly tasksService: TasksService,
   ) {
     this.bot = new Bot<BotContext>(process.env.TELEGRAM_BOT_TOKEN)
   }
@@ -109,11 +111,11 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
 
         if (Types.ObjectId.isValid(ctx.user.invitedBy)) {
           const referrer = await this.userModel.findById(ctx.user.invitedBy)
-          if (!referrer) return
-
-          await referrer
-            .updateOne({ $inc: { balance: total_amount * 0.04 } })
-            .session(session)
+          if (referrer) {
+            await referrer
+              .updateOne({ $inc: { balance: total_amount * 0.04 } })
+              .session(session)
+          }
         }
 
         await action
@@ -122,6 +124,12 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
             chargeId: provider_payment_charge_id,
           })
           .session(session)
+
+        await this.tasksService.create({
+          userId: ctx.user._id,
+          taskCode: 'deposit_hundred_stars',
+          session,
+        })
 
         await session.commitTransaction()
         await ctx.reply('Payment successful!')

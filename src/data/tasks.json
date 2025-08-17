@@ -19,9 +19,9 @@
     "reward": 1
   },
   {
-    "code": "play_three_games",
+    "code": "spin",
     "type": "daily",
-    "title": "Play 3 games",
+    "title": "Do One Spin",
     "reward": 5
   },
   {

@@ -3,6 +3,7 @@ import { BotService } from './bot.service'
 import { User, UserSchema } from 'src/schemas/user.schema'
 import { MongooseModule } from '@nestjs/mongoose'
 import { Action, ActionSchema } from 'src/schemas/action.schema'
+import { TasksModule } from 'src/tasks/tasks.module'
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { Action, ActionSchema } from 'src/schemas/action.schema'
       { name: User.name, schema: UserSchema },
       { name: Action.name, schema: ActionSchema },
     ]),
+    TasksModule,
   ],
   providers: [BotService],
   exports: [BotService],

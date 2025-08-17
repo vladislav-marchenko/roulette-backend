@@ -6,11 +6,13 @@ import { Action } from 'src/schemas/action.schema'
 import { Prize } from 'src/schemas/prize.schema'
 import { Reward } from 'src/schemas/rewards.schema'
 import { User } from 'src/schemas/user.schema'
+import { TasksService } from 'src/tasks/tasks.service'
 
 @Injectable()
 export class RouletteService {
   constructor(
     private readonly prizesService: PrizesService,
+    private readonly tasksService: TasksService,
     @InjectConnection() private readonly connection: Connection,
     @InjectModel(User.name) private readonly userModel: Model<User>,
     @InjectModel(Reward.name) private readonly rewardModel: Model<Reward>,
@@ -87,6 +89,12 @@ export class RouletteService {
         ],
         { session },
       )
+
+      await this.tasksService.create({
+        userId: user._id,
+        taskCode: 'spin',
+        session,
+      })
 
       await session.commitTransaction()
       return reward
