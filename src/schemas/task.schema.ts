@@ -12,7 +12,7 @@ export class Task {
       'invite_friend',
       'subscribe_channel',
       'daily_login',
-      'spend_hundred_stars',
+      'deposit_hundred_stars',
       'play_three_games',
     ],
   })
@@ -20,7 +20,7 @@ export class Task {
     | 'invite_friend'
     | 'subscribe_channel'
     | 'daily_login'
-    | 'spend_hundred_stars'
+    | 'deposit_hundred_stars'
     | 'play_three_games'
 
   @Prop({ required: true, enum: ['one_time', 'daily'] })

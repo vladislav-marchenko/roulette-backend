@@ -10,7 +10,6 @@ import { Model } from 'mongoose'
 import { User, UserDocument } from 'src/schemas/user.schema'
 import { customAlphabet } from 'nanoid'
 import { Request } from 'express'
-import { Query } from 'src/types'
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -40,13 +39,11 @@ export class AuthGuard implements CanActivate {
       const userReferralCode = await this.generateReferralCode()
       const referrer = await this.userModel.findOne({ referralCode })
 
-      const payload: Query = {
+      user = await this.userModel.create({
         telegramId: data.id,
         referralCode: userReferralCode,
-      }
-      if (referrer) payload.invitedBy = referrer._id
-
-      user = await this.userModel.create(payload)
+        invitedBy: referrer?._id,
+      })
     }
 
     request['user'] = { ...user.toObject(), ...data }

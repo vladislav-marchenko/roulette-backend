@@ -25,9 +25,9 @@
     "reward": 5
   },
   {
-    "code": "spend_hundred_stars",
+    "code": "deposit_hundred_stars",
     "type": "daily",
-    "title": "Spend 100 stars",
+    "title": "Deposit 100 stars",
     "reward": 10
   }
 ]
