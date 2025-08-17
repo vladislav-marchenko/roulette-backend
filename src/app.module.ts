@@ -13,6 +13,7 @@ import { ActionsModule } from './actions/actions.module'
 import { BotModule } from './bot/bot.module'
 import { GramjsModule } from './gramjs/gramjs.module'
 import { TransactionsModule } from './transactions/transactions.module'
+import { BullModule } from '@nestjs/bullmq'
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { TransactionsModule } from './transactions/transactions.module'
     MongooseModule.forRoot(
       `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.v5ypq4y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,
     ),
+    BullModule.forRoot({ connection: { host: 'localhost', port: 6379 } }),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     UserModule,
     TasksModule,

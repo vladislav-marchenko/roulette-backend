@@ -1,8 +1,10 @@
+import { InjectQueue } from '@nestjs/bullmq'
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
+import { Queue } from 'bullmq'
 import { Model, Types } from 'mongoose'
 import { BotService } from 'src/bot/bot.service'
-import { FragmentService } from 'src/fragment/fragment.service'
+import { Action } from 'src/schemas/action.schema'
 import { User } from 'src/schemas/user.schema'
 import { AuthRequest } from 'src/types'
 
@@ -10,8 +12,9 @@ import { AuthRequest } from 'src/types'
 export class TransactionsService {
   constructor(
     @InjectModel(User.name) private readonly userModel: Model<User>,
+    @InjectModel(Action.name) private readonly actionsModel: Model<Action>,
+    @InjectQueue('withdraws') private readonly withdrawsQueue: Queue,
     private readonly botService: BotService,
-    private readonly fragmentService: FragmentService,
   ) {}
 
   async deposit({
@@ -46,9 +49,20 @@ export class TransactionsService {
       throw new BadRequestException('Insufficient balance')
     }
 
-    return await this.fragmentService.sendStars({
+    const action = new this.actionsModel({
+      type: 'withdraw',
+      amount: quantity,
+      user: user._id,
+      status: 'pending',
+    })
+
+    await this.withdrawsQueue.add('withdraws', {
       username: user.username,
       quantity,
+      actionId: action._id,
     })
+
+    await action.save()
+    return action
   }
 }

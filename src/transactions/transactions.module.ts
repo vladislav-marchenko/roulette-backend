@@ -6,15 +6,22 @@ import { BotModule } from 'src/bot/bot.module'
 import { FragmentModule } from 'src/fragment/fragment.module'
 import { TransactionsController } from './transactions.controller'
 import { TransactionsService } from './transactions.service'
+import { BullModule } from '@nestjs/bullmq'
+import { Action, ActionSchema } from 'src/schemas/action.schema'
+import { WithdrawsConsumer } from './withdraws.consumer'
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    MongooseModule.forFeature([
+      { name: User.name, schema: UserSchema },
+      { name: Action.name, schema: ActionSchema },
+    ]),
     TasksModule,
     BotModule,
     FragmentModule,
+    BullModule.registerQueue({ name: 'withdraws' }),
   ],
   controllers: [TransactionsController],
-  providers: [TransactionsService],
+  providers: [TransactionsService, WithdrawsConsumer],
 })
 export class TransactionsModule {}
