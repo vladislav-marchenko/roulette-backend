@@ -97,18 +97,14 @@ export class RewardsService {
         )
         .select('-weightMultiplier')
 
-      await this.actionModel.create(
-        [
-          {
-            type: 'sell',
-            status: 'success',
-            amount: reward.prize.price,
-            user: userId,
-            prizeCode: reward.prize.code,
-          },
-        ],
-        { session },
-      )
+      const action = new this.actionModel({
+        type: 'sell',
+        status: 'success',
+        amount: reward.prize.price,
+        user: userId,
+        prizeCode: reward.prize.code,
+      })
+      await action.save({ session })
 
       await session.commitTransaction()
       return user

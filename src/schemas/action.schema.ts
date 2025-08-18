@@ -5,8 +5,11 @@ export type ActionDocument = HydratedDocument<Action>
 
 @Schema({ timestamps: true })
 export class Action {
-  @Prop({ required: true, enum: ['deposit', 'withdraw', 'sell', 'spin'] })
-  type: 'deposit' | 'withdraw' | 'sell' | 'spin'
+  @Prop({
+    required: true,
+    enum: ['deposit', 'withdraw', 'sell', 'spin', 'referral'],
+  })
+  type: 'deposit' | 'withdraw' | 'sell' | 'spin' | 'referral'
 
   @Prop({ required: true })
   amount: number

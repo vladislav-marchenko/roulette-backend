@@ -77,18 +77,14 @@ export class RouletteService {
         .updateOne({ $inc: { balance: -price, spinCount: 1 } })
         .session(session)
 
-      await this.actionModel.create(
-        [
-          {
-            type: 'spin',
-            status: 'success',
-            user: user._id,
-            amount: price,
-            prizeCode: prize.code,
-          },
-        ],
-        { session },
-      )
+      const action = new this.actionModel({
+        type: 'spin',
+        status: 'success',
+        user: user._id,
+        amount: price,
+        prizeCode: prize.code,
+      })
+      await action.save({ session })
 
       await this.tasksService.create({
         userId: user._id,

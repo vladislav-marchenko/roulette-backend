@@ -79,16 +79,14 @@ export class TasksService {
         throw new BadRequestException('Task already completed')
       }
 
-      return await this.taskActionModel.create(
-        [
-          {
-            taskCode,
-            type: 'completed',
-            user: userId,
-          },
-        ],
-        { session },
-      )
+      const action = new this.taskActionModel({
+        taskCode,
+        type: 'completed',
+        user: userId,
+      })
+
+      await action.save({ session })
+      return action
     } catch (error) {
       // We catch errors here because this function is called within multiple other functions,
       // and we don't want to propagate errors from this function to the client.

@@ -39,6 +39,15 @@ export class TransactionsService {
     user: AuthRequest['user']
     quantity: number
   }) {
+    const commission = 0.1
+    const quantityWithCommission = Math.floor(quantity * (1 - commission))
+
+    if (quantityWithCommission < 50) {
+      throw new BadRequestException(
+        `Minimum withdrawal amount is ${Math.ceil(50 / (1 - commission))} stars`,
+      )
+    }
+
     const updatedUser = await this.userModel.findOneAndUpdate(
       { _id: user._id, balance: { $gte: quantity } },
       { $inc: { balance: -quantity } },
@@ -58,7 +67,7 @@ export class TransactionsService {
 
     await this.withdrawsQueue.add('withdraws', {
       username: user.username,
-      quantity,
+      quantity: quantityWithCommission,
       actionId: action._id,
     })
 

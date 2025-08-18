@@ -68,17 +68,8 @@ export class FragmentService implements OnModuleInit {
     quantity: number
     retryCount?: number
   }) {
-    const commission = 0.1
-    const quantityWithCommission = Math.floor(quantity * (1 - commission))
-
-    if (quantityWithCommission < 50) {
-      throw new BadRequestException(
-        `Minimum withdrawal amount is ${Math.ceil(50 / (1 - commission))} stars`,
-      )
-    }
-
     const data = {
-      quantity: quantityWithCommission,
+      quantity,
       username,
       show_sender: true,
     }
