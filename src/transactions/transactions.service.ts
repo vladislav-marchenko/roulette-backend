@@ -26,7 +26,7 @@ export class TransactionsService {
   }) {
     const invoiceLink = await this.botService.createInvoiceLink({
       userId,
-      amount,
+      amount: Math.ceil(amount),
     })
 
     return { invoiceLink }
