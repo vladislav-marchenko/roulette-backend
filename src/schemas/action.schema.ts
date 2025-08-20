@@ -35,6 +35,7 @@ export class Action {
 
 export const ActionSchema = SchemaFactory.createForClass(Action)
 
+/*
 ActionSchema.index(
   { createdAt: 1 },
   {
@@ -42,6 +43,7 @@ ActionSchema.index(
     partialFilterExpression: { status: 'pending' },
   },
 )
+*/
 
 ActionSchema.virtual('prize', {
   ref: 'Prize',

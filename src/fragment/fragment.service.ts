@@ -1,6 +1,5 @@
 import {
   BadGatewayException,
-  BadRequestException,
   Injectable,
   InternalServerErrorException,
   OnModuleInit,
@@ -8,8 +7,6 @@ import {
 import { HttpService } from '@nestjs/axios'
 import { firstValueFrom } from 'rxjs'
 import { AxiosError } from 'axios'
-import * as fs from 'fs/promises'
-import * as path from 'path'
 
 @Injectable()
 export class FragmentService implements OnModuleInit {
@@ -19,20 +16,9 @@ export class FragmentService implements OnModuleInit {
   private readonly TELEGRAM_PHONE = process.env.TELEGRAM_PHONE
   private readonly WALLET_MNEMONICS = process.env.WALLET_MNEMONICS
   private JWT_TOKEN: string
-  private sessionFilePath = path.join(process.cwd(), 'fragment-session.txt')
 
   async onModuleInit() {
-    try {
-      this.JWT_TOKEN = await fs.readFile(this.sessionFilePath, 'utf-8')
-    } catch (error) {
-      console.log('No saved session found, starting new session.')
-      await this.createSession()
-    }
-  }
-
-  async createSession() {
     this.JWT_TOKEN = await this.getToken()
-    await fs.writeFile(this.sessionFilePath, this.JWT_TOKEN)
   }
 
   async getToken() {
@@ -45,6 +31,9 @@ export class FragmentService implements OnModuleInit {
     const headers = { 'Content-Type': 'application/json' }
 
     try {
+      console.log(
+        "Don't forget to accept fragment login request in your telegram account!",
+      )
       const response = await firstValueFrom(
         this.httpService.post(`${this.API_URL}/auth/authenticate`, data, {
           headers,
@@ -81,7 +70,10 @@ export class FragmentService implements OnModuleInit {
 
     try {
       const response = await firstValueFrom(
-        this.httpService.post(`${this.API_URL}/order/stars`, data, { headers }),
+        this.httpService.post(`${this.API_URL}/order/stars`, data, {
+          headers,
+          timeout: 5 * 60 * 1000,
+        }),
       )
 
       return response.data
@@ -90,16 +82,14 @@ export class FragmentService implements OnModuleInit {
         throw new InternalServerErrorException('Failed to send stars')
       }
 
-      if (error.status === 403 && retryCount < 3) {
-        await this.createSession()
+      if (retryCount < 3) {
+        this.JWT_TOKEN = await this.getToken()
         return await this.sendStars({
           username,
           quantity,
           retryCount: retryCount + 1,
         })
       }
-
-      console.log(error.response.data)
 
       throw new BadGatewayException(
         'Failed to send stars due to internal API error.',
