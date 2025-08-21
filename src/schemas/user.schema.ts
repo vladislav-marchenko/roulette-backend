@@ -20,6 +20,9 @@ export class User {
   @Prop({ required: true })
   referralCode: string
 
+  @Prop({ default: 0.04 })
+  referralRate: number
+
   @Prop({ ref: 'User' })
   invitedBy?: Types.ObjectId
 }
