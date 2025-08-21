@@ -7,6 +7,6 @@ export class PrizesController {
 
   @Get()
   findAll(@Query('sort') sort?: string) {
-    return this.prizesService.findAll({ select: '-weightMultiplier', sort })
+    return this.prizesService.findAll('-weightMultiplier', sort)
   }
 }

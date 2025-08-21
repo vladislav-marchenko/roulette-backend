@@ -9,13 +9,7 @@ export class PrizesService {
     @InjectModel(Prize.name) private readonly prizeModel: Model<Prize>,
   ) {}
 
-  async findAll({
-    select = '',
-    sort = '',
-  }: {
-    select?: string
-    sort?: string
-  }) {
+  async findAll(select = '', sort = '') {
     const prizes = await this.prizeModel.find().sort(sort).select(select)
     if (!prizes.length) throw new NotFoundException('Prizes not found')
 
