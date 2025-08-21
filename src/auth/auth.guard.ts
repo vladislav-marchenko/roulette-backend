@@ -4,9 +4,9 @@ import {
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common'
-import { InjectModel } from '@nestjs/mongoose'
+import { InjectConnection, InjectModel } from '@nestjs/mongoose'
 import { isValid, parse } from '@telegram-apps/init-data-node'
-import { Model } from 'mongoose'
+import { Connection, Model } from 'mongoose'
 import { User, UserDocument } from 'src/schemas/user.schema'
 import { customAlphabet } from 'nanoid'
 import { Request } from 'express'
@@ -15,6 +15,7 @@ import { Request } from 'express'
 export class AuthGuard implements CanActivate {
   constructor(
     @InjectModel(User.name) private readonly userModel: Model<User>,
+    @InjectConnection() private readonly connection: Connection,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -33,21 +34,37 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('Invalid init data')
     }
 
-    let user: UserDocument
-    user = await this.userModel.findOne({ telegramId: data.id })
-    if (!user) {
-      const userReferralCode = await this.generateReferralCode()
-      const referrer = await this.userModel.findOne({ referralCode })
+    const session = await this.connection.startSession()
+    session.startTransaction()
 
-      user = await this.userModel.create({
-        telegramId: data.id,
-        referralCode: userReferralCode,
-        invitedBy: referrer?._id,
-      })
+    try {
+      let user: UserDocument
+      user = await this.userModel
+        .findOne({ telegramId: data.id })
+        .session(session)
+
+      if (!user) {
+        const userReferralCode = await this.generateReferralCode()
+        const referrer = await this.userModel.findOne({ referralCode })
+
+        user = new this.userModel({
+          telegramId: data.id,
+          referralCode: userReferralCode,
+          invitedBy: referrer?._id,
+        })
+
+        await user.save({ session })
+      }
+
+      request['user'] = { ...user.toObject(), ...data }
+      await session.commitTransaction()
+      return true
+    } catch (error) {
+      await session.abortTransaction()
+      return false
+    } finally {
+      await session.endSession()
     }
-
-    request['user'] = { ...user.toObject(), ...data }
-    return true
   }
 
   async generateReferralCode() {
