@@ -1,7 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { InjectConnection, InjectModel } from '@nestjs/mongoose'
 import { ClientSession, Connection, Model, Types } from 'mongoose'
-import { BotService } from 'src/bot/bot.service'
 import { GramjsService } from 'src/gramjs/gramjs.service'
 import { Action } from 'src/schemas/action.schema'
 import { Prize } from 'src/schemas/prize.schema'
@@ -141,7 +140,8 @@ export class RewardsService {
 
     await reward.deleteOne()
     await this.gramjsService.sendGift({
-      telegramId: user.telegramId,
+      username: user.username,
+      //telegramId: user.telegramId,
       giftId: populatedReward.prize.telegramGiftId,
     })
   }
