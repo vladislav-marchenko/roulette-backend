@@ -19,7 +19,7 @@ import { BullModule } from '@nestjs/bullmq'
   imports: [
     ConfigModule.forRoot(),
     MongooseModule.forRoot(
-      `mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@cluster0.v5ypq4y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,
+      `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@localhost:27017/giftica`,
     ),
     BullModule.forRoot({ connection: { host: 'localhost', port: 6379 } }),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),

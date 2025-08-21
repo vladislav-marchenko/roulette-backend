@@ -53,8 +53,8 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
     username,
     giftId,
   }: {
-    username: string
     //telegramId: number
+    username: string
     giftId: string
   }) {
     const user = await this.client.getEntity(username)
