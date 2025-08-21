@@ -10,7 +10,11 @@ export class PrizesService {
   ) {}
 
   async findAll(select = '') {
-    const prizes = await this.prizeModel.find().select(select)
+    const prizes = await this.prizeModel
+      .find()
+      .sort({ price: -1 })
+      .select(select)
+
     if (!prizes.length) throw new NotFoundException('Prizes not found')
 
     return prizes
