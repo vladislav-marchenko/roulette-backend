@@ -111,9 +111,9 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
 
         if (Types.ObjectId.isValid(ctx.user.invitedBy)) {
           const referrer = await this.userModel.findById(ctx.user.invitedBy)
-          if (referrer) {
-            const amount = Math.floor(total_amount * 0.04)
+          const amount = Math.floor(total_amount * 0.04)
 
+          if (referrer && amount > 0) {
             await referrer
               .updateOne({ $inc: { balance: amount } })
               .session(session)
