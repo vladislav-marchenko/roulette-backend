@@ -14,6 +14,7 @@ import { BotModule } from './bot/bot.module'
 import { GramjsModule } from './gramjs/gramjs.module'
 import { TransactionsModule } from './transactions/transactions.module'
 import { BullModule } from '@nestjs/bullmq'
+import { PromocodesModule } from './promocodes/promocodes.module'
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { BullModule } from '@nestjs/bullmq'
     ActionsModule,
     BotModule,
     GramjsModule,
+    PromocodesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -25,6 +25,12 @@ export class User {
 
   @Prop({ ref: 'User' })
   invitedBy?: Types.ObjectId
+
+  @Prop({ default: [] })
+  freeSpins: {
+    amount: number
+    expiresAt: Date
+  }[]
 }
 
 export const UserSchema = SchemaFactory.createForClass(User)
