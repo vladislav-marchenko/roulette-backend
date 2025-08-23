@@ -1,6 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { InjectConnection, InjectModel } from '@nestjs/mongoose'
-import e from 'express'
 import { Connection, Model, Types } from 'mongoose'
 import { PromocodeActivation } from 'src/schemas/promocode-activation.schema'
 import { Promocode } from 'src/schemas/promocode.schema'
@@ -78,7 +77,7 @@ export class PromocodesService {
       await user.save({ session })
       await session.commitTransaction()
 
-      const { weightMultiplier, ...userData } = user
+      const { weightMultiplier, ...userData } = user.toObject()
       return userData
     } catch (error) {
       await session.abortTransaction()
