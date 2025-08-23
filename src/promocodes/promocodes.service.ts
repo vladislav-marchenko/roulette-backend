@@ -29,7 +29,7 @@ export class PromocodesService {
 
     try {
       const promo = await this.promocodeModel
-        .findOne({ code: promocode })
+        .findOne({ code: promocode.toLowerCase() })
         .session(session)
 
       if (!promo) throw new BadRequestException('Promocode not found')
