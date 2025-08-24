@@ -18,7 +18,7 @@ export class FragmentService implements OnModuleInit {
   private readonly TELEGRAM_PHONE = process.env.TELEGRAM_PHONE
   private readonly WALLET_MNEMONICS = process.env.WALLET_MNEMONICS
 
-  private sessionFilePath = path.join(process.cwd(), 'telegram-session.txt')
+  private sessionFilePath = path.join(process.cwd(), 'fragment-session.txt')
   private JWT_TOKEN: string
 
   async onModuleInit() {
