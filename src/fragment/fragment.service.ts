@@ -7,6 +7,8 @@ import {
 import { HttpService } from '@nestjs/axios'
 import { firstValueFrom } from 'rxjs'
 import { AxiosError } from 'axios'
+import * as fs from 'fs/promises'
+import * as path from 'path'
 
 @Injectable()
 export class FragmentService implements OnModuleInit {
@@ -15,10 +17,19 @@ export class FragmentService implements OnModuleInit {
   private readonly API_KEY = process.env.FRAGMENT_API_KEY
   private readonly TELEGRAM_PHONE = process.env.TELEGRAM_PHONE
   private readonly WALLET_MNEMONICS = process.env.WALLET_MNEMONICS
+
+  private sessionFilePath = path.join(process.cwd(), 'telegram-session.txt')
   private JWT_TOKEN: string
 
   async onModuleInit() {
-    this.JWT_TOKEN = await this.getToken()
+    try {
+      const token = await fs.readFile(this.sessionFilePath, 'utf-8')
+      this.JWT_TOKEN = token.trim()
+    } catch (error) {
+      console.log('Refreshing token...')
+      this.JWT_TOKEN = await this.getToken()
+      await fs.writeFile(this.sessionFilePath, this.JWT_TOKEN)
+    }
   }
 
   async getToken() {
