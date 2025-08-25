@@ -41,7 +41,7 @@ export class UserService {
   }
 
   getMe(user: AuthRequest['user']) {
-    const { weightMultiplier, referralRate, ...userData } = user
+    const { weightMultiplier, ...userData } = user
     return userData
   }
 }
