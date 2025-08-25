@@ -57,7 +57,7 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
     username: string
     giftId: string
   }) {
-    const user = await this.client.getEntity(telegramId ?? username)
+    const user = await this.client.getEntity(username)
     if (!(user instanceof Api.User)) throw new Error('User not found')
 
     const invoice = new Api.InputInvoiceStarGift({
