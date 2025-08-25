@@ -141,7 +141,7 @@ export class RewardsService {
     await reward.deleteOne()
     await this.gramjsService.sendGift({
       username: user.username,
-      //telegramId: user.telegramId,
+      telegramId: user.telegramId,
       giftId: populatedReward.prize.telegramGiftId,
     })
   }
