@@ -10,6 +10,6 @@ export class ReferralsController {
   @Get('stats')
   @UseGuards(AuthGuard)
   findMyReferralStats(@Request() request: AuthRequest) {
-    return this.referralsService.getMyReferralStats(request.user.id)
+    return this.referralsService.getMyReferralStats(request.user._id)
   }
 }

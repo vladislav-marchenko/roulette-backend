@@ -21,6 +21,6 @@ export class ReferralsService {
       { $group: { _id: null, amount: { $sum: '$amount' } } },
     ])
 
-    return { amount: referralsCount, earned }
+    return { amount: referralsCount, earned: earned[0]?.amount || 0 }
   }
 }
