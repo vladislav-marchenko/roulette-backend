@@ -122,27 +122,47 @@ export class RewardsService {
     user: AuthRequest['user']
     rewardId: string
   }) {
-    const reward = await this.rewardModel.findById(rewardId)
-    if (!reward) {
-      throw new BadRequestException('Reward not found')
-    }
+    const session = await this.connection.startSession()
+    session.startTransaction()
 
-    if (reward.user.toString() !== user._id.toString()) {
-      throw new BadRequestException('You are not the owner of this reward')
-    }
+    try {
+      const reward = await this.rewardModel.findById(rewardId).session(session)
+      if (!reward) {
+        throw new BadRequestException('Reward not found')
+      }
 
-    const populatedReward = await reward.populate<{ prize: Prize }>('prize')
-    if (!populatedReward.prize.telegramGiftId) {
-      throw new BadRequestException(
-        'Limited gifts cannot be withdrawn automatically.',
-      )
-    }
+      /*
+      if (reward.locked) {
+        throw new BadRequestException('Reward is being processed')
+      }
+        */
 
-    await reward.deleteOne()
-    await this.gramjsService.sendGift({
-      username: user.username,
-      telegramId: user.telegramId,
-      giftId: populatedReward.prize.telegramGiftId,
-    })
+      if (reward.user.toString() !== user._id.toString()) {
+        throw new BadRequestException('You are not the owner of this reward')
+      }
+
+      const populatedReward = await reward.populate<{ prize: Prize }>('prize')
+      if (!populatedReward.prize.telegramGiftId) {
+        throw new BadRequestException(
+          'Limited gifts cannot be withdrawn automatically.',
+        )
+      }
+
+      // await reward.updateOne({ locked: true }).session(session)
+
+      await reward.deleteOne().session(session)
+      await this.gramjsService.sendGift({
+        username: user.username,
+        telegramId: user.telegramId,
+        giftId: populatedReward.prize.telegramGiftId,
+      })
+
+      await session.commitTransaction()
+    } catch (error) {
+      await session.abortTransaction()
+      throw error
+    } finally {
+      await session.endSession()
+    }
   }
 }
