@@ -19,7 +19,7 @@ export class RouletteService {
     @InjectModel(Action.name) private readonly actionModel: Model<Action>,
   ) {}
 
-  async spin(userId: Types.ObjectId, price: number = 25) {
+  async spin(userId: Types.ObjectId, price: number = 30) {
     const session = await this.connection.startSession()
     session.startTransaction()
 
@@ -37,7 +37,7 @@ export class RouletteService {
       }
 
       const weights = prizes.map((prize) => {
-        const baseWeight = 1 / Math.pow(prize.price || 1, 2)
+        const baseWeight = 1 / Math.pow(prize.price || 1, 3)
         const multiplier = prize.weightMultiplier ?? 1
 
         if (prize.price > price) {
