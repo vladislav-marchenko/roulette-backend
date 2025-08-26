@@ -1,7 +1,7 @@
 import { Processor, WorkerHost } from '@nestjs/bullmq'
 import { InjectModel } from '@nestjs/mongoose'
 import { Job } from 'bullmq'
-import { Model, Types } from 'mongoose'
+import { ClientSession, Model, Types } from 'mongoose'
 import { FragmentService } from 'src/fragment/fragment.service'
 import { Action } from 'src/schemas/action.schema'
 
@@ -15,17 +15,24 @@ export class WithdrawsConsumer extends WorkerHost {
   }
 
   async process(
-    job: Job<{ username: string; quantity: number; actionId: Types.ObjectId }>,
+    job: Job<{
+      username: string
+      quantity: number
+      actionId: Types.ObjectId
+      session: ClientSession
+    }>,
   ) {
     const {
-      data: { username, quantity, actionId },
+      data: { username, quantity, actionId, session },
     } = job
     console.log(`Sending ${quantity} stars to @${username}`)
 
     await this.fragmentService.sendStars({ username, quantity })
-    await this.actionsModel.findByIdAndUpdate(actionId, {
-      status: 'success',
-    })
+    await this.actionsModel
+      .findByIdAndUpdate(actionId, {
+        status: 'success',
+      })
+      .session(session)
 
     return true
   }

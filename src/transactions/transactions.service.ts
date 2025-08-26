@@ -1,8 +1,8 @@
 import { InjectQueue } from '@nestjs/bullmq'
 import { BadRequestException, Injectable } from '@nestjs/common'
-import { InjectModel } from '@nestjs/mongoose'
+import { InjectConnection, InjectModel } from '@nestjs/mongoose'
 import { Queue } from 'bullmq'
-import { Model, Types } from 'mongoose'
+import { Connection, Model, Types } from 'mongoose'
 import { BotService } from 'src/bot/bot.service'
 import { Action } from 'src/schemas/action.schema'
 import { User } from 'src/schemas/user.schema'
@@ -14,6 +14,7 @@ export class TransactionsService {
     @InjectModel(User.name) private readonly userModel: Model<User>,
     @InjectModel(Action.name) private readonly actionsModel: Model<Action>,
     @InjectQueue('withdraws') private readonly withdrawsQueue: Queue,
+    @InjectConnection() private readonly connection: Connection,
     private readonly botService: BotService,
   ) {}
 
@@ -54,30 +55,43 @@ export class TransactionsService {
       )
     }
 
-    const updatedUser = await this.userModel.findOneAndUpdate(
-      { _id: user._id, balance: { $gte: quantity } },
-      { $inc: { balance: -quantity } },
-      { new: true },
-    )
+    const session = await this.connection.startSession()
+    session.startTransaction()
 
-    if (!updatedUser) {
-      throw new BadRequestException('Insufficient balance')
+    try {
+      const updatedUser = await this.userModel.findOneAndUpdate(
+        { _id: user._id, balance: { $gte: quantity } },
+        { $inc: { balance: -quantity } },
+        { session, new: true },
+      )
+
+      if (!updatedUser) {
+        throw new BadRequestException('Insufficient balance')
+      }
+
+      const action = new this.actionsModel({
+        type: 'withdraw',
+        amount: quantity,
+        user: user._id,
+        status: 'pending',
+      })
+
+      await this.withdrawsQueue.add('withdraws', {
+        username: user.username,
+        quantity: quantityWithCommission,
+        actionId: action._id,
+        session,
+      })
+
+      await action.save({ session })
+      await session.commitTransaction()
+
+      return action
+    } catch (error) {
+      await session.abortTransaction()
+      throw error
+    } finally {
+      await session.endSession()
     }
-
-    const action = new this.actionsModel({
-      type: 'withdraw',
-      amount: quantity,
-      user: user._id,
-      status: 'pending',
-    })
-
-    await this.withdrawsQueue.add('withdraws', {
-      username: user.username,
-      quantity: quantityWithCommission,
-      actionId: action._id,
-    })
-
-    await action.save()
-    return action
   }
 }
