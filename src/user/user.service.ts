@@ -1,11 +1,15 @@
 import { Injectable } from '@nestjs/common'
+import { InjectModel } from '@nestjs/mongoose'
+import { Model, Types } from 'mongoose'
 import { BotService } from 'src/bot/bot.service'
+import { User } from 'src/schemas/user.schema'
 import { TasksService } from 'src/tasks/tasks.service'
 import { AuthRequest } from 'src/types'
 
 @Injectable()
 export class UserService {
   constructor(
+    @InjectModel(User.name) private readonly userModel: Model<User>,
     private readonly botService: BotService,
     private readonly tasksService: TasksService,
   ) {}

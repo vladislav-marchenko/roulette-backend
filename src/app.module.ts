@@ -15,6 +15,7 @@ import { GramjsModule } from './gramjs/gramjs.module'
 import { TransactionsModule } from './transactions/transactions.module'
 import { BullModule } from '@nestjs/bullmq'
 import { PromocodesModule } from './promocodes/promocodes.module'
+import { ReferralsModule } from './referrals/referrals.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { PromocodesModule } from './promocodes/promocodes.module'
     BotModule,
     GramjsModule,
     PromocodesModule,
+    ReferralsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
