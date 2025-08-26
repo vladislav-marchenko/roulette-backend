@@ -80,7 +80,6 @@ export class TransactionsService {
         username: user.username,
         quantity: quantityWithCommission,
         actionId: action._id,
-        session,
       })
 
       await action.save({ session })
