@@ -48,6 +48,12 @@ export class TransactionsService {
       )
     }
 
+    if (!user.username) {
+      throw new BadRequestException(
+        'Unable to send stars: please set a username in your Telegram account so we can identify you',
+      )
+    }
+
     const updatedUser = await this.userModel.findOneAndUpdate(
       { _id: user._id, balance: { $gte: quantity } },
       { $inc: { balance: -quantity } },

@@ -93,6 +93,7 @@ export class FragmentService implements OnModuleInit {
         throw new InternalServerErrorException('Failed to send stars')
       }
 
+      /*
       if (retryCount < 3) {
         this.JWT_TOKEN = await this.getToken()
         return await this.sendStars({
@@ -101,6 +102,7 @@ export class FragmentService implements OnModuleInit {
           retryCount: retryCount + 1,
         })
       }
+        */
 
       throw new BadGatewayException(
         'Failed to send stars due to internal API error.',
