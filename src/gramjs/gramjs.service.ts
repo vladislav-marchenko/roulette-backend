@@ -6,6 +6,7 @@ import input from 'input'
 import * as fs from 'fs/promises'
 import * as path from 'path'
 import * as bigInt from 'big-integer'
+import { Entity } from 'telegram/define'
 
 @Injectable()
 export class GramjsService implements OnModuleInit, OnModuleDestroy {
@@ -57,8 +58,19 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
     username: string
     giftId: string
   }) {
-    const user = await this.client.getEntity(username)
-    if (!(user instanceof Api.User)) throw new Error('User not found')
+    let user: Entity
+
+    if (username) {
+      user = await this.client.getEntity(username)
+    } else {
+      user = await this.client.getEntity(telegramId)
+    }
+
+    if (!(user instanceof Api.User)) {
+      throw new Error(
+        'Unable to send gift: user not found. Please set a username in Telegram or simply send any message to @giftica_support so we can access your ID.',
+      )
+    }
 
     const invoice = new Api.InputInvoiceStarGift({
       peer: new Api.InputPeerUser({

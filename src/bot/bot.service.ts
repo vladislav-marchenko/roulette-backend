@@ -44,11 +44,13 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
 
     this.bot.on('pre_checkout_query', async (ctx) => {
       try {
+        /*
         if (!ctx.user) {
           return await ctx.answerPreCheckoutQuery(false, {
             error_message: 'User not found. Payment cannot be processed.',
           })
         }
+        */
 
         const { currency } = ctx.preCheckoutQuery
         if (currency !== 'XTR') {
