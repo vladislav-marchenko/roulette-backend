@@ -131,12 +131,6 @@ export class RewardsService {
         throw new BadRequestException('Reward not found')
       }
 
-      /*
-      if (reward.locked) {
-        throw new BadRequestException('Reward is being processed')
-      }
-        */
-
       if (reward.user.toString() !== user._id.toString()) {
         throw new BadRequestException('You are not the owner of this reward')
       }
@@ -147,8 +141,6 @@ export class RewardsService {
           'Limited gifts cannot be withdrawn automatically.',
         )
       }
-
-      // await reward.updateOne({ locked: true }).session(session)
 
       await reward.deleteOne().session(session)
       await this.gramjsService.sendGift({

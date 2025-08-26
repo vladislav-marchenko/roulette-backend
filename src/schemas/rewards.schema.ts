@@ -10,9 +10,6 @@ export class Reward {
 
   @Prop({ required: true, ref: 'User' })
   user: Types.ObjectId
-
-  @Prop({ default: false })
-  locked: boolean
 }
 
 export const RewardSchema = SchemaFactory.createForClass(Reward)
