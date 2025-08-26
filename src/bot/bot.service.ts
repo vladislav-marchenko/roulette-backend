@@ -212,7 +212,6 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
 
       return !['left', 'kicked'].includes(member.status)
     } catch (error) {
-      console.log(error)
       return false
     }
   }
