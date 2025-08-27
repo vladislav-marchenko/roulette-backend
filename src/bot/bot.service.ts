@@ -138,11 +138,13 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
           })
           .session(session)
 
-        await this.tasksService.create({
-          userId: ctx.user._id,
-          taskCode: 'deposit_hundred_stars',
-          session,
-        })
+        if (total_amount >= 100) {
+          await this.tasksService.create({
+            userId: ctx.user._id,
+            taskCode: 'deposit_hundred_stars',
+            session,
+          })
+        }
 
         await session.commitTransaction()
         await ctx.reply('Payment successful!')
