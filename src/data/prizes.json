@@ -2,7 +2,10 @@
   {
     "code": "cake",
     "name": "Cake",
-    "price": 50,
+    "price": {
+      "ton": 0.25,
+      "stars": 50
+    },
     "image": "https://giftica.website.yandexcloud.net/prizes/cake/cake.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/cake/cake.json",
     "telegramGiftId": "5170144170496491616"
@@ -10,7 +13,10 @@
   {
     "code": "champagne",
     "name": "Champagne",
-    "price": 50,
+    "price": {
+      "ton": 0.25,
+      "stars": 50
+    },
     "image": "https://giftica.website.yandexcloud.net/prizes/champagne/champagne.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/champagne/champagne.json",
     "telegramGiftId": "6028601630662853006"
@@ -18,7 +24,10 @@
   {
     "code": "cup",
     "name": "Cup",
-    "price": 100,
+    "price": {
+      "ton": 0.49,
+      "stars": 100
+    },
     "weightMultiplier": 0.4,
     "image": "https://giftica.website.yandexcloud.net/prizes/cup/cup.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/cup/cup.json",
@@ -27,7 +36,10 @@
   {
     "code": "diamond",
     "name": "Diamond",
-    "price": 100,
+    "price": {
+      "ton": 0.49,
+      "stars": 100
+    },
     "weightMultiplier": 0.4,
     "image": "https://giftica.website.yandexcloud.net/prizes/diamond/diamond.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/diamond/diamond.json",
@@ -36,7 +48,10 @@
   {
     "code": "flowers",
     "name": "Flowers",
-    "price": 50,
+    "price": {
+      "ton": 0.25,
+      "stars": 50
+    },
     "image": "https://giftica.website.yandexcloud.net/prizes/flowers/flowers.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/flowers/flowers.json",
     "telegramGiftId": "5170314324215857265"
@@ -44,7 +59,10 @@
   {
     "code": "gift",
     "name": "Gift",
-    "price": 25,
+    "price": {
+      "ton": 0.12,
+      "stars": 25
+    },
     "weightMultiplier": 2,
     "image": "https://giftica.website.yandexcloud.net/prizes/gift/gift.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/gift/gift.json",
@@ -53,7 +71,10 @@
   {
     "code": "heart",
     "name": "Heart",
-    "price": 15,
+    "price": {
+      "ton": 0.07,
+      "stars": 15
+    },
     "image": "https://giftica.website.yandexcloud.net/prizes/heart/heart.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/heart/heart.json",
     "telegramGiftId": "5170145012310081615"
@@ -61,7 +82,10 @@
   {
     "code": "ring",
     "name": "Ring",
-    "price": 100,
+    "price": {
+      "ton": 0.49,
+      "stars": 100
+    },
     "weightMultiplier": 0.4,
     "image": "https://giftica.website.yandexcloud.net/prizes/ring/ring.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/ring/ring.json",
@@ -70,7 +94,10 @@
   {
     "code": "rocket",
     "name": "Rocket",
-    "price": 50,
+    "price": {
+      "ton": 0.25,
+      "stars": 50
+    },
     "image": "https://giftica.website.yandexcloud.net/prizes/rocket/rocket.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/rocket/rocket.json",
     "telegramGiftId": "5170564780938756245"
@@ -78,7 +105,10 @@
   {
     "code": "rose",
     "name": "Rose",
-    "price": 25,
+    "price": {
+      "ton": 0.12,
+      "stars": 25
+    },
     "weightMultiplier": 2,
     "image": "https://giftica.website.yandexcloud.net/prizes/rose/rose.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/rose/rose.json",
@@ -87,9 +117,902 @@
   {
     "code": "teddy-bear",
     "name": "Teddy Bear",
-    "price": 15,
+    "price": {
+      "ton": 0.07,
+      "stars": 15
+    },
     "image": "https://giftica.website.yandexcloud.net/prizes/teddy-bear/teddy-bear.png",
     "lottie": "https://giftica.website.yandexcloud.net/prizes/teddy-bear/teddy-bear.json",
     "telegramGiftId": "5170233102089322756"
+  },
+  {
+    "code": "santa-hat",
+    "name": "Santa Hat",
+    "price": {
+      "ton": 1.89,
+      "stars": 380
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/santa-hat/santa-hat.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/santa-hat/santa-hat.json"
+  },
+  {
+    "code": "signet-ring",
+    "name": "Signet Ring",
+    "price": {
+      "ton": 22.5,
+      "stars": 4580
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/signet-ring/signet-ring.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/signet-ring/signet-ring.json"
+  },
+  {
+    "code": "precious-peach",
+    "name": "Precious Peach",
+    "price": {
+      "ton": 255.94,
+      "stars": 52110
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/precious-peach/precious-peach.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/precious-peach/precious-peach.json"
+  },
+  {
+    "code": "plush-pepe",
+    "name": "Plush Pepe",
+    "price": {
+      "ton": 4199.0,
+      "stars": 854850
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/plush-pepe/plush-pepe.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/plush-pepe/plush-pepe.json"
+  },
+  {
+    "code": "spiced-wine",
+    "name": "Spiced Wine",
+    "price": {
+      "ton": 2.11,
+      "stars": 430
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/spiced-wine/spiced-wine.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/spiced-wine/spiced-wine.json"
+  },
+  {
+    "code": "jelly-bunny",
+    "name": "Jelly Bunny",
+    "price": {
+      "ton": 3.13,
+      "stars": 640
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/jelly-bunny/jelly-bunny.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/jelly-bunny/jelly-bunny.json"
+  },
+  {
+    "code": "perfume-bottle",
+    "name": "Perfume Bottle",
+    "price": {
+      "ton": 70.4,
+      "stars": 14330
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/perfume-bottle/perfume-bottle.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/perfume-bottle/perfume-bottle.json"
+  },
+  {
+    "code": "eternal-rose",
+    "name": "Eternal Rose",
+    "price": {
+      "ton": 12.28,
+      "stars": 2500
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/eternal-rose/eternal-rose.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/eternal-rose/eternal-rose.json"
+  },
+  {
+    "code": "berry-box",
+    "name": "Berry Box",
+    "price": {
+      "ton": 3.65,
+      "stars": 740
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/berry-box/berry-box.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/berry-box/berry-box.json"
+  },
+  {
+    "code": "vintage-cigar",
+    "name": "Vintage Cigar",
+    "price": {
+      "ton": 20.99,
+      "stars": 4270
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/vintage-cigar/vintage-cigar.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/vintage-cigar/vintage-cigar.json"
+  },
+  {
+    "code": "magic-potion",
+    "name": "Magic Potion",
+    "price": {
+      "ton": 52.79,
+      "stars": 10750
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/magic-potion/magic-potion.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/magic-potion/magic-potion.json"
+  },
+  {
+    "code": "kissed-frog",
+    "name": "Kissed Frog",
+    "price": {
+      "ton": 25.99,
+      "stars": 5290
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/kissed-frog/kissed-frog.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/kissed-frog/kissed-frog.json"
+  },
+  {
+    "code": "hex-pot",
+    "name": "Hex Pot",
+    "price": {
+      "ton": 2.26,
+      "stars": 460
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/hex-pot/hex-pot.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/hex-pot/hex-pot.json"
+  },
+  {
+    "code": "evil-eye",
+    "name": "Evil Eye",
+    "price": {
+      "ton": 3.23,
+      "stars": 660
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/evil-eye/evil-eye.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/evil-eye/evil-eye.json"
+  },
+  {
+    "code": "sharp-tongue",
+    "name": "Sharp Tongue",
+    "price": {
+      "ton": 29.49,
+      "stars": 6000
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/sharp-tongue/sharp-tongue.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/sharp-tongue/sharp-tongue.json"
+  },
+  {
+    "code": "trapped-heart",
+    "name": "Trapped Heart",
+    "price": {
+      "ton": 6.44,
+      "stars": 1310
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/trapped-heart/trapped-heart.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/trapped-heart/trapped-heart.json"
+  },
+  {
+    "code": "skull-flower",
+    "name": "Skull Flower",
+    "price": {
+      "ton": 5.59,
+      "stars": 1140
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/skull-flower/skull-flower.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/skull-flower/skull-flower.json"
+  },
+  {
+    "code": "scared-cat",
+    "name": "Scared Cat",
+    "price": {
+      "ton": 38.0,
+      "stars": 7740
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/scared-cat/scared-cat.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/scared-cat/scared-cat.json"
+  },
+  {
+    "code": "spy-agaric",
+    "name": "Spy Agaric",
+    "price": {
+      "ton": 2.9,
+      "stars": 590
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/spy-agaric/spy-agaric.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/spy-agaric/spy-agaric.json"
+  },
+  {
+    "code": "homemade-cake",
+    "name": "Homemade Cake",
+    "price": {
+      "ton": 1.54,
+      "stars": 310
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/homemade-cake/homemade-cake.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/homemade-cake/homemade-cake.json"
+  },
+  {
+    "code": "genie-lamp",
+    "name": "Genie Lamp",
+    "price": {
+      "ton": 34.97,
+      "stars": 7120
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/genie-lamp/genie-lamp.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/genie-lamp/genie-lamp.json"
+  },
+  {
+    "code": "lunar-snake",
+    "name": "Lunar Snake",
+    "price": {
+      "ton": 1.35,
+      "stars": 270
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/lunar-snake/lunar-snake.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/lunar-snake/lunar-snake.json"
+  },
+  {
+    "code": "party-sparkler",
+    "name": "Party Sparkler",
+    "price": {
+      "ton": 1.68,
+      "stars": 340
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/party-sparkler/party-sparkler.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/party-sparkler/party-sparkler.json"
+  },
+  {
+    "code": "jester-hat",
+    "name": "Jester Hat",
+    "price": {
+      "ton": 1.67,
+      "stars": 340
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/jester-hat/jester-hat.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/jester-hat/jester-hat.json"
+  },
+  {
+    "code": "witch-hat",
+    "name": "Witch Hat",
+    "price": {
+      "ton": 2.33,
+      "stars": 470
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/witch-hat/witch-hat.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/witch-hat/witch-hat.json"
+  },
+  {
+    "code": "hanging-star",
+    "name": "Hanging Star",
+    "price": {
+      "ton": 4.08,
+      "stars": 830
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/hanging-star/hanging-star.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/hanging-star/hanging-star.json"
+  },
+  {
+    "code": "love-candle",
+    "name": "Love Candle",
+    "price": {
+      "ton": 6.23,
+      "stars": 1270
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/love-candle/love-candle.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/love-candle/love-candle.json"
+  },
+  {
+    "code": "cookie-heart",
+    "name": "Cookie Heart",
+    "price": {
+      "ton": 1.69,
+      "stars": 340
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/cookie-heart/cookie-heart.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/cookie-heart/cookie-heart.json"
+  },
+  {
+    "code": "desk-calendar",
+    "name": "Desk Calendar",
+    "price": {
+      "ton": 1.17,
+      "stars": 240
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/desk-calendar/desk-calendar.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/desk-calendar/desk-calendar.json"
+  },
+  {
+    "code": "jingle-bells",
+    "name": "Jingle Bells",
+    "price": {
+      "ton": 1.72,
+      "stars": 350
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/jingle-bells/jingle-bells.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/jingle-bells/jingle-bells.json"
+  },
+  {
+    "code": "snow-mittens",
+    "name": "Snow Mittens",
+    "price": {
+      "ton": 2.98,
+      "stars": 610
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/snow-mittens/snow-mittens.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/snow-mittens/snow-mittens.json"
+  },
+  {
+    "code": "voodoo-doll",
+    "name": "Voodoo Doll",
+    "price": {
+      "ton": 13.58,
+      "stars": 2760
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/voodoo-doll/voodoo-doll.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/voodoo-doll/voodoo-doll.json"
+  },
+  {
+    "code": "mad-pumpkin",
+    "name": "Mad Pumpkin",
+    "price": {
+      "ton": 12.48,
+      "stars": 2540
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/mad-pumpkin/mad-pumpkin.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/mad-pumpkin/mad-pumpkin.json"
+  },
+  {
+    "code": "hypno-lollipop",
+    "name": "Hypno Lollipop",
+    "price": {
+      "ton": 1.9,
+      "stars": 390
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/hypno-lollipop/hypno-lollipop.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/hypno-lollipop/hypno-lollipop.json"
+  },
+  {
+    "code": "b-day-candle",
+    "name": "B-Day Candle",
+    "price": {
+      "ton": 1.14,
+      "stars": 230
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/b-day-candle/b-day-candle.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/b-day-candle/b-day-candle.json"
+  },
+  {
+    "code": "bunny-muffin",
+    "name": "Bunny Muffin",
+    "price": {
+      "ton": 3.04,
+      "stars": 620
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/bunny-muffin/bunny-muffin.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/bunny-muffin/bunny-muffin.json"
+  },
+  {
+    "code": "astral-shard",
+    "name": "Astral Shard",
+    "price": {
+      "ton": 79.92,
+      "stars": 16270
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/astral-shard/astral-shard.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/astral-shard/astral-shard.json"
+  },
+  {
+    "code": "flying-broom",
+    "name": "Flying Broom",
+    "price": {
+      "ton": 8.6,
+      "stars": 1750
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/flying-broom/flying-broom.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/flying-broom/flying-broom.json"
+  },
+  {
+    "code": "crystal-ball",
+    "name": "Crystal Ball",
+    "price": {
+      "ton": 5.95,
+      "stars": 1210
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/crystal-ball/crystal-ball.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/crystal-ball/crystal-ball.json"
+  },
+  {
+    "code": "eternal-candle",
+    "name": "Eternal Candle",
+    "price": {
+      "ton": 2.89,
+      "stars": 590
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/eternal-candle/eternal-candle.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/eternal-candle/eternal-candle.json"
+  },
+  {
+    "code": "swiss-watch",
+    "name": "Swiss Watch",
+    "price": {
+      "ton": 30.0,
+      "stars": 6110
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/swiss-watch/swiss-watch.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/swiss-watch/swiss-watch.json"
+  },
+  {
+    "code": "ginger-cookie",
+    "name": "Ginger Cookie",
+    "price": {
+      "ton": 1.74,
+      "stars": 350
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/ginger-cookie/ginger-cookie.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/ginger-cookie/ginger-cookie.json"
+  },
+  {
+    "code": "mini-oscar",
+    "name": "Mini Oscar",
+    "price": {
+      "ton": 75.0,
+      "stars": 15270
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/mini-oscar/mini-oscar.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/mini-oscar/mini-oscar.json"
+  },
+  {
+    "code": "lol-pop",
+    "name": "Lol Pop",
+    "price": {
+      "ton": 1.25,
+      "stars": 250
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/lol-pop/lol-pop.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/lol-pop/lol-pop.json"
+  },
+  {
+    "code": "ion-gem",
+    "name": "Ion Gem",
+    "price": {
+      "ton": 67.17,
+      "stars": 13670
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/ion-gem/ion-gem.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/ion-gem/ion-gem.json"
+  },
+  {
+    "code": "star-notepad",
+    "name": "Star Notepad",
+    "price": {
+      "ton": 2.0,
+      "stars": 410
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/star-notepad/star-notepad.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/star-notepad/star-notepad.json"
+  },
+  {
+    "code": "loot-bag",
+    "name": "Loot Bag",
+    "price": {
+      "ton": 77.64,
+      "stars": 15810
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/loot-bag/loot-bag.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/loot-bag/loot-bag.json"
+  },
+  {
+    "code": "love-potion",
+    "name": "Love Potion",
+    "price": {
+      "ton": 7.99,
+      "stars": 1630
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/love-potion/love-potion.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/love-potion/love-potion.json"
+  },
+  {
+    "code": "toy-bear",
+    "name": "Toy Bear",
+    "price": {
+      "ton": 16.97,
+      "stars": 3450
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/toy-bear/toy-bear.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/toy-bear/toy-bear.json"
+  },
+  {
+    "code": "diamond-ring",
+    "name": "Diamond Ring",
+    "price": {
+      "ton": 14.6,
+      "stars": 2970
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/diamond-ring/diamond-ring.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/diamond-ring/diamond-ring.json"
+  },
+  {
+    "code": "sakura-flower",
+    "name": "Sakura Flower",
+    "price": {
+      "ton": 4.09,
+      "stars": 830
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/sakura-flower/sakura-flower.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/sakura-flower/sakura-flower.json"
+  },
+  {
+    "code": "sleigh-bell",
+    "name": "Sleigh Bell",
+    "price": {
+      "ton": 5.25,
+      "stars": 1070
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/sleigh-bell/sleigh-bell.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/sleigh-bell/sleigh-bell.json"
+  },
+  {
+    "code": "top-hat",
+    "name": "Top Hat",
+    "price": {
+      "ton": 7.32,
+      "stars": 1490
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/top-hat/top-hat.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/top-hat/top-hat.json"
+  },
+  {
+    "code": "record-player",
+    "name": "Record Player",
+    "price": {
+      "ton": 9.41,
+      "stars": 1920
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/record-player/record-player.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/record-player/record-player.json"
+  },
+  {
+    "code": "winter-wreath",
+    "name": "Winter Wreath",
+    "price": {
+      "ton": 1.67,
+      "stars": 340
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/winter-wreath/winter-wreath.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/winter-wreath/winter-wreath.json"
+  },
+  {
+    "code": "snow-globe",
+    "name": "Snow Globe",
+    "price": {
+      "ton": 2.24,
+      "stars": 460
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/snow-globe/snow-globe.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/snow-globe/snow-globe.json"
+  },
+  {
+    "code": "electric-skull",
+    "name": "Electric Skull",
+    "price": {
+      "ton": 24.66,
+      "stars": 5020
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/electric-skull/electric-skull.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/electric-skull/electric-skull.json"
+  },
+  {
+    "code": "tama-gadget",
+    "name": "Tama Gadget",
+    "price": {
+      "ton": 1.83,
+      "stars": 370
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/tama-gadget/tama-gadget.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/tama-gadget/tama-gadget.json"
+  },
+  {
+    "code": "candy-cane",
+    "name": "Candy Cane",
+    "price": {
+      "ton": 1.49,
+      "stars": 300
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/candy-cane/candy-cane.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/candy-cane/candy-cane.json"
+  },
+  {
+    "code": "neko-helmet",
+    "name": "Neko Helmet",
+    "price": {
+      "ton": 21.72,
+      "stars": 4420
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/neko-helmet/neko-helmet.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/neko-helmet/neko-helmet.json"
+  },
+  {
+    "code": "jack-in-the-box",
+    "name": "Jack-in-the-Box",
+    "price": {
+      "ton": 1.84,
+      "stars": 370
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/jack-in-the-box/jack-in-the-box.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/jack-in-the-box/jack-in-the-box.json"
+  },
+  {
+    "code": "easter-egg",
+    "name": "Easter Egg",
+    "price": {
+      "ton": 2.74,
+      "stars": 560
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/easter-egg/easter-egg.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/easter-egg/easter-egg.json"
+  },
+  {
+    "code": "bonded-ring",
+    "name": "Bonded Ring",
+    "price": {
+      "ton": 44.0,
+      "stars": 8960
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/bonded-ring/bonded-ring.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/bonded-ring/bonded-ring.json"
+  },
+  {
+    "code": "pet-snake",
+    "name": "Pet Snake",
+    "price": {
+      "ton": 1.48,
+      "stars": 300
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/pet-snake/pet-snake.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/pet-snake/pet-snake.json"
+  },
+  {
+    "code": "snake-box",
+    "name": "Snake Box",
+    "price": {
+      "ton": 1.27,
+      "stars": 260
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/snake-box/snake-box.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/snake-box/snake-box.json"
+  },
+  {
+    "code": "xmas-stocking",
+    "name": "Xmas Stocking",
+    "price": {
+      "ton": 1.36,
+      "stars": 280
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/xmas-stocking/xmas-stocking.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/xmas-stocking/xmas-stocking.json"
+  },
+  {
+    "code": "big-year",
+    "name": "Big Year",
+    "price": {
+      "ton": 1.65,
+      "stars": 340
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/big-year/big-year.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/big-year/big-year.json"
+  },
+  {
+    "code": "holiday-drink",
+    "name": "Holiday Drink",
+    "price": {
+      "ton": 1.78,
+      "stars": 360
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/holiday-drink/holiday-drink.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/holiday-drink/holiday-drink.json"
+  },
+  {
+    "code": "gem-signet",
+    "name": "Gem Signet",
+    "price": {
+      "ton": 55.0,
+      "stars": 11200
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/gem-signet/gem-signet.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/gem-signet/gem-signet.json"
+  },
+  {
+    "code": "light-sword",
+    "name": "Light Sword",
+    "price": {
+      "ton": 2.84,
+      "stars": 580
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/light-sword/light-sword.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/light-sword/light-sword.json"
+  },
+  {
+    "code": "restless-jar",
+    "name": "Restless Jar",
+    "price": {
+      "ton": 2.2,
+      "stars": 450
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/restless-jar/restless-jar.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/restless-jar/restless-jar.json"
+  },
+  {
+    "code": "nail-bracelet",
+    "name": "Nail Bracelet",
+    "price": {
+      "ton": 105.9,
+      "stars": 21560
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/nail-bracelet/nail-bracelet.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/nail-bracelet/nail-bracelet.json"
+  },
+  {
+    "code": "heroic-helmet",
+    "name": "Heroic Helmet",
+    "price": {
+      "ton": 198.99,
+      "stars": 40510
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/heroic-helmet/heroic-helmet.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/heroic-helmet/heroic-helmet.json"
+  },
+  {
+    "code": "bow-tie",
+    "name": "Bow Tie",
+    "price": {
+      "ton": 3.04,
+      "stars": 620
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/bow-tie/bow-tie.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/bow-tie/bow-tie.json"
+  },
+  {
+    "code": "heart-locket",
+    "name": "Heart Locket",
+    "price": {
+      "ton": 1249.99,
+      "stars": 254480
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/heart-locket/heart-locket.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/heart-locket/heart-locket.json"
+  },
+  {
+    "code": "lush-bouquet",
+    "name": "Lush Bouquet",
+    "price": {
+      "ton": 2.48,
+      "stars": 500
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/lush-bouquet/lush-bouquet.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/lush-bouquet/lush-bouquet.json"
+  },
+  {
+    "code": "whip-cupcake",
+    "name": "Whip Cupcake",
+    "price": {
+      "ton": 1.43,
+      "stars": 290
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/whip-cupcake/whip-cupcake.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/whip-cupcake/whip-cupcake.json"
+  },
+  {
+    "code": "joyful-bundle",
+    "name": "Joyful Bundle",
+    "price": {
+      "ton": 2.7,
+      "stars": 550
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/joyful-bundle/joyful-bundle.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/joyful-bundle/joyful-bundle.json"
+  },
+  {
+    "code": "cupid-charm",
+    "name": "Cupid Charm",
+    "price": {
+      "ton": 8.87,
+      "stars": 1810
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/cupid-charm/cupid-charm.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/cupid-charm/cupid-charm.json"
+  },
+  {
+    "code": "valentine-box",
+    "name": "Valentine Box",
+    "price": {
+      "ton": 3.89,
+      "stars": 790
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/valentine-box/valentine-box.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/valentine-box/valentine-box.json"
+  },
+  {
+    "code": "snoop-dogg",
+    "name": "Snoop Dogg",
+    "price": {
+      "ton": 1.7,
+      "stars": 350
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/snoop-dogg/snoop-dogg.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/snoop-dogg/snoop-dogg.json"
+  },
+  {
+    "code": "swag-bag",
+    "name": "Swag Bag",
+    "price": {
+      "ton": 1.93,
+      "stars": 390
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/swag-bag/swag-bag.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/swag-bag/swag-bag.json"
+  },
+  {
+    "code": "snoop-cigar",
+    "name": "Snoop Cigar",
+    "price": {
+      "ton": 4.4,
+      "stars": 900
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/snoop-cigar/snoop-cigar.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/snoop-cigar/snoop-cigar.json"
+  },
+  {
+    "code": "low-rider",
+    "name": "Low Rider",
+    "price": {
+      "ton": 22.67,
+      "stars": 4620
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/low-rider/low-rider.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/low-rider/low-rider.json"
+  },
+  {
+    "code": "westside-sign",
+    "name": "Westside Sign",
+    "price": {
+      "ton": 44.39,
+      "stars": 9040
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/westside-sign/westside-sign.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/westside-sign/westside-sign.json"
+  },
+  {
+    "code": "stellar-rocket",
+    "name": "Stellar Rocket",
+    "price": {
+      "ton": 1.9,
+      "stars": 390
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/stellar-rocket/stellar-rocket.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/stellar-rocket/stellar-rocket.json"
+  },
+  {
+    "code": "jolly-chimp",
+    "name": "Jolly Chimp",
+    "price": {
+      "ton": 3.0,
+      "stars": 610
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/jolly-chimp/jolly-chimp.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/jolly-chimp/jolly-chimp.json"
+  },
+  {
+    "code": "moon-pendant",
+    "name": "Moon Pendant",
+    "price": {
+      "ton": 1.66,
+      "stars": 340
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/moon-pendant/moon-pendant.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/moon-pendant/moon-pendant.json"
+  },
+  {
+    "code": "ionic-dryer",
+    "name": "Ionic Dryer",
+    "price": {
+      "ton": 19.0,
+      "stars": 3870
+    },
+    "image": "https://giftica.website.yandexcloud.net/prizes/ionic-dryer/ionic-dryer.png",
+    "lottie": "https://giftica.website.yandexcloud.net/prizes/ionic-dryer/ionic-dryer.json"
   }
 ]
