@@ -1,7 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { InjectConnection, InjectModel } from '@nestjs/mongoose'
 import { Connection, Model, Types } from 'mongoose'
-import { PrizesService } from 'src/prizes/prizes.service'
 import { Action } from 'src/schemas/action.schema'
 import { Prize } from 'src/schemas/prize.schema'
 import { Reward } from 'src/schemas/rewards.schema'
@@ -12,7 +11,6 @@ import { TasksService } from 'src/tasks/tasks.service'
 @Injectable()
 export class RoulettesService {
   constructor(
-    private readonly prizesService: PrizesService,
     private readonly tasksService: TasksService,
     @InjectConnection() private readonly connection: Connection,
     @InjectModel(User.name) private readonly userModel: Model<User>,
@@ -22,62 +20,73 @@ export class RoulettesService {
   ) {}
 
   async getRoulettes() {
-    return await this.rouletteModel.find().select('-rewards').sort({ price: 1 })
+    return await this.rouletteModel
+      .find()
+      .select('-weightMultipliers')
+      .sort({ price: 1 })
   }
 
   async getRoulette(code: string) {
     const { weightMultipliers, ...roulette } = await this.rouletteModel
       .findOne({ code })
       .populate('prizes')
-      .sort({ price: 1 })
       .lean()
 
     return roulette
   }
 
-  async spin(userId: Types.ObjectId, price: number = 25) {
+  async spin({ userId, code }: { userId: Types.ObjectId; code: string }) {
     const session = await this.connection.startSession()
     session.startTransaction()
 
     try {
+      const roulette = await this.rouletteModel
+        .findOne({ code })
+        .populate<{ prizes: Prize[] }>('prizes')
+        .session(session)
+      if (!roulette) {
+        throw new BadRequestException('Roulette not found')
+      }
+
       const user = await this.userModel
-        .findOne({ _id: userId, balance: { $gte: price } })
+        .findOne({ _id: userId, balance: { $gte: roulette.price } })
         .session(session)
       if (!user) {
         throw new BadRequestException('Insufficient balance')
       }
 
-      const prizes = await this.prizesService.findAll()
-      if (!prizes.length) {
-        throw new BadRequestException('Prizes not found')
-      }
-
-      const weights = prizes.map((prize) => {
+      const weights = roulette.prizes.map((prize) => {
         const baseWeight = 1 / Math.pow(prize.price || 1, 2.5)
-        const multiplier = prize.weightMultiplier ?? 1
+        const multiplier = roulette.weightMultipliers.find((multiplier) => {
+          return multiplier.prizeCode === prize.code
+        })
 
-        if (prize.price > price) {
+        const weightMultiplier = multiplier ? multiplier.weightMultiplier : 1
+
+        /*
+        if (prize.price > roulette.price) {
           return baseWeight * multiplier * user.weightMultiplier
         }
+        */
 
-        return baseWeight * multiplier
+        return baseWeight * weightMultiplier
       })
       const totalWeight = weights.reduce((acc, weight) => acc + weight, 0)
 
       let random = Math.random() * totalWeight
       let prize: Prize
 
-      for (let i = 0; i < prizes.length; i++) {
+      for (let i = 0; i < roulette.prizes.length; i++) {
         random -= weights[i]
         if (random <= 0) {
-          prize = prizes[i]
+          prize = roulette.prizes[i]
           break
         }
       }
 
       // fallback
       if (!prize) {
-        prize = prizes.reduce((cheapest, current) => {
+        prize = roulette.prizes.reduce((cheapest, current) => {
           return current.price < cheapest.price ? current : cheapest
         })
       }
@@ -90,14 +99,14 @@ export class RoulettesService {
       await reward.populate('prize')
 
       await user
-        .updateOne({ $inc: { balance: -price, spinCount: 1 } })
+        .updateOne({ $inc: { balance: -roulette.price, spinCount: 1 } })
         .session(session)
 
       const action = new this.actionModel({
         type: 'spin',
         status: 'success',
         user: user._id,
-        amount: price,
+        amount: roulette.price,
         prizeCode: prize.code,
       })
       await action.save({ session })

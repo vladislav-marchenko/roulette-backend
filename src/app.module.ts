@@ -5,7 +5,6 @@ import { ConfigModule } from '@nestjs/config'
 import { MongooseModule } from '@nestjs/mongoose'
 import { User, UserSchema } from './schemas/user.schema'
 import { UserModule } from './user/user.module'
-import { PrizesModule } from './prizes/prizes.module'
 import { RoulettesModule } from './roulettes/roulettes.module'
 import { RewardsModule } from './rewards/rewards.module'
 import { TasksModule } from './tasks/tasks.module'
@@ -27,7 +26,6 @@ import { ReferralsModule } from './referrals/referrals.module'
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     UserModule,
     TasksModule,
-    PrizesModule,
     RoulettesModule,
     RewardsModule,
     TransactionsModule,

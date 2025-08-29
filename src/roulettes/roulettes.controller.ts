@@ -24,9 +24,12 @@ export class RoulettesController {
     return this.roulettesService.getRoulette(code)
   }
 
-  @Post('spin')
+  @Post(':code/spin')
   @UseGuards(AuthGuard)
-  spin(@Request() request: AuthRequest) {
-    return this.roulettesService.spin(request.user._id)
+  spin(@Request() request: AuthRequest, @Param('code') code: string) {
+    return this.roulettesService.spin({
+      userId: request.user._id,
+      code,
+    })
   }
 }
