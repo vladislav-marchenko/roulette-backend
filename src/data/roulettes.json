@@ -6,17 +6,17 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/classic.png",
     "color": "#973c00",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 1 },
-      { "prizeCode": "ring", "weightMultiplier": 1 },
-      { "prizeCode": "diamond", "weightMultiplier": 1 },
-      { "prizeCode": "champagne", "weightMultiplier": 1 },
-      { "prizeCode": "flowers", "weightMultiplier": 1 },
-      { "prizeCode": "rocket", "weightMultiplier": 1 },
-      { "prizeCode": "cake", "weightMultiplier": 1 },
-      { "prizeCode": "gift", "weightMultiplier": 1 },
-      { "prizeCode": "rose", "weightMultiplier": 1 },
-      { "prizeCode": "heart", "weightMultiplier": 1 },
-      { "prizeCode": "teddy-bear", "weightMultiplier": 1 }
+      { "prizeCode": "cup", "weightMultiplier": 0.4 },
+      { "prizeCode": "ring", "weightMultiplier": 0.4 },
+      { "prizeCode": "diamond", "weightMultiplier": 0.4 },
+      { "prizeCode": "champagne" },
+      { "prizeCode": "flowers" },
+      { "prizeCode": "rocket" },
+      { "prizeCode": "cake" },
+      { "prizeCode": "gift", "weightMultiplier": 2 },
+      { "prizeCode": "rose", "weightMultiplier": 2 },
+      { "prizeCode": "heart" },
+      { "prizeCode": "teddy-bear" }
     ]
   },
   {
@@ -26,17 +26,17 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/snoop.png",
     "color": "#8e51ff",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 1 },
-      { "prizeCode": "ring", "weightMultiplier": 1 },
-      { "prizeCode": "diamond", "weightMultiplier": 1 },
-      { "prizeCode": "champagne", "weightMultiplier": 1 },
-      { "prizeCode": "flowers", "weightMultiplier": 1 },
-      { "prizeCode": "rocket", "weightMultiplier": 1 },
-      { "prizeCode": "cake", "weightMultiplier": 1 },
-      { "prizeCode": "gift", "weightMultiplier": 1 },
-      { "prizeCode": "rose", "weightMultiplier": 1 },
-      { "prizeCode": "heart", "weightMultiplier": 1 },
-      { "prizeCode": "teddy-bear", "weightMultiplier": 1 }
+      { "prizeCode": "cup", "weightMultiplier": 0.4 },
+      { "prizeCode": "ring", "weightMultiplier": 0.4 },
+      { "prizeCode": "diamond", "weightMultiplier": 0.4 },
+      { "prizeCode": "champagne" },
+      { "prizeCode": "flowers" },
+      { "prizeCode": "rocket" },
+      { "prizeCode": "cake" },
+      { "prizeCode": "gift", "weightMultiplier": 2 },
+      { "prizeCode": "rose", "weightMultiplier": 2 },
+      { "prizeCode": "heart" },
+      { "prizeCode": "teddy-bear" }
     ]
   },
   {
@@ -46,17 +46,17 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/sweet.png",
     "color": "#fb64b6",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 1 },
-      { "prizeCode": "ring", "weightMultiplier": 1 },
-      { "prizeCode": "diamond", "weightMultiplier": 1 },
-      { "prizeCode": "champagne", "weightMultiplier": 1 },
-      { "prizeCode": "flowers", "weightMultiplier": 1 },
-      { "prizeCode": "rocket", "weightMultiplier": 1 },
-      { "prizeCode": "cake", "weightMultiplier": 1 },
-      { "prizeCode": "gift", "weightMultiplier": 1 },
-      { "prizeCode": "rose", "weightMultiplier": 1 },
-      { "prizeCode": "heart", "weightMultiplier": 1 },
-      { "prizeCode": "teddy-bear", "weightMultiplier": 1 }
+      { "prizeCode": "cup", "weightMultiplier": 0.4 },
+      { "prizeCode": "ring", "weightMultiplier": 0.4 },
+      { "prizeCode": "diamond", "weightMultiplier": 0.4 },
+      { "prizeCode": "champagne" },
+      { "prizeCode": "flowers" },
+      { "prizeCode": "rocket" },
+      { "prizeCode": "cake" },
+      { "prizeCode": "gift", "weightMultiplier": 2 },
+      { "prizeCode": "rose", "weightMultiplier": 2 },
+      { "prizeCode": "heart" },
+      { "prizeCode": "teddy-bear" }
     ]
   },
   {
@@ -66,17 +66,17 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/spooky.png",
     "color": "#a6a09b",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 1 },
-      { "prizeCode": "ring", "weightMultiplier": 1 },
-      { "prizeCode": "diamond", "weightMultiplier": 1 },
-      { "prizeCode": "champagne", "weightMultiplier": 1 },
-      { "prizeCode": "flowers", "weightMultiplier": 1 },
-      { "prizeCode": "rocket", "weightMultiplier": 1 },
-      { "prizeCode": "cake", "weightMultiplier": 1 },
-      { "prizeCode": "gift", "weightMultiplier": 1 },
-      { "prizeCode": "rose", "weightMultiplier": 1 },
-      { "prizeCode": "heart", "weightMultiplier": 1 },
-      { "prizeCode": "teddy-bear", "weightMultiplier": 1 }
+      { "prizeCode": "cup", "weightMultiplier": 0.4 },
+      { "prizeCode": "ring", "weightMultiplier": 0.4 },
+      { "prizeCode": "diamond", "weightMultiplier": 0.4 },
+      { "prizeCode": "champagne" },
+      { "prizeCode": "flowers" },
+      { "prizeCode": "rocket" },
+      { "prizeCode": "cake" },
+      { "prizeCode": "gift", "weightMultiplier": 2 },
+      { "prizeCode": "rose", "weightMultiplier": 2 },
+      { "prizeCode": "heart" },
+      { "prizeCode": "teddy-bear" }
     ]
   },
   {
@@ -86,17 +86,17 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/love.png",
     "color": "#ff2056",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 1 },
-      { "prizeCode": "ring", "weightMultiplier": 1 },
-      { "prizeCode": "diamond", "weightMultiplier": 1 },
-      { "prizeCode": "champagne", "weightMultiplier": 1 },
-      { "prizeCode": "flowers", "weightMultiplier": 1 },
-      { "prizeCode": "rocket", "weightMultiplier": 1 },
-      { "prizeCode": "cake", "weightMultiplier": 1 },
-      { "prizeCode": "gift", "weightMultiplier": 1 },
-      { "prizeCode": "rose", "weightMultiplier": 1 },
-      { "prizeCode": "heart", "weightMultiplier": 1 },
-      { "prizeCode": "teddy-bear", "weightMultiplier": 1 }
+      { "prizeCode": "cup", "weightMultiplier": 0.4 },
+      { "prizeCode": "ring", "weightMultiplier": 0.4 },
+      { "prizeCode": "diamond", "weightMultiplier": 0.4 },
+      { "prizeCode": "champagne" },
+      { "prizeCode": "flowers" },
+      { "prizeCode": "rocket" },
+      { "prizeCode": "cake" },
+      { "prizeCode": "gift", "weightMultiplier": 2 },
+      { "prizeCode": "rose", "weightMultiplier": 2 },
+      { "prizeCode": "heart" },
+      { "prizeCode": "teddy-bear" }
     ]
   },
   {
@@ -106,17 +106,17 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/rich.png",
     "color": "#d4d4d4",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 1 },
-      { "prizeCode": "ring", "weightMultiplier": 1 },
-      { "prizeCode": "diamond", "weightMultiplier": 1 },
-      { "prizeCode": "champagne", "weightMultiplier": 1 },
-      { "prizeCode": "flowers", "weightMultiplier": 1 },
-      { "prizeCode": "rocket", "weightMultiplier": 1 },
-      { "prizeCode": "cake", "weightMultiplier": 1 },
-      { "prizeCode": "gift", "weightMultiplier": 1 },
-      { "prizeCode": "rose", "weightMultiplier": 1 },
-      { "prizeCode": "heart", "weightMultiplier": 1 },
-      { "prizeCode": "teddy-bear", "weightMultiplier": 1 }
+      { "prizeCode": "cup", "weightMultiplier": 0.4 },
+      { "prizeCode": "ring", "weightMultiplier": 0.4 },
+      { "prizeCode": "diamond", "weightMultiplier": 0.4 },
+      { "prizeCode": "champagne" },
+      { "prizeCode": "flowers" },
+      { "prizeCode": "rocket" },
+      { "prizeCode": "cake" },
+      { "prizeCode": "gift", "weightMultiplier": 2 },
+      { "prizeCode": "rose", "weightMultiplier": 2 },
+      { "prizeCode": "heart" },
+      { "prizeCode": "teddy-bear" }
     ]
   }
 ]

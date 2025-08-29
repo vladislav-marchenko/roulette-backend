@@ -61,7 +61,7 @@ export class RoulettesService {
           return multiplier.prizeCode === prize.code
         })
 
-        const weightMultiplier = multiplier ? multiplier.weightMultiplier : 1
+        const weightMultiplier = multiplier.weightMultiplier ?? 1
 
         /*
         if (prize.price > roulette.price) {

@@ -61,6 +61,7 @@ export class AuthGuard implements CanActivate {
       return true
     } catch (error) {
       await session.abortTransaction()
+      console.log(error)
       return false
     } finally {
       await session.endSession()
