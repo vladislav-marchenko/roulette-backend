@@ -1,0 +1,10 @@
+[
+  {
+    "code": "classic",
+    "name": "Classic",
+    "price": 25,
+    "image": "https://storage.yandexcloud.net/giftica/cases/classic.png",
+    "color": "#973c00",
+    "prizes": ["cup", "ring", "rocket"]
+  }
+]

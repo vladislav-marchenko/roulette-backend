@@ -3,7 +3,11 @@ import { HydratedDocument, Types } from 'mongoose'
 
 export type ActionDocument = HydratedDocument<Action>
 
-@Schema({ timestamps: true })
+@Schema({
+  timestamps: true,
+  toObject: { virtuals: true },
+  toJSON: { virtuals: true },
+})
 export class Action {
   @Prop({
     required: true,
@@ -51,6 +55,3 @@ ActionSchema.virtual('prize', {
   foreignField: 'code',
   justOne: true,
 })
-
-ActionSchema.set('toObject', { virtuals: true })
-ActionSchema.set('toJSON', { virtuals: true })

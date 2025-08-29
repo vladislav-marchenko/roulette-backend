@@ -3,7 +3,11 @@ import { HydratedDocument, Types } from 'mongoose'
 
 export type TaskActionDocument = HydratedDocument<TaskAction>
 
-@Schema({ timestamps: true })
+@Schema({
+  timestamps: true,
+  toObject: { virtuals: true },
+  toJSON: { virtuals: true },
+})
 export class TaskAction {
   @Prop({ required: true })
   taskCode: string
@@ -23,6 +27,3 @@ TaskActionSchema.virtual('task', {
   foreignField: 'code',
   justOne: true,
 })
-
-TaskActionSchema.set('toObject', { virtuals: true })
-TaskActionSchema.set('toJSON', { virtuals: true })

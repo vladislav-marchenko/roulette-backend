@@ -5,11 +5,12 @@ import { PrizesService } from 'src/prizes/prizes.service'
 import { Action } from 'src/schemas/action.schema'
 import { Prize } from 'src/schemas/prize.schema'
 import { Reward } from 'src/schemas/rewards.schema'
+import { Roulette } from 'src/schemas/roulette.schema'
 import { User } from 'src/schemas/user.schema'
 import { TasksService } from 'src/tasks/tasks.service'
 
 @Injectable()
-export class RouletteService {
+export class RoulettesService {
   constructor(
     private readonly prizesService: PrizesService,
     private readonly tasksService: TasksService,
@@ -17,7 +18,22 @@ export class RouletteService {
     @InjectModel(User.name) private readonly userModel: Model<User>,
     @InjectModel(Reward.name) private readonly rewardModel: Model<Reward>,
     @InjectModel(Action.name) private readonly actionModel: Model<Action>,
+    @InjectModel(Roulette.name) private readonly rouletteModel: Model<Roulette>,
   ) {}
+
+  async getRoulettes() {
+    return await this.rouletteModel.find().select('-rewards').sort({ price: 1 })
+  }
+
+  async getRoulette(code: string) {
+    const { weightMultipliers, ...roulette } = await this.rouletteModel
+      .findOne({ code })
+      .populate('prizes')
+      .sort({ price: 1 })
+      .lean()
+
+    return roulette
+  }
 
   async spin(userId: Types.ObjectId, price: number = 25) {
     const session = await this.connection.startSession()

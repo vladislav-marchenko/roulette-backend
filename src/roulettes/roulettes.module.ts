@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common'
-import { RouletteService } from './roulette.service'
-import { RouletteController } from './roulette.controller'
+import { RoulettesService } from './roulettes.service'
+import { RoulettesController } from './roulettes.controller'
 import { PrizesModule } from 'src/prizes/prizes.module'
 import { MongooseModule } from '@nestjs/mongoose'
 import { User, UserSchema } from 'src/schemas/user.schema'
 import { Reward, RewardSchema } from 'src/schemas/rewards.schema'
 import { TasksModule } from 'src/tasks/tasks.module'
 import { Action, ActionSchema } from 'src/schemas/action.schema'
+import { Roulette, RouletteSchema } from 'src/schemas/roulette.schema'
 
 @Module({
   imports: [
@@ -16,9 +17,10 @@ import { Action, ActionSchema } from 'src/schemas/action.schema'
       { name: User.name, schema: UserSchema },
       { name: Reward.name, schema: RewardSchema },
       { name: Action.name, schema: ActionSchema },
+      { name: Roulette.name, schema: RouletteSchema },
     ]),
   ],
-  controllers: [RouletteController],
-  providers: [RouletteService],
+  controllers: [RoulettesController],
+  providers: [RoulettesService],
 })
-export class RouletteModule {}
+export class RoulettesModule {}

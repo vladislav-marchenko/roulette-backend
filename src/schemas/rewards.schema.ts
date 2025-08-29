@@ -3,7 +3,12 @@ import { HydratedDocument, Types } from 'mongoose'
 
 export type RewardDocument = HydratedDocument<Reward>
 
-@Schema({ timestamps: true, id: false })
+@Schema({
+  timestamps: true,
+  id: false,
+  toObject: { virtuals: true },
+  toJSON: { virtuals: true },
+})
 export class Reward {
   @Prop({ required: true })
   prizeCode: string
@@ -20,6 +25,3 @@ RewardSchema.virtual('prize', {
   foreignField: 'code',
   justOne: true,
 })
-
-RewardSchema.set('toObject', { virtuals: true })
-RewardSchema.set('toJSON', { virtuals: true })

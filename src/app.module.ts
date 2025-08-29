@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common'
+import { Module } from '@nestjs/common'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { ConfigModule } from '@nestjs/config'
@@ -6,7 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { User, UserSchema } from './schemas/user.schema'
 import { UserModule } from './user/user.module'
 import { PrizesModule } from './prizes/prizes.module'
-import { RouletteModule } from './roulette/roulette.module'
+import { RoulettesModule } from './roulettes/roulettes.module'
 import { RewardsModule } from './rewards/rewards.module'
 import { TasksModule } from './tasks/tasks.module'
 import { ActionsModule } from './actions/actions.module'
@@ -15,7 +15,7 @@ import { GramjsModule } from './gramjs/gramjs.module'
 import { TransactionsModule } from './transactions/transactions.module'
 import { BullModule } from '@nestjs/bullmq'
 import { PromocodesModule } from './promocodes/promocodes.module'
-import { ReferralsModule } from './referrals/referrals.module';
+import { ReferralsModule } from './referrals/referrals.module'
 
 @Module({
   imports: [
@@ -28,7 +28,7 @@ import { ReferralsModule } from './referrals/referrals.module';
     UserModule,
     TasksModule,
     PrizesModule,
-    RouletteModule,
+    RoulettesModule,
     RewardsModule,
     TransactionsModule,
     ActionsModule,
