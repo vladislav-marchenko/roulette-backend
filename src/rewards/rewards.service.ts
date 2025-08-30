@@ -147,6 +147,10 @@ export class RewardsService {
           giftId: reward.prize.telegramGiftId,
         })
       } else {
+        await this.userModel
+          .findByIdAndUpdate(user._id, { $inc: { balance: -25 } }) // Telegram transfer fee
+          .session(session)
+
         await this.gramjsService.sendCollectible({
           username: user.username,
           telegramId: user.telegramId,
