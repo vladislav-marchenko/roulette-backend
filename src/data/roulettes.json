@@ -28,7 +28,7 @@
     "weightMultipliers": [
       { "prizeCode": "low-rider", "weightMultiplier": 0 },
       { "prizeCode": "snoop-cigar" },
-      { "prizeCode": "swag-bag", "weightMultiplier": 5 },
+      { "prizeCode": "swag-bag", "weightMultiplier": 2 },
       { "prizeCode": "snoop-dogg", "weightMultiplier": 2 },
       { "prizeCode": "cup" },
       { "prizeCode": "diamond" }

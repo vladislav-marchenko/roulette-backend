@@ -147,9 +147,17 @@ export class RewardsService {
           giftId: reward.prize.telegramGiftId,
         })
       } else {
-        await this.userModel
-          .findByIdAndUpdate(user._id, { $inc: { balance: -25 } }) // Telegram transfer fee
+        const updatedUser = await this.userModel
+          .findOneAndUpdate(
+            { _id: user._id, balance: { $gte: 25 } },
+            { $inc: { balance: -25 } },
+            { new: true },
+          ) // Telegram transfer fee
           .session(session)
+
+        if (!updatedUser) {
+          throw new BadRequestException('Insufficient balance to cover fee')
+        }
 
         await this.gramjsService.sendCollectible({
           username: user.username,
