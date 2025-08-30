@@ -11,8 +11,11 @@ export class Prize {
   @Prop({ unique: true, required: true })
   name: string
 
-  @Prop({ required: true })
-  price: number
+  @Prop({ type: { ton: Number, stars: Number }, required: true })
+  price: {
+    ton: number
+    stars: number
+  }
 
   @Prop({ default: 1 })
   weightMultiplier: number

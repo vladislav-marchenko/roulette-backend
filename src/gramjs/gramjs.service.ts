@@ -3,6 +3,7 @@ import {
   OnModuleInit,
   OnModuleDestroy,
   BadRequestException,
+  ConflictException,
 } from '@nestjs/common'
 import { TelegramClient } from 'telegram'
 import { StringSession } from 'telegram/sessions'
@@ -54,14 +55,12 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
     console.log('GramJS client stopped')
   }
 
-  async sendGift({
-    telegramId,
+  async getUserEntity({
     username,
-    giftId,
+    telegramId,
   }: {
-    telegramId: number
     username: string
-    giftId: string
+    telegramId: number
   }) {
     const errorMessage =
       'Unable to send gift: user not found. Please set a username in Telegram or simply send any message to @giftica_support so we can access your ID.'
@@ -85,6 +84,38 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
     }
 
     if (!(user instanceof Api.User)) throw new BadRequestException(errorMessage)
+    return user
+  }
+
+  async invokeGiftPayment(invoice: Api.TypeInputInvoice) {
+    const paymentForm = await this.client.invoke(
+      new Api.payments.GetPaymentForm({ invoice }),
+    )
+
+    try {
+      await this.client.invoke(
+        new Api.payments.SendStarsForm({ invoice, formId: paymentForm.formId }),
+      )
+    } catch (error) {
+      if (error instanceof Error && error.message.includes('BALANCE_TOO_LOW')) {
+        throw new ConflictException(
+          'Due to current server conditions, the reward cannot be processed',
+        )
+      }
+      throw error
+    }
+  }
+
+  async sendGift({
+    telegramId,
+    username,
+    giftId,
+  }: {
+    telegramId: number
+    username: string
+    giftId: string
+  }) {
+    const user = await this.getUserEntity({ username, telegramId })
 
     const invoice = new Api.InputInvoiceStarGift({
       peer: new Api.InputPeerUser({
@@ -94,27 +125,55 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
       giftId: bigInt(giftId),
     })
 
-    const paymentForm = await this.client.invoke(
-      new Api.payments.GetPaymentForm({ invoice }),
-    )
-
-    await this.client.invoke(
-      new Api.payments.SendStarsForm({ invoice, formId: paymentForm.formId }),
-    )
+    await this.invokeGiftPayment(invoice)
   }
 
-  async getAvailableGifts() {
-    const result = await this.client.invoke(new Api.payments.GetStarGifts({}))
-    if (!(result instanceof Api.payments.StarGifts)) return
+  async sendCollectible({
+    username,
+    telegramId,
+    code,
+  }: {
+    username: string
+    telegramId: number
+    code: string
+  }) {
+    const availableCollectibles = await this.getAccountGifts()
+    const collectible = availableCollectibles.find((collectible) => {
+      if ('title' in collectible.gift) {
+        const giftCode = collectible.gift.title.toLowerCase().replace(' ', '-')
+        return giftCode === code
+      }
+    })
 
-    return result.gifts.filter((gift) => !gift['soldOut'])
+    if (!collectible) {
+      throw new ConflictException(
+        'This collectible is currently unavailable in our gift bank',
+      )
+    }
+
+    const user = await this.getUserEntity({ username, telegramId })
+    const inputGift = new Api.InputSavedStarGiftUser({
+      msgId: collectible.msgId,
+    })
+
+    const invoice = new Api.InputInvoiceStarGiftTransfer({
+      stargift: inputGift,
+      toId: new Api.InputPeerUser({
+        userId: user.id,
+        accessHash: user.accessHash,
+      }),
+    })
+
+    await this.invokeGiftPayment(invoice)
   }
 
-  async getAccountGifts() {
+  async getAccountGifts(page = 1, limit = 50) {
     const result = await this.client.invoke(
       new Api.payments.GetSavedStarGifts({
         peer: new Api.InputPeerSelf(),
-        offset: '0',
+        offset: String((page - 1) * limit),
+        limit,
+        excludeUnlimited: true,
       }),
     )
 

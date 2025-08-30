@@ -22,21 +22,16 @@
   {
     "code": "snoop",
     "name": "Snoop",
-    "price": 35,
+    "price": 200,
     "image": "https://storage.yandexcloud.net/giftica/cases/snoop.png",
     "color": "#8e51ff",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 0.4 },
-      { "prizeCode": "ring", "weightMultiplier": 0.4 },
-      { "prizeCode": "diamond", "weightMultiplier": 0.4 },
-      { "prizeCode": "champagne" },
-      { "prizeCode": "flowers" },
-      { "prizeCode": "rocket" },
-      { "prizeCode": "cake" },
-      { "prizeCode": "gift", "weightMultiplier": 2 },
-      { "prizeCode": "rose", "weightMultiplier": 2 },
-      { "prizeCode": "heart" },
-      { "prizeCode": "teddy-bear" }
+      { "prizeCode": "low-rider", "weightMultiplier": 0 },
+      { "prizeCode": "snoop-cigar" },
+      { "prizeCode": "swag-bag", "weightMultiplier": 5 },
+      { "prizeCode": "snoop-dogg", "weightMultiplier": 2 },
+      { "prizeCode": "cup" },
+      { "prizeCode": "diamond" }
     ]
   },
   {

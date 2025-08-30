@@ -27,12 +27,17 @@ export class RoulettesService {
   }
 
   async getRoulette(code: string) {
-    const { weightMultipliers, ...roulette } = await this.rouletteModel
+    const roulette = await this.rouletteModel
       .findOne({ code })
       .populate('prizes')
       .lean()
 
-    return roulette
+    if (!roulette) {
+      throw new BadRequestException('Roulette not found')
+    }
+
+    const { weightMultipliers, ...data } = roulette
+    return data
   }
 
   async spin({ userId, code }: { userId: Types.ObjectId; code: string }) {
@@ -56,7 +61,7 @@ export class RoulettesService {
       }
 
       const weights = roulette.prizes.map((prize) => {
-        const baseWeight = 1 / Math.pow(prize.price || 1, 2.5)
+        const baseWeight = 1 / Math.pow(prize.price.stars || 1, 1.5)
         const multiplier = roulette.weightMultipliers.find((multiplier) => {
           return multiplier.prizeCode === prize.code
         })

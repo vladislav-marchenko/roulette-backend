@@ -91,7 +91,7 @@ export class RewardsService {
       const user = await this.userModel
         .findByIdAndUpdate(
           userId,
-          { $inc: { balance: reward.prize.price } },
+          { $inc: { balance: reward.prize.price.stars } },
           { new: true, session },
         )
         .select('-weightMultiplier')
@@ -99,7 +99,7 @@ export class RewardsService {
       const action = new this.actionModel({
         type: 'sell',
         status: 'success',
-        amount: reward.prize.price,
+        amount: reward.prize.price.stars,
         user: userId,
         prizeCode: reward.prize.code,
       })
@@ -126,7 +126,10 @@ export class RewardsService {
     session.startTransaction()
 
     try {
-      const reward = await this.rewardModel.findById(rewardId).session(session)
+      const reward = await this.rewardModel
+        .findById(rewardId)
+        .populate<{ prize: Prize }>('prize')
+        .session(session)
       if (!reward) {
         throw new BadRequestException('Reward not found')
       }
@@ -135,19 +138,21 @@ export class RewardsService {
         throw new BadRequestException('You are not the owner of this reward')
       }
 
-      const populatedReward = await reward.populate<{ prize: Prize }>('prize')
-      if (!populatedReward.prize.telegramGiftId) {
-        throw new BadRequestException(
-          'Limited gifts cannot be withdrawn automatically.',
-        )
-      }
-
       await reward.deleteOne().session(session)
-      await this.gramjsService.sendGift({
-        username: user.username,
-        telegramId: user.telegramId,
-        giftId: populatedReward.prize.telegramGiftId,
-      })
+
+      if (reward.prize.telegramGiftId) {
+        await this.gramjsService.sendGift({
+          username: user.username,
+          telegramId: user.telegramId,
+          giftId: reward.prize.telegramGiftId,
+        })
+      } else {
+        await this.gramjsService.sendCollectible({
+          username: user.username,
+          telegramId: user.telegramId,
+          code: reward.prize.code,
+        })
+      }
 
       await session.commitTransaction()
     } catch (error) {
