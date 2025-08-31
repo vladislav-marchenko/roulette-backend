@@ -48,8 +48,6 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
     }
 
     console.log('GramJS client started')
-
-    console.log(await this.getAccountGifts(1))
   }
 
   async onModuleDestroy() {
@@ -170,11 +168,7 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
 
     const collectible = availableCollectibles.find((collectible) => {
       if ('title' in collectible.gift) {
-        const giftCode = collectible.gift.title
-          .toLowerCase()
-          .replace(/\s+/g, '-')
-
-        return giftCode === code
+        return this.getGiftCode(collectible.gift.title) === code
       }
     })
 
@@ -197,4 +191,6 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
 
     return result.gifts
   }
+
+  getGiftCode = (name: string) => name.toLowerCase().replace(/\s+/g, '-')
 }
