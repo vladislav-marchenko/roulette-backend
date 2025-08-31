@@ -27,9 +27,9 @@
     "color": "#8e51ff",
     "weightMultipliers": [
       { "prizeCode": "low-rider", "weightMultiplier": 0 },
-      { "prizeCode": "snoop-cigar" },
-      { "prizeCode": "swag-bag", "weightMultiplier": 2 },
-      { "prizeCode": "snoop-dogg", "weightMultiplier": 2 },
+      { "prizeCode": "snoop-cigar", "weightMultiplier": 0.3 },
+      { "prizeCode": "swag-bag" },
+      { "prizeCode": "snoop-dogg" },
       { "prizeCode": "cup" },
       { "prizeCode": "diamond" }
     ]
@@ -37,61 +37,53 @@
   {
     "code": "sweet",
     "name": "Sweet",
-    "price": 45,
+    "price": 100,
     "image": "https://storage.yandexcloud.net/giftica/cases/sweet.png",
     "color": "#fb64b6",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 0.4 },
-      { "prizeCode": "ring", "weightMultiplier": 0.4 },
-      { "prizeCode": "diamond", "weightMultiplier": 0.4 },
+      { "prizeCode": "whip-cupcake", "weightMultiplier": 0.5 },
+      { "prizeCode": "homemade-cake", "weightMultiplier": 0.3 },
+      { "prizeCode": "lol-pop", "weightMultiplier": 0.7 },
+      { "prizeCode": "diamond", "weightMultiplier": 1.5 },
+      { "prizeCode": "candy-cane", "weightMultiplier": 0.3 },
       { "prizeCode": "champagne" },
-      { "prizeCode": "flowers" },
-      { "prizeCode": "rocket" },
-      { "prizeCode": "cake" },
-      { "prizeCode": "gift", "weightMultiplier": 2 },
-      { "prizeCode": "rose", "weightMultiplier": 2 },
-      { "prizeCode": "heart" },
-      { "prizeCode": "teddy-bear" }
+      { "prizeCode": "cake" }
     ]
   },
   {
     "code": "spooky",
     "name": "Spooky",
-    "price": 55,
+    "price": 1300,
     "image": "https://storage.yandexcloud.net/giftica/cases/spooky.png",
     "color": "#a6a09b",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 0.4 },
-      { "prizeCode": "ring", "weightMultiplier": 0.4 },
-      { "prizeCode": "diamond", "weightMultiplier": 0.4 },
-      { "prizeCode": "champagne" },
-      { "prizeCode": "flowers" },
-      { "prizeCode": "rocket" },
-      { "prizeCode": "cake" },
-      { "prizeCode": "gift", "weightMultiplier": 2 },
-      { "prizeCode": "rose", "weightMultiplier": 2 },
-      { "prizeCode": "heart" },
-      { "prizeCode": "teddy-bear" }
+      { "prizeCode": "scared-cat", "weightMultiplier": 0 },
+      { "prizeCode": "electric-skull", "weightMultiplier": 0 },
+      { "prizeCode": "voodoo-doll", "weightMultiplier": 0 },
+      { "prizeCode": "mad-pumpkin", "weightMultiplier": 0.05 },
+      { "prizeCode": "trapped-heart", "weightMultiplier": 1.3 },
+      { "prizeCode": "evil-eye" },
+      { "prizeCode": "flying-broom" },
+      { "prizeCode": "witch-hat" },
+      { "prizeCode": "crystal-ball", "weightMultiplier": 1.4 },
+      { "prizeCode": "skull-flower" }
     ]
   },
   {
     "code": "love",
     "name": "Love",
-    "price": 65,
+    "price": 1800,
     "image": "https://storage.yandexcloud.net/giftica/cases/love.png",
     "color": "#ff2056",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 0.4 },
-      { "prizeCode": "ring", "weightMultiplier": 0.4 },
-      { "prizeCode": "diamond", "weightMultiplier": 0.4 },
-      { "prizeCode": "champagne" },
-      { "prizeCode": "flowers" },
-      { "prizeCode": "rocket" },
-      { "prizeCode": "cake" },
-      { "prizeCode": "gift", "weightMultiplier": 2 },
-      { "prizeCode": "rose", "weightMultiplier": 2 },
-      { "prizeCode": "heart" },
-      { "prizeCode": "teddy-bear" }
+      { "prizeCode": "heart-locket", "weightMultiplier": 0 },
+      { "prizeCode": "diamond-ring", "weightMultiplier": 0 },
+      { "prizeCode": "toy-bear", "weightMultiplier": 0 },
+      { "prizeCode": "eternal-rose" },
+      { "prizeCode": "cupid-charm", "weightMultiplier": 1.5 },
+      { "prizeCode": "valentine-box" },
+      { "prizeCode": "love-candle" },
+      { "prizeCode": "love-potion", "weightMultiplier": 2 }
     ]
   },
   {
@@ -112,6 +104,72 @@
       { "prizeCode": "rose", "weightMultiplier": 2 },
       { "prizeCode": "heart" },
       { "prizeCode": "teddy-bear" }
+    ]
+  },
+  {
+    "code": "plush",
+    "name": "Plush",
+    "price": 75,
+    "image": "https://storage.yandexcloud.net/giftica/cases/plush.png",
+    "color": "#e12afb",
+    "weightMultipliers": [
+      { "prizeCode": "plush-pepe", "weightMultiplier": 0 },
+      { "prizeCode": "teddy-bear" }
+    ]
+  },
+  {
+    "code": "winter",
+    "name": "Winter",
+    "price": 400,
+    "image": "https://storage.yandexcloud.net/giftica/cases/winter.png",
+    "color": "#74d4ff",
+    "weightMultipliers": [
+      { "prizeCode": "ginger-cookie" },
+      { "prizeCode": "santa-hat" },
+      { "prizeCode": "sleigh-bell", "weightMultiplier": 0 },
+      { "prizeCode": "snow-globe" },
+      { "prizeCode": "snow-mittens" },
+      { "prizeCode": "winter-wreath" },
+      { "prizeCode": "xmas-stocking" },
+      { "prizeCode": "candy-cane" },
+      { "prizeCode": "holiday-drink" },
+      { "prizeCode": "jingle-bells" },
+      { "prizeCode": "lunar-snake" },
+      { "prizeCode": "party-sparkler" },
+      { "prizeCode": "big-year" }
+    ]
+  },
+  {
+    "code": "party",
+    "name": "Party",
+    "price": 500,
+    "image": "https://storage.yandexcloud.net/giftica/cases/party.png",
+    "color": "#ffdf20",
+    "weightMultipliers": [
+      { "prizeCode": "b-day-candle" },
+      { "prizeCode": "big-year" },
+      { "prizeCode": "bow-tie" },
+      { "prizeCode": "desk-calendar" },
+      { "prizeCode": "easter-egg" },
+      { "prizeCode": "homemade-cake" },
+      { "prizeCode": "party-sparkler" },
+      { "prizeCode": "record-player" },
+      { "prizeCode": "star-notepad" }
+    ]
+  },
+  {
+    "code": "magic",
+    "name": "Magic",
+    "price": 1000,
+    "image": "https://storage.yandexcloud.net/giftica/cases/magic.png",
+    "color": "#c800de",
+    "weightMultipliers": [
+      { "prizeCode": "bow-tie" },
+      { "prizeCode": "genie-lamp", "weightMultiplier": 0 },
+      { "prizeCode": "ion-gem", "weightMultiplier": 0 },
+      { "prizeCode": "magic-potion", "weightMultiplier": 0 },
+      { "prizeCode": "spy-agaric" },
+      { "prizeCode": "top-hat" }
     ]
   }
 ]
