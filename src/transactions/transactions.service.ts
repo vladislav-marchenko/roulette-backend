@@ -40,6 +40,12 @@ export class TransactionsService {
     user: AuthRequest['user']
     quantity: number
   }) {
+    if (quantity > 5000) {
+      throw new BadRequestException(
+        'For security reasons the maximum withdrawal amount is 5000 stars',
+      )
+    }
+
     const commission = 0.1
     const quantityWithCommission = Math.floor(quantity * (1 - commission))
 
@@ -67,6 +73,21 @@ export class TransactionsService {
 
       if (!updatedUser) {
         throw new BadRequestException('Insufficient balance')
+      }
+
+      const withdrawsCount = await this.actionsModel
+        .countDocuments({
+          type: 'withdraw',
+          user: user._id,
+          status: 'success',
+          createdAt: { $gte: new Date().setHours(0, 0, 0, 0) },
+        })
+        .session(session)
+
+      if (withdrawsCount >= 3) {
+        throw new BadRequestException(
+          'For security reasons, you can make only 3 withdrawals per day',
+        )
       }
 
       const action = new this.actionsModel({
