@@ -9,10 +9,10 @@
       { "prizeCode": "cup", "weightMultiplier": 0.2 },
       { "prizeCode": "ring", "weightMultiplier": 0.2 },
       { "prizeCode": "diamond", "weightMultiplier": 0.2 },
-      { "prizeCode": "champagne", "weightMultiplier": 0.4 },
-      { "prizeCode": "flowers", "weightMultiplier": 0.4 },
-      { "prizeCode": "rocket", "weightMultiplier": 0.4 },
-      { "prizeCode": "cake", "weightMultiplier": 0.4 },
+      { "prizeCode": "champagne", "weightMultiplier": 0.3 },
+      { "prizeCode": "flowers", "weightMultiplier": 0.3 },
+      { "prizeCode": "rocket", "weightMultiplier": 0.3 },
+      { "prizeCode": "cake", "weightMultiplier": 0.3 },
       { "prizeCode": "gift", "weightMultiplier": 1.5 },
       { "prizeCode": "rose", "weightMultiplier": 1.5 },
       { "prizeCode": "heart" },
@@ -22,7 +22,7 @@
   {
     "code": "snoop",
     "name": "Snoop",
-    "price": 200,
+    "price": 199,
     "image": "https://storage.yandexcloud.net/giftica/cases/snoop.png",
     "color": "#8e51ff",
     "weightMultipliers": [
@@ -38,7 +38,7 @@
   {
     "code": "sweet",
     "name": "Sweet",
-    "price": 100,
+    "price": 99,
     "image": "https://storage.yandexcloud.net/giftica/cases/sweet.png",
     "color": "#fb64b6",
     "weightMultipliers": [
@@ -54,7 +54,7 @@
   {
     "code": "spooky",
     "name": "Spooky",
-    "price": 1300,
+    "price": 1299,
     "image": "https://storage.yandexcloud.net/giftica/cases/spooky.png",
     "color": "#a6a09b",
     "weightMultipliers": [
@@ -73,14 +73,14 @@
   {
     "code": "love",
     "name": "Love",
-    "price": 1800,
+    "price": 1799,
     "image": "https://storage.yandexcloud.net/giftica/cases/love.png",
     "color": "#ff2056",
     "weightMultipliers": [
       { "prizeCode": "heart-locket", "weightMultiplier": 0 },
       { "prizeCode": "diamond-ring", "weightMultiplier": 0 },
       { "prizeCode": "toy-bear", "weightMultiplier": 0 },
-      { "prizeCode": "eternal-rose", "weightMultiplier": 0.5 },
+      { "prizeCode": "eternal-rose", "weightMultiplier": 0.1 },
       { "prizeCode": "cupid-charm", "weightMultiplier": 1.25 },
       { "prizeCode": "valentine-box" },
       { "prizeCode": "love-candle" },
@@ -90,7 +90,7 @@
   {
     "code": "rich",
     "name": "Rich",
-    "price": 10000,
+    "price": 9999,
     "image": "https://storage.yandexcloud.net/giftica/cases/rich.png",
     "color": "#d4d4d4",
     "weightMultipliers": [
@@ -107,7 +107,7 @@
   {
     "code": "plush",
     "name": "Plush",
-    "price": 75,
+    "price": 30,
     "image": "https://storage.yandexcloud.net/giftica/cases/plush.png",
     "color": "#e12afb",
     "weightMultipliers": [
@@ -118,7 +118,7 @@
   {
     "code": "winter",
     "name": "Winter",
-    "price": 400,
+    "price": 349,
     "image": "https://storage.yandexcloud.net/giftica/cases/winter.png",
     "color": "#74d4ff",
     "weightMultipliers": [
@@ -140,7 +140,7 @@
   {
     "code": "party",
     "name": "Party",
-    "price": 500,
+    "price": 499,
     "image": "https://storage.yandexcloud.net/giftica/cases/party.png",
     "color": "#ffdf20",
     "weightMultipliers": [
@@ -158,14 +158,14 @@
   {
     "code": "magic",
     "name": "Magic",
-    "price": 1000,
+    "price": 999,
     "image": "https://storage.yandexcloud.net/giftica/cases/magic.png",
     "color": "#c800de",
     "weightMultipliers": [
       { "prizeCode": "genie-lamp", "weightMultiplier": 0 },
       { "prizeCode": "ion-gem", "weightMultiplier": 0 },
       { "prizeCode": "magic-potion", "weightMultiplier": 0 },
-      { "prizeCode": "top-hat", "weightMultiplier": 0.3 },
+      { "prizeCode": "top-hat", "weightMultiplier": 0.2 },
       { "prizeCode": "bow-tie" },
       { "prizeCode": "spy-agaric" }
     ]
@@ -173,7 +173,7 @@
   {
     "code": "rings",
     "name": "Rings",
-    "price": 300,
+    "price": 299,
     "image": "https://storage.yandexcloud.net/giftica/cases/rings.png",
     "color": "#00d492",
     "weightMultipliers": [
