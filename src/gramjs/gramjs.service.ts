@@ -48,6 +48,8 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
     }
 
     console.log('GramJS client started')
+
+    console.log(await this.getAccountGifts(1))
   }
 
   async onModuleDestroy() {
@@ -137,13 +139,7 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
     telegramId: number
     code: string
   }) {
-    const availableCollectibles = await this.getAccountGifts()
-    const collectible = availableCollectibles.find((collectible) => {
-      if ('title' in collectible.gift) {
-        const giftCode = collectible.gift.title.toLowerCase().replace(' ', '-')
-        return giftCode === code
-      }
-    })
+    const collectible = await this.findCollectible(code)
 
     if (!collectible) {
       throw new ConflictException(
@@ -165,6 +161,28 @@ export class GramjsService implements OnModuleInit, OnModuleDestroy {
     })
 
     await this.invokeGiftPayment(invoice)
+  }
+
+  async findCollectible(code: string, page = 1) {
+    const availableCollectibles = await this.getAccountGifts(page)
+
+    if (!availableCollectibles.length) return null
+
+    const collectible = availableCollectibles.find((collectible) => {
+      if ('title' in collectible.gift) {
+        const giftCode = collectible.gift.title
+          .toLowerCase()
+          .replace(/\s+/g, '-')
+
+        return giftCode === code
+      }
+    })
+
+    if (!collectible) {
+      return this.findCollectible(code, page + 1)
+    }
+
+    return collectible
   }
 
   async getAccountGifts(page = 1, limit = 50) {

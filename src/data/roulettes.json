@@ -6,15 +6,15 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/classic.png",
     "color": "#973c00",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 0.4 },
-      { "prizeCode": "ring", "weightMultiplier": 0.4 },
-      { "prizeCode": "diamond", "weightMultiplier": 0.4 },
-      { "prizeCode": "champagne" },
-      { "prizeCode": "flowers" },
-      { "prizeCode": "rocket" },
-      { "prizeCode": "cake" },
-      { "prizeCode": "gift", "weightMultiplier": 2 },
-      { "prizeCode": "rose", "weightMultiplier": 2 },
+      { "prizeCode": "cup", "weightMultiplier": 0.2 },
+      { "prizeCode": "ring", "weightMultiplier": 0.2 },
+      { "prizeCode": "diamond", "weightMultiplier": 0.2 },
+      { "prizeCode": "champagne", "weightMultiplier": 0.4 },
+      { "prizeCode": "flowers", "weightMultiplier": 0.4 },
+      { "prizeCode": "rocket", "weightMultiplier": 0.4 },
+      { "prizeCode": "cake", "weightMultiplier": 0.4 },
+      { "prizeCode": "gift", "weightMultiplier": 1.5 },
+      { "prizeCode": "rose", "weightMultiplier": 1.5 },
       { "prizeCode": "heart" },
       { "prizeCode": "teddy-bear" }
     ]
@@ -26,10 +26,11 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/snoop.png",
     "color": "#8e51ff",
     "weightMultipliers": [
+      { "prizeCode": "westside-sign", "weightMultiplier": 0 },
       { "prizeCode": "low-rider", "weightMultiplier": 0 },
       { "prizeCode": "snoop-cigar", "weightMultiplier": 0.3 },
-      { "prizeCode": "swag-bag" },
-      { "prizeCode": "snoop-dogg" },
+      { "prizeCode": "swag-bag", "weightMultiplier": 0.8 },
+      { "prizeCode": "snoop-dogg", "weightMultiplier": 0.8 },
       { "prizeCode": "cup" },
       { "prizeCode": "diamond" }
     ]
@@ -63,9 +64,9 @@
       { "prizeCode": "mad-pumpkin", "weightMultiplier": 0.05 },
       { "prizeCode": "trapped-heart", "weightMultiplier": 1.3 },
       { "prizeCode": "evil-eye" },
-      { "prizeCode": "flying-broom" },
+      { "prizeCode": "flying-broom", "weightMultiplier": 0.5 },
       { "prizeCode": "witch-hat" },
-      { "prizeCode": "crystal-ball", "weightMultiplier": 1.4 },
+      { "prizeCode": "crystal-ball", "weightMultiplier": 1.25 },
       { "prizeCode": "skull-flower" }
     ]
   },
@@ -79,31 +80,28 @@
       { "prizeCode": "heart-locket", "weightMultiplier": 0 },
       { "prizeCode": "diamond-ring", "weightMultiplier": 0 },
       { "prizeCode": "toy-bear", "weightMultiplier": 0 },
-      { "prizeCode": "eternal-rose" },
-      { "prizeCode": "cupid-charm", "weightMultiplier": 1.5 },
+      { "prizeCode": "eternal-rose", "weightMultiplier": 0.5 },
+      { "prizeCode": "cupid-charm", "weightMultiplier": 1.25 },
       { "prizeCode": "valentine-box" },
       { "prizeCode": "love-candle" },
-      { "prizeCode": "love-potion", "weightMultiplier": 2 }
+      { "prizeCode": "love-potion", "weightMultiplier": 1.5 }
     ]
   },
   {
     "code": "rich",
     "name": "Rich",
-    "price": 75,
+    "price": 10000,
     "image": "https://storage.yandexcloud.net/giftica/cases/rich.png",
     "color": "#d4d4d4",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 0.4 },
-      { "prizeCode": "ring", "weightMultiplier": 0.4 },
-      { "prizeCode": "diamond", "weightMultiplier": 0.4 },
-      { "prizeCode": "champagne" },
-      { "prizeCode": "flowers" },
-      { "prizeCode": "rocket" },
-      { "prizeCode": "cake" },
-      { "prizeCode": "gift", "weightMultiplier": 2 },
-      { "prizeCode": "rose", "weightMultiplier": 2 },
-      { "prizeCode": "heart" },
-      { "prizeCode": "teddy-bear" }
+      { "prizeCode": "precious-peach", "weightMultiplier": 0 },
+      { "prizeCode": "heroic-helmet", "weightMultiplier": 0 },
+      { "prizeCode": "nail-bracelet", "weightMultiplier": 0 },
+      { "prizeCode": "loot-bag", "weightMultiplier": 0 },
+      { "prizeCode": "gem-signet", "weightMultiplier": 0.3 },
+      { "prizeCode": "vintage-cigar" },
+      { "prizeCode": "swiss-watch" },
+      { "prizeCode": "signet-ring" }
     ]
   },
   {
@@ -146,14 +144,14 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/party.png",
     "color": "#ffdf20",
     "weightMultipliers": [
+      { "prizeCode": "record-player", "weightMultiplier": 0 },
+      { "prizeCode": "bow-tie", "weightMultiplier": 0.3 },
+      { "prizeCode": "easter-egg", "weightMultiplier": 0.4 },
       { "prizeCode": "b-day-candle" },
       { "prizeCode": "big-year" },
-      { "prizeCode": "bow-tie" },
       { "prizeCode": "desk-calendar" },
-      { "prizeCode": "easter-egg" },
       { "prizeCode": "homemade-cake" },
       { "prizeCode": "party-sparkler" },
-      { "prizeCode": "record-player" },
       { "prizeCode": "star-notepad" }
     ]
   },
@@ -164,12 +162,25 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/magic.png",
     "color": "#c800de",
     "weightMultipliers": [
-      { "prizeCode": "bow-tie" },
       { "prizeCode": "genie-lamp", "weightMultiplier": 0 },
       { "prizeCode": "ion-gem", "weightMultiplier": 0 },
       { "prizeCode": "magic-potion", "weightMultiplier": 0 },
-      { "prizeCode": "spy-agaric" },
-      { "prizeCode": "top-hat" }
+      { "prizeCode": "top-hat", "weightMultiplier": 0.3 },
+      { "prizeCode": "bow-tie" },
+      { "prizeCode": "spy-agaric" }
+    ]
+  },
+  {
+    "code": "rings",
+    "name": "Rings",
+    "price": 300,
+    "image": "https://storage.yandexcloud.net/giftica/cases/rings.png",
+    "color": "#00d492",
+    "weightMultipliers": [
+      { "prizeCode": "signet-ring", "weightMultiplier": 0 },
+      { "prizeCode": "diamond-ring", "weightMultiplier": 0 },
+      { "prizeCode": "bonded-ring", "weightMultiplier": 0 },
+      { "prizeCode": "ring" }
     ]
   }
 ]

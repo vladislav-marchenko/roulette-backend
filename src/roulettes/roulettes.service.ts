@@ -61,7 +61,7 @@ export class RoulettesService {
       }
 
       const weights = roulette.prizes.map((prize) => {
-        const baseWeight = 1 / Math.pow(prize.price.stars || 1, 1.5)
+        const baseWeight = 1 / Math.pow(prize.price.stars || 1, 2)
         const multiplier = roulette.weightMultipliers.find((multiplier) => {
           return multiplier.prizeCode === prize.code
         })
