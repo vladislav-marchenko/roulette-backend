@@ -6,13 +6,13 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/classic.png",
     "color": "#973c00",
     "weightMultipliers": [
-      { "prizeCode": "cup", "weightMultiplier": 0.2 },
-      { "prizeCode": "ring", "weightMultiplier": 0.2 },
-      { "prizeCode": "diamond", "weightMultiplier": 0.2 },
-      { "prizeCode": "champagne", "weightMultiplier": 0.3 },
-      { "prizeCode": "flowers", "weightMultiplier": 0.3 },
-      { "prizeCode": "rocket", "weightMultiplier": 0.3 },
-      { "prizeCode": "cake", "weightMultiplier": 0.3 },
+      { "prizeCode": "cup", "weightMultiplier": 0.3 },
+      { "prizeCode": "ring", "weightMultiplier": 0.3 },
+      { "prizeCode": "diamond", "weightMultiplier": 0.3 },
+      { "prizeCode": "champagne", "weightMultiplier": 0.4 },
+      { "prizeCode": "flowers", "weightMultiplier": 0.4 },
+      { "prizeCode": "rocket", "weightMultiplier": 0.4 },
+      { "prizeCode": "cake", "weightMultiplier": 0.4 },
       { "prizeCode": "gift", "weightMultiplier": 1.5 },
       { "prizeCode": "rose", "weightMultiplier": 1.5 },
       { "prizeCode": "heart" },
@@ -29,8 +29,8 @@
       { "prizeCode": "westside-sign", "weightMultiplier": 0 },
       { "prizeCode": "low-rider", "weightMultiplier": 0 },
       { "prizeCode": "snoop-cigar", "weightMultiplier": 0.3 },
-      { "prizeCode": "swag-bag", "weightMultiplier": 0.8 },
-      { "prizeCode": "snoop-dogg", "weightMultiplier": 0.8 },
+      { "prizeCode": "swag-bag" },
+      { "prizeCode": "snoop-dogg" },
       { "prizeCode": "cup" },
       { "prizeCode": "diamond" }
     ]
@@ -42,11 +42,11 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/sweet.png",
     "color": "#fb64b6",
     "weightMultipliers": [
-      { "prizeCode": "whip-cupcake", "weightMultiplier": 0.5 },
-      { "prizeCode": "homemade-cake", "weightMultiplier": 0.3 },
-      { "prizeCode": "lol-pop", "weightMultiplier": 0.7 },
+      { "prizeCode": "whip-cupcake", "weightMultiplier": 0.8 },
+      { "prizeCode": "homemade-cake", "weightMultiplier": 0.5 },
+      { "prizeCode": "lol-pop", "weightMultiplier": 0.9 },
       { "prizeCode": "diamond", "weightMultiplier": 1.5 },
-      { "prizeCode": "candy-cane", "weightMultiplier": 0.3 },
+      { "prizeCode": "candy-cane", "weightMultiplier": 0.7 },
       { "prizeCode": "champagne" },
       { "prizeCode": "cake" }
     ]
@@ -128,11 +128,11 @@
       { "prizeCode": "snow-globe" },
       { "prizeCode": "snow-mittens", "weightMultiplier": 0.5 },
       { "prizeCode": "winter-wreath" },
-      { "prizeCode": "xmas-stocking" },
-      { "prizeCode": "candy-cane" },
+      { "prizeCode": "xmas-stocking", "weightMultiplier": 2 },
+      { "prizeCode": "candy-cane", "weightMultiplier": 2 },
       { "prizeCode": "holiday-drink" },
       { "prizeCode": "jingle-bells" },
-      { "prizeCode": "lunar-snake" },
+      { "prizeCode": "lunar-snake", "weightMultiplier": 2 },
       { "prizeCode": "party-sparkler" },
       { "prizeCode": "big-year" }
     ]
@@ -145,14 +145,14 @@
     "color": "#ffdf20",
     "weightMultipliers": [
       { "prizeCode": "record-player", "weightMultiplier": 0 },
-      { "prizeCode": "bow-tie", "weightMultiplier": 0.3 },
-      { "prizeCode": "easter-egg", "weightMultiplier": 0.4 },
+      { "prizeCode": "bow-tie", "weightMultiplier": 0.4 },
+      { "prizeCode": "easter-egg", "weightMultiplier": 0.5 },
       { "prizeCode": "b-day-candle" },
       { "prizeCode": "big-year" },
       { "prizeCode": "desk-calendar" },
       { "prizeCode": "homemade-cake" },
       { "prizeCode": "party-sparkler" },
-      { "prizeCode": "star-notepad" }
+      { "prizeCode": "star-notepad", "weightMultiplier": 1.2 }
     ]
   },
   {
@@ -165,7 +165,7 @@
       { "prizeCode": "genie-lamp", "weightMultiplier": 0 },
       { "prizeCode": "ion-gem", "weightMultiplier": 0 },
       { "prizeCode": "magic-potion", "weightMultiplier": 0 },
-      { "prizeCode": "top-hat", "weightMultiplier": 0.2 },
+      { "prizeCode": "top-hat", "weightMultiplier": 0.3 },
       { "prizeCode": "bow-tie" },
       { "prizeCode": "spy-agaric" }
     ]
