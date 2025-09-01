@@ -42,11 +42,11 @@
     "image": "https://storage.yandexcloud.net/giftica/cases/sweet.png",
     "color": "#fb64b6",
     "weightMultipliers": [
-      { "prizeCode": "whip-cupcake", "weightMultiplier": 0.8 },
-      { "prizeCode": "homemade-cake", "weightMultiplier": 0.5 },
-      { "prizeCode": "lol-pop", "weightMultiplier": 0.9 },
+      { "prizeCode": "whip-cupcake", "weightMultiplier": 0.6 },
+      { "prizeCode": "homemade-cake", "weightMultiplier": 0.45 },
+      { "prizeCode": "lol-pop", "weightMultiplier": 0.8 },
       { "prizeCode": "diamond", "weightMultiplier": 1.5 },
-      { "prizeCode": "candy-cane", "weightMultiplier": 0.7 },
+      { "prizeCode": "candy-cane", "weightMultiplier": 0.6 },
       { "prizeCode": "champagne" },
       { "prizeCode": "cake" }
     ]
