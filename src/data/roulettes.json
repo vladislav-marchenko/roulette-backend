@@ -126,7 +126,7 @@
       { "prizeCode": "santa-hat" },
       { "prizeCode": "sleigh-bell", "weightMultiplier": 0 },
       { "prizeCode": "snow-globe" },
-      { "prizeCode": "snow-mittens" },
+      { "prizeCode": "snow-mittens", "weightMultiplier": 0.5 },
       { "prizeCode": "winter-wreath" },
       { "prizeCode": "xmas-stocking" },
       { "prizeCode": "candy-cane" },
