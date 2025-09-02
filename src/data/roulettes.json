@@ -139,7 +139,7 @@
   {
     "code": "party",
     "name": "Party",
-    "price": 499,
+    "price": 429,
     "image": "https://storage.yandexcloud.net/giftica/cases/party.png",
     "color": "#ffdf20",
     "weightMultipliers": [
@@ -151,7 +151,7 @@
       { "prizeCode": "desk-calendar" },
       { "prizeCode": "homemade-cake" },
       { "prizeCode": "party-sparkler" },
-      { "prizeCode": "star-notepad", "weightMultiplier": 1.2 }
+      { "prizeCode": "star-notepad", "weightMultiplier": 1.4 }
     ]
   },
   {
