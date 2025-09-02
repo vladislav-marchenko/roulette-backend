@@ -46,6 +46,7 @@
       { "prizeCode": "homemade-cake", "weightMultiplier": 0.5 },
       { "prizeCode": "diamond", "weightMultiplier": 1.5 },
       { "prizeCode": "candy-cane", "weightMultiplier": 0.8 },
+      { "prizeCode": "lol-pop" },
       { "prizeCode": "champagne" },
       { "prizeCode": "cake" }
     ]
