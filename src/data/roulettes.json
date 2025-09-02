@@ -29,8 +29,8 @@
       { "prizeCode": "westside-sign", "weightMultiplier": 0 },
       { "prizeCode": "low-rider", "weightMultiplier": 0 },
       { "prizeCode": "snoop-cigar", "weightMultiplier": 0.3 },
-      { "prizeCode": "swag-bag" },
-      { "prizeCode": "snoop-dogg" },
+      { "prizeCode": "swag-bag", "weightMultiplier": 1.05 },
+      { "prizeCode": "snoop-dogg", "weightMultiplier": 1.15 },
       { "prizeCode": "cup" },
       { "prizeCode": "diamond" }
     ]
@@ -43,10 +43,9 @@
     "color": "#fb64b6",
     "weightMultipliers": [
       { "prizeCode": "whip-cupcake", "weightMultiplier": 0.6 },
-      { "prizeCode": "homemade-cake", "weightMultiplier": 0.45 },
-      { "prizeCode": "lol-pop", "weightMultiplier": 0.8 },
+      { "prizeCode": "homemade-cake", "weightMultiplier": 0.5 },
       { "prizeCode": "diamond", "weightMultiplier": 1.5 },
-      { "prizeCode": "candy-cane", "weightMultiplier": 0.6 },
+      { "prizeCode": "candy-cane", "weightMultiplier": 0.8 },
       { "prizeCode": "champagne" },
       { "prizeCode": "cake" }
     ]
@@ -80,7 +79,7 @@
       { "prizeCode": "heart-locket", "weightMultiplier": 0 },
       { "prizeCode": "diamond-ring", "weightMultiplier": 0 },
       { "prizeCode": "toy-bear", "weightMultiplier": 0 },
-      { "prizeCode": "eternal-rose", "weightMultiplier": 0.1 },
+      { "prizeCode": "eternal-rose", "weightMultiplier": 0.2 },
       { "prizeCode": "cupid-charm", "weightMultiplier": 1.25 },
       { "prizeCode": "valentine-box" },
       { "prizeCode": "love-candle" },
@@ -146,7 +145,7 @@
     "weightMultipliers": [
       { "prizeCode": "record-player", "weightMultiplier": 0 },
       { "prizeCode": "bow-tie", "weightMultiplier": 0.4 },
-      { "prizeCode": "easter-egg", "weightMultiplier": 0.5 },
+      { "prizeCode": "easter-egg", "weightMultiplier": 0.8 },
       { "prizeCode": "b-day-candle" },
       { "prizeCode": "big-year" },
       { "prizeCode": "desk-calendar" },
@@ -165,7 +164,7 @@
       { "prizeCode": "genie-lamp", "weightMultiplier": 0 },
       { "prizeCode": "ion-gem", "weightMultiplier": 0 },
       { "prizeCode": "magic-potion", "weightMultiplier": 0 },
-      { "prizeCode": "top-hat", "weightMultiplier": 0.3 },
+      { "prizeCode": "top-hat", "weightMultiplier": 0.5 },
       { "prizeCode": "bow-tie" },
       { "prizeCode": "spy-agaric" }
     ]
