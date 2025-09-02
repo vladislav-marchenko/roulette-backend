@@ -29,7 +29,7 @@
       { "prizeCode": "westside-sign", "weightMultiplier": 0 },
       { "prizeCode": "low-rider", "weightMultiplier": 0 },
       { "prizeCode": "snoop-cigar", "weightMultiplier": 0.3 },
-      { "prizeCode": "swag-bag", "weightMultiplier": 1.05 },
+      { "prizeCode": "swag-bag" },
       { "prizeCode": "snoop-dogg", "weightMultiplier": 1.15 },
       { "prizeCode": "cup" },
       { "prizeCode": "diamond" }
