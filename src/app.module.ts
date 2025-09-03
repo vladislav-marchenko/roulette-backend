@@ -15,6 +15,7 @@ import { TransactionsModule } from './transactions/transactions.module'
 import { BullModule } from '@nestjs/bullmq'
 import { PromocodesModule } from './promocodes/promocodes.module'
 import { ReferralsModule } from './referrals/referrals.module'
+import { ScheduleModule } from '@nestjs/schedule'
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { ReferralsModule } from './referrals/referrals.module'
     ),
     BullModule.forRoot({ connection: { host: 'localhost', port: 6379 } }),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    ScheduleModule.forRoot(),
     UserModule,
     TasksModule,
     RoulettesModule,

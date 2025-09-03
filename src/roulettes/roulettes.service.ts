@@ -66,10 +66,14 @@ export class RoulettesService {
           return multiplier.prizeCode === prize.code
         })
 
+        const personalWeightMultiplier = user.weightMultiplier ?? 1
         const weightMultiplier = multiplier.weightMultiplier ?? 1
-        const weight = baseWeight * weightMultiplier
 
-        return weight
+        if (prize.price.stars > roulette.price) {
+          return baseWeight * personalWeightMultiplier * weightMultiplier
+        }
+
+        return baseWeight * weightMultiplier
       })
       const totalWeight = weights.reduce((acc, weight) => acc + weight, 0)
 
