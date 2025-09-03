@@ -124,7 +124,7 @@
     "weightMultipliers": [
       { "prizeCode": "ginger-cookie" },
       { "prizeCode": "santa-hat" },
-      { "prizeCode": "sleigh-bell", "weightMultiplier": 0 },
+      { "prizeCode": "sleigh-bell", "weightMultiplier": 0.1 },
       { "prizeCode": "snow-globe", "weightMultiplier": 0.7 },
       { "prizeCode": "snow-mittens", "weightMultiplier": 0.5 },
       { "prizeCode": "winter-wreath" },
