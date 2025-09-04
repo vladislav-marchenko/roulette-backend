@@ -118,15 +118,15 @@
   {
     "code": "winter",
     "name": "Winter",
-    "price": 349,
+    "price": 355,
     "image": "https://storage.yandexcloud.net/giftica/cases/winter.png",
     "color": "#74d4ff",
     "weightMultipliers": [
       { "prizeCode": "ginger-cookie" },
       { "prizeCode": "santa-hat" },
       { "prizeCode": "sleigh-bell", "weightMultiplier": 0.1 },
-      { "prizeCode": "snow-globe", "weightMultiplier": 0.7 },
-      { "prizeCode": "snow-mittens", "weightMultiplier": 0.5 },
+      { "prizeCode": "snow-globe", "weightMultiplier": 0.6 },
+      { "prizeCode": "snow-mittens", "weightMultiplier": 0.3 },
       { "prizeCode": "winter-wreath" },
       { "prizeCode": "xmas-stocking", "weightMultiplier": 2 },
       { "prizeCode": "candy-cane", "weightMultiplier": 2 },
