@@ -34,38 +34,23 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('Invalid init data')
     }
 
-    const session = await this.connection.startSession()
-    session.startTransaction()
+    let user = await this.userModel.findOne({ telegramId: data.id })
 
-    try {
-      let user: UserDocument
-      user = await this.userModel
-        .findOne({ telegramId: data.id })
-        .session(session)
+    if (!user) {
+      const userReferralCode = await this.generateReferralCode()
+      const referrer = await this.userModel.findOne({ referralCode })
 
-      if (!user) {
-        const userReferralCode = await this.generateReferralCode()
-        const referrer = await this.userModel.findOne({ referralCode })
+      user = new this.userModel({
+        telegramId: data.id,
+        referralCode: userReferralCode,
+        invitedBy: referrer?._id,
+      })
 
-        user = new this.userModel({
-          telegramId: data.id,
-          referralCode: userReferralCode,
-          invitedBy: referrer?._id,
-        })
-
-        await user.save({ session })
-      }
-
-      request['user'] = { ...user.toObject(), ...data }
-      await session.commitTransaction()
-      return true
-    } catch (error) {
-      await session.abortTransaction()
-      console.log(error)
-      return false
-    } finally {
-      await session.endSession()
+      await user.save()
     }
+
+    request['user'] = { ...user.toObject(), ...data }
+    return true
   }
 
   async generateReferralCode() {
