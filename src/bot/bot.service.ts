@@ -28,6 +28,19 @@ export class BotService implements OnModuleInit, OnModuleDestroy {
   }
 
   async onModuleInit() {
+    this.bot.catch(({ ctx, error }) => {
+      console.error(`Error while handling update ${ctx.update.update_id}:`)
+      console.error(error)
+
+      if (
+        typeof error === 'object' &&
+        'error_code' in error &&
+        error.error_code === 403
+      ) {
+        console.warn('User blocked the bot or deleted chat')
+      }
+    })
+
     this.bot.use(async (ctx, next) => {
       if (ctx.from) {
         const telegramId = ctx.from.id
